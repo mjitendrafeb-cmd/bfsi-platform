@@ -14,7 +14,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install -r requirements.txt
-      - run: python run.py all --days 3   # careedge + bse + news + future CRAs
+      # All 7 CRAs are live: careedge, crisil, icra, indiaratings, acuite,
+      # infomerics, brickwork — plus bse + news + exchange_rss.
+      - run: python run.py all --days 3
       - name: Process queue (Claude extraction + delta)
         # Never let an AI-step failure block committing the data collection
         # already did — collection and processing must fail independently.
