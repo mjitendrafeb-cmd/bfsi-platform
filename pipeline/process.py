@@ -31,6 +31,12 @@ load_dotenv()
 log = logging.getLogger(__name__)
 DB = Path("db/tracker.sqlite")
 
+# Only these doc types have a meaningful "previous version" to diff against
+# (successive rating rationales / quarterly results for the same entity).
+# News and exchange filings are one-off events, not revisions of a prior
+# document, so they're graded directly from their own extracted fields.
+DIFFABLE_DOC_TYPES = {"rating_rationale", "quarterly_results"}
+
 DDL = """
 CREATE TABLE IF NOT EXISTS snapshots (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -96,24 +102,45 @@ def main() -> None:
              json.dumps(snap, ensure_ascii=False), conf, _now()))
         snap_id = cur.lastrowid
 
-        # ---- diff vs previous ---------------------------------------------
-        prev = conn.execute("""
-            SELECT id, snapshot_json FROM snapshots
-            WHERE entity_id=? AND doc_type=? AND agency=? AND id<?
-            ORDER BY id DESC LIMIT 1""",
-            (it["entity_id"], schema_key, it["agency"], snap_id)).fetchone()
+        # ---- diff vs previous (rating_rationale / quarterly_results only) --
+        if schema_key in DIFFABLE_DOC_TYPES:
+            prev = conn.execute("""
+                SELECT id, snapshot_json FROM snapshots
+                WHERE entity_id=? AND doc_type=? AND agency=? AND id<?
+                ORDER BY id DESC LIMIT 1""",
+                (it["entity_id"], schema_key, it["agency"], snap_id)).fetchone()
 
-        if prev is None:
-            graded, changes, prev_id = baseline_note(snap), [], None
+            if prev is None:
+                graded, changes, prev_id = baseline_note(snap), [], None
+            else:
+                changes = diff_snapshots(json.loads(prev["snapshot_json"]), snap)
+                prev_id = prev["id"]
+                graded = grade_delta(it["company_name_raw"], schema_key, changes) \
+                    if changes else {"materiality": "low",
+                                     "delta_note": "No substantive changes vs "
+                                     "previous document.",
+                                     "changes_graded": [],
+                                     "suggested_watchlist_items": []}
         else:
-            changes = diff_snapshots(json.loads(prev["snapshot_json"]), snap)
-            prev_id = prev["id"]
-            graded = grade_delta(it["company_name_raw"], schema_key, changes) \
-                if changes else {"materiality": "low",
-                                 "delta_note": "No substantive changes vs "
-                                 "previous document.",
-                                 "changes_graded": [],
-                                 "suggested_watchlist_items": []}
+            # news / exchange_filing: each item is its own event, not a
+            # revision of a previous one — no diff, grade from the
+            # extraction itself.
+            changes, prev_id = [], None
+            if snap.get("schema_mismatch"):
+                note = snap.get("actual_content", "Content did not match "
+                                                   "the expected document type.")
+                materiality = "low"
+            else:
+                headline = snap.get("headline", "")
+                body = snap.get("summary") or snap.get("detail") or ""
+                note = f"{headline} {body}".strip()
+                materiality = snap.get("credit_relevance", "low")
+            graded = {
+                "materiality": materiality,
+                "delta_note": note,
+                "changes_graded": [],
+                "suggested_watchlist_items": [],
+            }
 
         conn.execute(
             "INSERT INTO deltas VALUES (NULL,?,?,?,?,?,?,?,?,?,?)",
