@@ -83,7 +83,10 @@ SF_RATIONALE = {
         "instrument_tranches": [{
             "tranche": "string, e.g. PTC Series A1(a) / Series A2",
             "amount_cr": "number|null",
-            "rating": "string, e.g. ICRA AA+(SO)",
+            "rating": ("string — copy verbatim, including any prefix "
+                       "(e.g. 'Provisional', 'Interim') and suffix (e.g. "
+                       "'(SO)', '(CE)'). Never drop or simplify these — "
+                       "e.g. 'Provisional [ICRA]AA+(SO)', not 'AA+'."),
             "outlook": "Stable|Positive|Negative|null",
             "credit_enhancement_pct": "number|null — CE cover for this tranche, as % of pool principal",
             "action": "Assigned|Reaffirmed|Upgraded|Downgraded|Withdrawn|Revised",
