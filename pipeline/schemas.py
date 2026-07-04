@@ -63,7 +63,12 @@ QUARTERLY_RESULTS = {
                       "and consolidated statements (common when there are "
                       "subsidiaries), output ONE ENTRY PER BASIS — never merge "
                       "them into one set or silently pick just one."),
-            "period": "string e.g. Q1FY27, Q4FY26 and FY26, FY26 — as stated for THIS statement",
+            "period": ("string, ONE reporting period only — e.g. 'Q1FY27' or "
+                       "'FY26', never 'Q4FY26 and FY26' or any other combined "
+                       "label. If the filing shows figures for multiple periods "
+                       "(a quarter, the full year, a prior-year comparative), "
+                       "each period is its OWN separate entry in this list — "
+                       "never blend two periods' figures into one entry."),
             "aum_cr": "number|null", "disbursements_cr": "number|null",
             "total_income_cr": "number|null", "nii_cr": "number|null",
             "ppop_cr": "number|null", "provisions_cr": "number|null",

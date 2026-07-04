@@ -3,16 +3,22 @@
     python -m pipeline.compare <entity_id> [<entity_id> ...]
     python -m pipeline.compare 1 2 3
 
-For each entity, pulls every financials row sharing the same period as
-that entity's most-recently-added row (so a standalone+consolidated
-pair for the same reporting period both show up as separate columns,
-never merged into one). Prints a console table and writes an .xlsx to
-db/comparisons/.
+For each (entity, basis) pair, picks the single most recent ANNUAL
+period row (a bare "FY26"-style label, not a quarter) — balance-sheet
+metrics (AUM, net worth, CAR% etc.) are point-in-time as of the annual
+close, so the annual row is the authoritative, complete one; a
+quarter-only row would be missing most of them. Never blends two
+periods' figures into one column — if no annual row exists at all for
+a given (entity, basis), falls back to that group's single most recent
+row of any period rather than combining rows together. Period is
+always labeled exactly as stored, never reformatted. Prints a console
+table and writes a labeled .xlsx to db/comparisons/.
 """
 from __future__ import annotations
 
 import argparse
 import csv
+import re
 import sqlite3
 import sys
 from datetime import datetime, timezone
@@ -50,7 +56,18 @@ def _load_entity_names() -> dict[int, str]:
     return names
 
 
+_ANNUAL_PERIOD = re.compile(r"^FY(\d{2,4})$")  # bare fiscal year only, e.g. "FY26" — not "Q4FY26"
+
+
+def _annual_year(period: str | None) -> int | None:
+    m = _ANNUAL_PERIOD.match(period or "")
+    return int(m.group(1)) if m else None
+
+
 def _latest_rows_for_entity(conn: sqlite3.Connection, entity_id: int) -> list[sqlite3.Row]:
+    """One row per (basis) for this entity — the most recent ANNUAL
+    period if one exists for that basis, else that basis's single most
+    recent row of any period. Never merges two periods together."""
     rows = conn.execute("""
         SELECT f.*, r.agency, r.title, r.published_on
         FROM financials f
@@ -61,11 +78,29 @@ def _latest_rows_for_entity(conn: sqlite3.Connection, entity_id: int) -> list[sq
     """, (entity_id,)).fetchall()
     if not rows:
         return []
-    latest_period = rows[0]["period"]
-    same_period = [r for r in rows if r["period"] == latest_period]
+
+    by_basis: dict[str | None, list[sqlite3.Row]] = {}
+    for r in rows:
+        by_basis.setdefault(r["basis"], []).append(r)
+
+    # A basis=NULL group is untagged legacy data from before basis was
+    # tracked — superseded once this entity has at least one properly
+    # basis-tagged group, so don't surface it as its own column.
+    if None in by_basis and any(b is not None for b in by_basis):
+        del by_basis[None]
+
+    selected: list[sqlite3.Row] = []
+    for basis, group in by_basis.items():
+        annual = [r for r in group if _annual_year(r["period"]) is not None]
+        if annual:
+            annual.sort(key=lambda r: _annual_year(r["period"]), reverse=True)
+            selected.append(annual[0])
+        else:
+            selected.append(group[0])  # group is already id-DESC ordered
+
     basis_order = {"standalone": 0, "consolidated": 1, "CRA rationale": 2}
-    same_period.sort(key=lambda r: basis_order.get(r["basis"], 3))
-    return same_period
+    selected.sort(key=lambda r: basis_order.get(r["basis"], 3))
+    return selected
 
 
 def build_columns(entity_ids: list[int]) -> list[dict]:
