@@ -23,9 +23,7 @@ from scrapers.icra import IcraScraper
 from scrapers.indiaratings import IndiaRatingsScraper
 from scrapers.acuite import AcuiteScraper
 from scrapers.infomerics import InfomericsScraper
-
-# Stubs land here as they're implemented (week 1-4 of roadmap):
-# from scrapers.brickwork import BrickworkScraper
+from scrapers.brickwork import BrickworkScraper
 
 SCRAPERS = {
     "careedge": CareEdgeScraper,
@@ -37,6 +35,7 @@ SCRAPERS = {
     "indiaratings": IndiaRatingsScraper,
     "acuite": AcuiteScraper,
     "infomerics": InfomericsScraper,
+    "brickwork": BrickworkScraper,
 }
 
 logging.basicConfig(level=logging.INFO,

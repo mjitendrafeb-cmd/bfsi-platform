@@ -4,18 +4,22 @@ Pilot entities: **Spandana Sphoorty** (listed MFI), **Muthoot Finance**
 (listed gold-loan NBFC), **IKF Home Finance** (unlisted HFC).
 Scaling later = add rows to `data/entity_master.csv`. No code changes.
 
-## Live-verified status (02-Jul-2026, real data fetched)
+## Live-verified status (04-Jul-2026, real data fetched)
+All 9 sources working via plain `requests` (no Playwright needed in
+production for any of them — where recon expected bot protection or a
+JS-only SPA, the actual data turned out reachable a different way each
+time; see each scraper's module docstring for what was actually found).
 | Source | Status | Notes |
 |---|---|---|
-| CareEdge | ✅ WORKING | JSON endpoint `/rrcompany`; 143 PRs fetched in test |
-| BSE filings | ✅ WORKING | `api.bseindia.com` announcements API; 4 filings fetched incl. 2 Credit Rating disclosures |
-| Google News | ✅ WORKING | RSS per alias; matched items stored |
-| CRISIL | 🔧 Recon done | AEM/JS — Playwright intercept (see stub docstring + tools/probe.py) |
-| India Ratings | 🔧 Recon done | Angular SPA — Playwright intercept |
-| Infomerics | 🔧 Recon done | Next.js — Playwright intercept |
-| ICRA | ⚠️ Bot-protected | Imperva 503 — Playwright stealth, test from Actions IP early |
-| Acuité | ⚠️ Bot-protected | 403 — Playwright; SEBI-mandated disclosure Excel as fallback |
-| Brickwork | ❓ Verify first | Site paths 404; confirm it still publishes before building |
+| CareEdge | ✅ WORKING | JSON endpoint `/rrcompany` |
+| BSE filings | ✅ WORKING | `api.bseindia.com` announcements API |
+| Google News | ✅ WORKING | RSS per alias |
+| CRISIL | ✅ WORKING | Internal JSON API found via probe; single-page limitation (see docstring) |
+| ICRA | ✅ WORKING | No bot protection found live (contra recon) — server-rendered HTML |
+| India Ratings | ✅ WORKING | Homepage JSON widgets; full rationale text is login-gated, headline only |
+| Acuité | ✅ WORKING | No bot protection found live on `connect.acuite.in` (contra recon) — real pagination |
+| Infomerics | ✅ WORKING | Homepage's Next.js RSC payload (`RSC: 1` header), not a page URL |
+| Brickwork | ✅ WORKING | SEBI restrictions lifted Mar-2024, actively publishing; two mixed link styles on one listing page |
 
 ## Run
 ```bash
