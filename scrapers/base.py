@@ -135,15 +135,17 @@ class BaseScraper(ABC):
 
     @staticmethod
     def _pdf_filename(item: RatingItem) -> str:
-        """Path segment when the URL has one (CareEdge/Crisil: readable,
-        stable per file). For query-string-driven endpoints (e.g. ICRA's
-        .../GetRationalReportFilePdf?Id=NNNNN) the path alone repeats for
-        every document and isn't filesystem-safe, so fall back to the
-        (unique, safe) dedupe hash instead.
+        """Always the (unique, filesystem-safe) dedupe hash — relying on
+        the URL's last path segment alone has proven unsafe twice now:
+        ICRA's query-string URLs (.../GetRationalReportFilePdf?Id=N)
+        share one literal path for every document, and Acuite's
+        path-based URLs (.../company-name/3rd_Jul_26) end in a date
+        segment shared by every company rated that same day — either
+        way, two different documents can collide on the same filename
+        and silently serve each other's cached content. Keeps whatever
+        extension the URL suggests (pdf/html), defaulting to pdf.
         """
         parsed = urlsplit(item.pdf_url)
         path_name = parsed.path.rstrip("/").split("/")[-1]
-        if path_name and not parsed.query:
-            return path_name
         ext = path_name.rsplit(".", 1)[-1] if "." in path_name else "pdf"
         return f"{item.dedupe_hash}.{ext}"
