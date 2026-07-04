@@ -34,6 +34,17 @@ def pdf_to_text(pdf_path: str, max_pages: int = 15) -> str:
     return "\n".join(parts)
 
 
+# BSE/NSE results filings are often one bundled PDF covering the board
+# meeting outcome, AGM notice, director-appointment annexures, AND the
+# actual financial statements — the numbers can start well past page 15
+# (found a real case: page 16 for the summary, pages 41-44 for the full
+# standalone+consolidated tables, in a 98-page filing). Other doc types
+# (rating rationales etc.) are reliably short single-purpose documents,
+# so their default stays conservative.
+QUARTERLY_RESULTS_MAX_PAGES = 60
+QUARTERLY_RESULTS_MAX_CHARS = 150_000
+
+
 def html_to_text(html_path: str) -> str:
     """Strip nav/script/style boilerplate, keep the document's own text.
 
@@ -50,22 +61,22 @@ def html_to_text(html_path: str) -> str:
     return "\n".join(ln for ln in lines if ln)
 
 
-def doc_to_text(path: str) -> str:
+def doc_to_text(path: str, max_pages: int = 15) -> str:
     """Detect PDF vs HTML by file signature (not extension) and extract."""
     with open(path, "rb") as f:
         head = f.read(1024).lstrip()
     if head.startswith(b"%PDF"):
-        return pdf_to_text(path)
+        return pdf_to_text(path, max_pages=max_pages)
     return html_to_text(path)
 
 
-def extract(text: str, schema: dict) -> dict:
+def extract(text: str, schema: dict, max_chars: int = 60000) -> dict:
     """One Claude call → snapshot dict. Raises on missing key or bad JSON."""
     import anthropic
     client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
     prompt = (
         f"Schema (field: description):\n{json.dumps(schema['fields'], indent=1)}\n\n"
-        f"Document text:\n<<<\n{text[:60000]}\n>>>\n\n"
+        f"Document text:\n<<<\n{text[:max_chars]}\n>>>\n\n"
         "Return the JSON object now."
     )
     msg = client.messages.create(

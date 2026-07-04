@@ -25,7 +25,10 @@ from dotenv import load_dotenv
 
 from common.entity_match import EntityMatcher
 from pipeline import schemas
-from pipeline.extract import doc_to_text, extract, extraction_confidence
+from pipeline.extract import (
+    doc_to_text, extract, extraction_confidence,
+    QUARTERLY_RESULTS_MAX_PAGES, QUARTERLY_RESULTS_MAX_CHARS,
+)
 from pipeline.delta import diff_snapshots, grade_delta, baseline_note
 
 load_dotenv()
@@ -72,6 +75,7 @@ CREATE TABLE IF NOT EXISTS financials (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     entity_id INTEGER NOT NULL,
     period TEXT,
+    basis TEXT,
     aum_cr REAL, disbursements_cr REAL, total_income_cr REAL, nii_cr REAL,
     ppop_cr REAL, provisions_cr REAL, pat_cr REAL, gnpa_pct REAL,
     nnpa_pct REAL, car_pct REAL, networth_cr REAL, borrowings_cr REAL,
@@ -127,16 +131,31 @@ def _entity_mismatch(matcher: EntityMatcher, entity_names: dict[int, str],
     }
 
 
-def _store_financials(conn, entity_id: int, period: str | None,
-                       metrics: dict, snapshot_id: int) -> None:
-    values = [metrics.get(m) for m in FINANCIAL_METRICS]
+def _migrate_financials_basis_column(conn) -> None:
+    """The financials table existed before the basis (standalone/
+    consolidated) column was added — CREATE TABLE IF NOT EXISTS won't
+    retroactively add it to a database that already has the table."""
+    cols = {row[1] for row in conn.execute("PRAGMA table_info(financials)")}
+    if "basis" not in cols:
+        conn.execute("ALTER TABLE financials ADD COLUMN basis TEXT")
+        conn.commit()
+
+
+def _store_financials(conn, entity_id: int, statements: list[dict],
+                       snapshot_id: int) -> None:
+    """One row per financial_statements entry — a filing with both
+    standalone and consolidated figures produces two rows, never one
+    merged/picked row."""
     cols = ", ".join(FINANCIAL_METRICS)
     placeholders = ", ".join("?" * len(FINANCIAL_METRICS))
-    conn.execute(
-        f"INSERT INTO financials "
-        f"(entity_id, period, {cols}, source_snapshot_id, verified, created_at) "
-        f"VALUES (?, ?, {placeholders}, ?, 0, ?)",
-        (entity_id, period, *values, snapshot_id, _now()))
+    for stmt in statements:
+        values = [stmt.get(m) for m in FINANCIAL_METRICS]
+        conn.execute(
+            f"INSERT INTO financials "
+            f"(entity_id, period, basis, {cols}, source_snapshot_id, verified, created_at) "
+            f"VALUES (?, ?, ?, {placeholders}, ?, 0, ?)",
+            (entity_id, stmt.get("period"), stmt.get("basis"),
+             *values, snapshot_id, _now()))
 
 
 def process_pending(limit: int = 50, dry_run: bool = False,
@@ -156,6 +175,7 @@ def process_pending(limit: int = 50, dry_run: bool = False,
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
     conn.executescript(DDL)
+    _migrate_financials_basis_column(conn)
 
     pending = conn.execute("""
         SELECT * FROM raw_items
@@ -176,6 +196,16 @@ def process_pending(limit: int = 50, dry_run: bool = False,
         # ---- text source -------------------------------------------------
         if it["agency"] == "news" or not it["pdf_path"]:
             text = f"Headline: {it['title']}\nCompany: {it['company_name_raw']}"
+        elif schema_key == "quarterly_results":
+            # BSE/NSE results filings can bundle the actual financial
+            # statements dozens of pages into a much larger document
+            # (AGM notices, director-appointment annexures, etc.) — see
+            # extract.QUARTERLY_RESULTS_MAX_PAGES's docstring for a real
+            # case that motivated this.
+            text = doc_to_text(it["pdf_path"], max_pages=QUARTERLY_RESULTS_MAX_PAGES)
+            if len(text) < 200:
+                _mark(conn, it, status=2)   # needs OCR/visual — review queue
+                continue
         else:
             text = doc_to_text(it["pdf_path"])
             if len(text) < 200:
@@ -183,8 +213,9 @@ def process_pending(limit: int = 50, dry_run: bool = False,
                 continue
 
         # ---- extract -----------------------------------------------------
+        max_chars = QUARTERLY_RESULTS_MAX_CHARS if schema_key == "quarterly_results" else 60000
         try:
-            snap = extract(text, schema)
+            snap = extract(text, schema, max_chars=max_chars)
         except Exception:
             log.exception("extract failed: %s", it["title"][:60])
             _mark(conn, it, status=3)
@@ -213,8 +244,8 @@ def process_pending(limit: int = 50, dry_run: bool = False,
 
         # ---- financials table (quarterly_results only) ---------------------
         if schema_key == "quarterly_results":
-            _store_financials(conn, it["entity_id"], snap.get("period"),
-                               snap.get("metrics") or {}, snap_id)
+            _store_financials(conn, it["entity_id"],
+                               snap.get("financial_statements") or [], snap_id)
 
         # ---- diff vs previous (rating_rationale / quarterly_results only) --
         if schema_key in DIFFABLE_DOC_TYPES:

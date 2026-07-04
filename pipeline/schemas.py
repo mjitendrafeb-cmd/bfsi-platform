@@ -56,8 +56,14 @@ EXCHANGE_FILING = {
 QUARTERLY_RESULTS = {
     "doc_type": "quarterly_results",
     "fields": {
-        "entity_name": "string", "period": "string e.g. Q1FY27",
-        "metrics": {
+        "entity_name": "string",
+        "financial_statements": [{
+            "basis": ("standalone|consolidated — which statement this set of "
+                      "figures is from. If the filing presents BOTH standalone "
+                      "and consolidated statements (common when there are "
+                      "subsidiaries), output ONE ENTRY PER BASIS — never merge "
+                      "them into one set or silently pick just one."),
+            "period": "string e.g. Q1FY27, Q4FY26 and FY26, FY26 — as stated for THIS statement",
             "aum_cr": "number|null", "disbursements_cr": "number|null",
             "total_income_cr": "number|null", "nii_cr": "number|null",
             "ppop_cr": "number|null", "provisions_cr": "number|null",
@@ -65,7 +71,7 @@ QUARTERLY_RESULTS = {
             "nnpa_pct": "number|null", "car_pct": "number|null",
             "networth_cr": "number|null", "borrowings_cr": "number|null",
             "cost_of_funds_pct": "number|null", "collection_efficiency_pct": "number|null",
-        },
+        }],
         "management_commentary_points": ["string — only if present"],
         "one_offs": ["string — exceptional items, if any"],
     },
@@ -139,6 +145,10 @@ SCHEMAS = {
 # (tranches + pool characteristics instead of a single entity's financials).
 _SF_KEYWORDS = ("securiti", "ptc", "pass-through", "pass through", "pool")
 
+# Beyond BSE/NSE's literal "Result" category name — see route()'s comment
+# on why this still can't be fully automatic.
+_RESULT_KEYWORDS = ("result", "audited", "annual account", "financial statement")
+
 
 # raw_items.doc_type / agency / title  →  schema routing
 def route(agency: str, doc_type: str, title: str = "") -> str:
@@ -151,7 +161,17 @@ def route(agency: str, doc_type: str, title: str = "") -> str:
     if agency == "news":
         return "news"
     if agency in {"bse", "nse"}:
-        if "result" in (doc_type or "").lower():
+        # Broadened beyond the literal "Result" category: annual audited
+        # results are sometimes filed under "Board Meeting" instead, with
+        # a generic "Outcome of Board Meeting" headline that doesn't say
+        # "result" anywhere — caught a real case of this during the
+        # Muthoot FY26 backfill. Title/category keywords alone can't
+        # perfectly disambiguate a results-carrying board meeting from
+        # a dividend/M&A one, so this still needs a human (or a wider
+        # announcement-clustering heuristic, not implemented here) to
+        # confirm before tagging a "Board Meeting" item this way.
+        text = f"{doc_type or ''} {title or ''}".lower()
+        if any(kw in text for kw in _RESULT_KEYWORDS):
             return "quarterly_results"
         return "exchange_filing"
     return "exchange_filing"
