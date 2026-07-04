@@ -242,10 +242,23 @@ def process_pending(limit: int = 50, dry_run: bool = False,
              json.dumps(snap, ensure_ascii=False), conf, _now()))
         snap_id = cur.lastrowid
 
-        # ---- financials table (quarterly_results only) ---------------------
+        # ---- financials table --------------------------------------------
         if schema_key == "quarterly_results":
             _store_financials(conn, it["entity_id"],
                                snap.get("financial_statements") or [], snap_id)
+        elif schema_key == "rating_rationale":
+            # Unlisted entities (e.g. IKF Home Finance) have no BSE/NSE
+            # results filings at all — their only financial-metrics
+            # source is whatever the CRA cites in its own rationale.
+            # basis='CRA rationale' distinguishes this from an actual
+            # standalone/consolidated statement — it's whatever the
+            # rating agency chose to disclose, not an audited statement.
+            key_metrics = snap.get("key_metrics") or {}
+            if key_metrics:
+                stmt = {"basis": "CRA rationale",
+                        "period": key_metrics.get("metrics_asof")}
+                stmt.update({m: key_metrics.get(m) for m in FINANCIAL_METRICS})
+                _store_financials(conn, it["entity_id"], [stmt], snap_id)
 
         # ---- diff vs previous (rating_rationale / quarterly_results only) --
         if schema_key in DIFFABLE_DOC_TYPES:
