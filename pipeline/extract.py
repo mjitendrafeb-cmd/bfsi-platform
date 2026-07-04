@@ -34,6 +34,31 @@ def pdf_to_text(pdf_path: str, max_pages: int = 15) -> str:
     return "\n".join(parts)
 
 
+def html_to_text(html_path: str) -> str:
+    """Strip nav/script/style boilerplate, keep the document's own text.
+
+    Used for agencies (e.g. CRISIL) that publish the rationale as a
+    webpage rather than a PDF.
+    """
+    from bs4 import BeautifulSoup
+
+    with open(html_path, encoding="utf-8", errors="ignore") as f:
+        soup = BeautifulSoup(f.read(), "html.parser")
+    for tag in soup(["script", "style", "nav", "header", "footer", "noscript"]):
+        tag.decompose()
+    lines = (ln.strip() for ln in soup.get_text(separator="\n").splitlines())
+    return "\n".join(ln for ln in lines if ln)
+
+
+def doc_to_text(path: str) -> str:
+    """Detect PDF vs HTML by file signature (not extension) and extract."""
+    with open(path, "rb") as f:
+        head = f.read(1024).lstrip()
+    if head.startswith(b"%PDF"):
+        return pdf_to_text(path)
+    return html_to_text(path)
+
+
 def extract(text: str, schema: dict) -> dict:
     """One Claude call → snapshot dict. Raises on missing key or bad JSON."""
     import anthropic

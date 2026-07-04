@@ -23,7 +23,7 @@ sys.stderr.reconfigure(encoding="utf-8")
 from dotenv import load_dotenv
 
 from pipeline import schemas
-from pipeline.extract import pdf_to_text, extract, extraction_confidence
+from pipeline.extract import doc_to_text, extract, extraction_confidence
 from pipeline.delta import diff_snapshots, grade_delta, baseline_note
 
 load_dotenv()
@@ -83,7 +83,7 @@ def main() -> None:
         if it["agency"] == "news" or not it["pdf_path"]:
             text = f"Headline: {it['title']}\nCompany: {it['company_name_raw']}"
         else:
-            text = pdf_to_text(it["pdf_path"])
+            text = doc_to_text(it["pdf_path"])
             if len(text) < 200:
                 _mark(conn, it, status=2)   # needs OCR/visual — review queue
                 continue
