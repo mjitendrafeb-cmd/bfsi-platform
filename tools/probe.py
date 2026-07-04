@@ -1,8 +1,17 @@
-"""Generic XHR interceptor for CRA sites."""
+"""Generic XHR interceptor for CRA sites.
+
+    python tools/probe.py <url> [wait_ms] [--scroll]
+
+--scroll is for Angular/React SPAs that lazy-load their list on scroll
+(nothing fires until the list container enters the viewport) — it
+scrolls down in a few steps with pauses in between, instead of just
+waiting once at the top of the page.
+"""
 import asyncio, sys
+sys.stdout.reconfigure(encoding="utf-8")
 from playwright.async_api import async_playwright
 
-async def probe(url, wait_ms=6000):
+async def probe(url, wait_ms=6000, scroll=False):
     async with async_playwright() as p:
         b = await p.chromium.launch(headless=True,
             args=["--disable-blink-features=AutomationControlled"])
@@ -23,6 +32,10 @@ async def probe(url, wait_ms=6000):
         try:
             await pg.goto(url, wait_until="domcontentloaded", timeout=45000)
             await pg.wait_for_timeout(wait_ms)
+            if scroll:
+                for _ in range(5):
+                    await pg.mouse.wheel(0, 1200)
+                    await pg.wait_for_timeout(1500)
         except Exception as e:
             print("NAV ERROR:", str(e)[:150])
         print("PAGE TITLE:", await pg.title())
@@ -35,4 +48,9 @@ async def probe(url, wait_ms=6000):
             print("\nNO JSON XHR. BODY TEXT SAMPLE:\n", " ".join(txt.split())[:500])
         await b.close()
 
-asyncio.run(probe(sys.argv[1]))
+if __name__ == "__main__":
+    args = sys.argv[1:]
+    scroll = "--scroll" in args
+    args = [a for a in args if a != "--scroll"]
+    wait_ms = int(args[1]) if len(args) > 1 else 6000
+    asyncio.run(probe(args[0], wait_ms=wait_ms, scroll=scroll))
