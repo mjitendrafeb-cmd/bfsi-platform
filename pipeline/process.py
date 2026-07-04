@@ -68,7 +68,29 @@ CREATE TABLE IF NOT EXISTS deltas (
     changes_json TEXT, materiality TEXT, delta_note TEXT,
     watchlist_json TEXT, created_at TEXT
 );
+CREATE TABLE IF NOT EXISTS financials (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    entity_id INTEGER NOT NULL,
+    period TEXT,
+    aum_cr REAL, disbursements_cr REAL, total_income_cr REAL, nii_cr REAL,
+    ppop_cr REAL, provisions_cr REAL, pat_cr REAL, gnpa_pct REAL,
+    nnpa_pct REAL, car_pct REAL, networth_cr REAL, borrowings_cr REAL,
+    cost_of_funds_pct REAL, collection_efficiency_pct REAL,
+    source_snapshot_id INTEGER REFERENCES snapshots(id),
+    verified INTEGER DEFAULT 0,
+    created_at TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_financials_entity ON financials(entity_id, period);
 """
+
+# Same 14 fields as QUARTERLY_RESULTS.fields["metrics"] in schemas.py —
+# order here drives both the financials table's columns and the INSERT.
+FINANCIAL_METRICS = [
+    "aum_cr", "disbursements_cr", "total_income_cr", "nii_cr", "ppop_cr",
+    "provisions_cr", "pat_cr", "gnpa_pct", "nnpa_pct", "car_pct",
+    "networth_cr", "borrowings_cr", "cost_of_funds_pct",
+    "collection_efficiency_pct",
+]
 
 
 def _load_entity_names(path: Path) -> dict[int, str]:
@@ -105,11 +127,29 @@ def _entity_mismatch(matcher: EntityMatcher, entity_names: dict[int, str],
     }
 
 
-def process_pending(limit: int = 50, dry_run: bool = False) -> None:
+def _store_financials(conn, entity_id: int, period: str | None,
+                       metrics: dict, snapshot_id: int) -> None:
+    values = [metrics.get(m) for m in FINANCIAL_METRICS]
+    cols = ", ".join(FINANCIAL_METRICS)
+    placeholders = ", ".join("?" * len(FINANCIAL_METRICS))
+    conn.execute(
+        f"INSERT INTO financials "
+        f"(entity_id, period, {cols}, source_snapshot_id, verified, created_at) "
+        f"VALUES (?, ?, {placeholders}, ?, 0, ?)",
+        (entity_id, period, *values, snapshot_id, _now()))
+
+
+def process_pending(limit: int = 50, dry_run: bool = False,
+                     only_hashes: set[str] | None = None) -> None:
     """Drain the raw_items queue (processed=0, entity matched). Shared by
     the `python -m pipeline.process` CLI and `pipeline.ingest`, so manual
     ingestion runs through the exact same extraction/delta logic as
-    scraper-sourced items — one code path, not two."""
+    scraper-sourced items — one code path, not two.
+
+    `only_hashes` restricts processing to specific dedupe_hashes (e.g. a
+    targeted backfill), leaving any other pending items untouched rather
+    than spending API calls on documents nobody asked to process yet.
+    """
     matcher = EntityMatcher(ENTITY_MASTER)
     entity_names = _load_entity_names(ENTITY_MASTER)
 
@@ -121,6 +161,8 @@ def process_pending(limit: int = 50, dry_run: bool = False) -> None:
         SELECT * FROM raw_items
         WHERE processed = 0 AND entity_id IS NOT NULL
         ORDER BY published_on LIMIT ?""", (limit,)).fetchall()
+    if only_hashes is not None:
+        pending = [it for it in pending if it["dedupe_hash"] in only_hashes]
     print(f"{len(pending)} items pending")
 
     for it in pending:
@@ -168,6 +210,11 @@ def process_pending(limit: int = 50, dry_run: bool = False) -> None:
             (it["dedupe_hash"], it["entity_id"], it["agency"], schema_key,
              json.dumps(snap, ensure_ascii=False), conf, _now()))
         snap_id = cur.lastrowid
+
+        # ---- financials table (quarterly_results only) ---------------------
+        if schema_key == "quarterly_results":
+            _store_financials(conn, it["entity_id"], snap.get("period"),
+                               snap.get("metrics") or {}, snap_id)
 
         # ---- diff vs previous (rating_rationale / quarterly_results only) --
         if schema_key in DIFFABLE_DOC_TYPES:

@@ -15,14 +15,18 @@ their signal comes from CRA scrapers + news).
 from __future__ import annotations
 
 import csv
+import logging
 import time
 from datetime import date, datetime
 from pathlib import Path
 
 from scrapers.base import BaseScraper, RatingItem
 
+log = logging.getLogger(__name__)
+
 API = "https://api.bseindia.com/BseIndiaAPI/api/AnnSubCategoryGetData/w"
 ATTACH = "https://www.bseindia.com/xml-data/corpfiling/AttachLive/"
+ATTACH_HISTORICAL = "https://www.bseindia.com/xml-data/corpfiling/AttachHis/"
 
 
 class BseScraper(BaseScraper):
@@ -67,6 +71,31 @@ class BseScraper(BaseScraper):
                 ))
             time.sleep(1.5)   # be polite: one entity per 1.5s
         return items
+
+    def _download_pdf(self, item: RatingItem):
+        """BSE moves attachments from .../AttachLive/ to .../AttachHis/
+        once they age out — same filename, but the live URL then
+        returns a soft-404 (a 200 status "page has been moved" HTML
+        page instead of the PDF). Only bites documents old enough to
+        have aged out (found via a backfill of a several-months-old
+        filing) — recent scraper runs won't normally hit this, since
+        items get downloaded the same run they're first seen.
+        """
+        out = super()._download_pdf(item)
+        if out is None or ATTACH not in item.pdf_url:
+            return out
+        if out.read_bytes()[:4] == b"%PDF":
+            return out
+        hist_url = item.pdf_url.replace(ATTACH, ATTACH_HISTORICAL)
+        try:
+            r = self.session.get(hist_url, timeout=60)
+            r.raise_for_status()
+            if r.content[:4] == b"%PDF":
+                out.write_bytes(r.content)
+        except Exception:
+            log.exception("[%s] historical-attachment fallback failed: %s",
+                          self.agency, hist_url)
+        return out
 
 
 def _parse(v: str | None) -> date | None:
