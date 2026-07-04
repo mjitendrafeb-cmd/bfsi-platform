@@ -12,6 +12,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import requests
 
@@ -119,8 +120,7 @@ class BaseScraper(ABC):
     def _download_pdf(self, item: RatingItem) -> Path | None:
         try:
             self.pdf_dir.mkdir(parents=True, exist_ok=True)
-            fname = item.pdf_url.rstrip("/").split("/")[-1] or (
-                item.dedupe_hash + ".pdf")
+            fname = self._pdf_filename(item)
             out = self.pdf_dir / fname
             if out.exists():
                 return out
@@ -132,3 +132,18 @@ class BaseScraper(ABC):
             log.exception("[%s] pdf download failed: %s",
                           self.agency, item.pdf_url)
             return None
+
+    @staticmethod
+    def _pdf_filename(item: RatingItem) -> str:
+        """Path segment when the URL has one (CareEdge/Crisil: readable,
+        stable per file). For query-string-driven endpoints (e.g. ICRA's
+        .../GetRationalReportFilePdf?Id=NNNNN) the path alone repeats for
+        every document and isn't filesystem-safe, so fall back to the
+        (unique, safe) dedupe hash instead.
+        """
+        parsed = urlsplit(item.pdf_url)
+        path_name = parsed.path.rstrip("/").split("/")[-1]
+        if path_name and not parsed.query:
+            return path_name
+        ext = path_name.rsplit(".", 1)[-1] if "." in path_name else "pdf"
+        return f"{item.dedupe_hash}.{ext}"

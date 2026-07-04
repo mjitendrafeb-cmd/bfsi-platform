@@ -19,9 +19,9 @@ from scrapers.bse import BseScraper
 from scrapers.news import NewsScraper
 from scrapers.exchange_rss import ExchangeRssScraper
 from scrapers.crisil import CrisilScraper
+from scrapers.icra import IcraScraper
 
 # Stubs land here as they're implemented (week 1-4 of roadmap):
-# from scrapers.icra import IcraScraper
 # from scrapers.indiaratings import IndiaRatingsScraper
 # from scrapers.acuite import AcuiteScraper
 # from scrapers.infomerics import InfomericsScraper
@@ -33,6 +33,7 @@ SCRAPERS = {
     "news": NewsScraper,
     "exchange_rss": ExchangeRssScraper,
     "crisil": CrisilScraper,
+    "icra": IcraScraper,
 }
 
 logging.basicConfig(level=logging.INFO,
