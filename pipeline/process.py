@@ -32,10 +32,11 @@ log = logging.getLogger(__name__)
 DB = Path("db/tracker.sqlite")
 
 # Only these doc types have a meaningful "previous version" to diff against
-# (successive rating rationales / quarterly results for the same entity).
-# News and exchange filings are one-off events, not revisions of a prior
-# document, so they're graded directly from their own extracted fields.
-DIFFABLE_DOC_TYPES = {"rating_rationale", "quarterly_results"}
+# (successive rating rationales / quarterly results / SF surveillance notes
+# for the same entity). News and exchange filings are one-off events, not
+# revisions of a prior document, so they're graded directly from their own
+# extracted fields.
+DIFFABLE_DOC_TYPES = {"rating_rationale", "quarterly_results", "sf_rationale"}
 
 DDL = """
 CREATE TABLE IF NOT EXISTS snapshots (
@@ -72,7 +73,7 @@ def main() -> None:
     print(f"{len(pending)} items pending")
 
     for it in pending:
-        schema_key = schemas.route(it["agency"], it["doc_type"])
+        schema_key = schemas.route(it["agency"], it["doc_type"], it["title"])
         schema = schemas.SCHEMAS[schema_key]
         if args.dry_run:
             print(f"  would process [{schema_key:>18}] {it['agency']:>8} | "

@@ -71,6 +71,46 @@ QUARTERLY_RESULTS = {
     },
 }
 
+SF_RATIONALE = {
+    "doc_type": "sf_rationale",
+    "fields": {
+        "agency": "string — which CRA issued this",
+        "originator": "string — entity that originated/sold the securitised pool",
+        "transaction_name": "string — deal/trust/pool name, e.g. 'Olive 05 2026'",
+        "rating_date": "YYYY-MM-DD",
+        "pool_type": ("microfinance|vehicle_loans|mortgage_loans|"
+                      "personal_loans|gold_loans|mixed|other"),
+        "instrument_tranches": [{
+            "tranche": "string, e.g. PTC Series A1(a) / Series A2",
+            "amount_cr": "number|null",
+            "rating": "string, e.g. ICRA AA+(SO)",
+            "outlook": "Stable|Positive|Negative|null",
+            "credit_enhancement_pct": "number|null — CE cover for this tranche, as % of pool principal",
+            "action": "Assigned|Reaffirmed|Upgraded|Downgraded|Withdrawn|Revised",
+        }],
+        "pool_characteristics": {
+            "pool_amount_cr": "number|null",
+            "number_of_contracts": "number|null",
+            "weighted_avg_seasoning_months": "number|null",
+            "weighted_avg_maturity_months": "number|null",
+            "average_ticket_size_lakh": "number|null",
+            "top_state_concentration_pct": "number|null",
+            "pool_asof": "string|null — pool cut-off date/period",
+        },
+        "pool_characteristics_notes": [
+            "string — other notable pool features not captured above"],
+        "credit_enhancement_structure": (
+            "string|null — 2-3 lines describing the CE mechanism (cash "
+            "collateral, overcollateralisation, guarantee, excess interest "
+            "spread, subordination, etc.) and its coverage"),
+        "key_rating_drivers_strengths": ["string"],
+        "key_rating_drivers_weaknesses": ["string"],
+        "rating_sensitivities_positive": ["string"],
+        "rating_sensitivities_negative": ["string"],
+        "analysts": ["string — analyst names if stated"],
+    },
+}
+
 NEWS = {
     "doc_type": "news",
     "fields": {
@@ -88,12 +128,22 @@ SCHEMAS = {
     "exchange_filing": EXCHANGE_FILING,
     "quarterly_results": QUARTERLY_RESULTS,
     "news": NEWS,
+    "sf_rationale": SF_RATIONALE,
 }
 
-# raw_items.doc_type / agency  →  schema routing
-def route(agency: str, doc_type: str) -> str:
+# Documents whose title/doc_type mentions these are securitisation/PTC/pool
+# rationales, not plain corporate rating rationales — different structure
+# (tranches + pool characteristics instead of a single entity's financials).
+_SF_KEYWORDS = ("securiti", "ptc", "pass-through", "pass through", "pool")
+
+
+# raw_items.doc_type / agency / title  →  schema routing
+def route(agency: str, doc_type: str, title: str = "") -> str:
     if agency in {"careedge", "crisil", "icra", "indiaratings",
                   "acuite", "infomerics", "brickwork"}:
+        text = f"{doc_type or ''} {title or ''}".lower()
+        if any(kw in text for kw in _SF_KEYWORDS):
+            return "sf_rationale"
         return "rating_rationale"
     if agency == "news":
         return "news"
