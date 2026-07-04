@@ -1,0 +1,23 @@
+name: CRA Rating Crawler
+on:
+  schedule:
+    - cron: "30 1 * * *"   # 07:00 IST
+    - cron: "30 8 * * *"   # 14:00 IST
+  workflow_dispatch: {}     # manual run button
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: python run.py all --days 3   # careedge + bse + news + future CRAs
+      # Dev mode: commit SQLite DB back to repo. Replace this step with
+      # Supabase writes when you move to the full platform.
+      - name: Commit DB
+        run: |
+          git config user.name "cra-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add db/ && git diff --cached --quiet || git commit -m "crawl $(date -u +%F_%H%M)"
+          git push

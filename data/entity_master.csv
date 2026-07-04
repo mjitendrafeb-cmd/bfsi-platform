@@ -1,0 +1,4 @@
+id,legal_name,display_name,aliases,cin,sector,sub_sector,listed,bse_code,nse_symbol,priority
+1,Spandana Sphoorty Financial Limited,Spandana Sphoorty,Spandana Sphoorty Financial;Spandana,L65929TG2003PLC040648,NBFC,MFI,TRUE,542759,SPANDANA,1
+2,Muthoot Finance Limited,Muthoot Finance,Muthoot Finance Ltd,L65910KL1997PLC011300,NBFC,gold_loan,TRUE,533398,MUTHOOTFIN,1
+3,IKF Home Finance Limited,IKF Home Finance,IKF Home Finance Ltd,U65922TG1998PLC029847,HFC,affordable_housing,FALSE,,,1
