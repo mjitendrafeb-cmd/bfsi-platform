@@ -56,12 +56,11 @@ CREATE TABLE IF NOT EXISTS deltas (
 """
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--limit", type=int, default=50)
-    args = ap.parse_args()
-
+def process_pending(limit: int = 50, dry_run: bool = False) -> None:
+    """Drain the raw_items queue (processed=0, entity matched). Shared by
+    the `python -m pipeline.process` CLI and `pipeline.ingest`, so manual
+    ingestion runs through the exact same extraction/delta logic as
+    scraper-sourced items — one code path, not two."""
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
     conn.executescript(DDL)
@@ -69,13 +68,13 @@ def main() -> None:
     pending = conn.execute("""
         SELECT * FROM raw_items
         WHERE processed = 0 AND entity_id IS NOT NULL
-        ORDER BY published_on LIMIT ?""", (args.limit,)).fetchall()
+        ORDER BY published_on LIMIT ?""", (limit,)).fetchall()
     print(f"{len(pending)} items pending")
 
     for it in pending:
         schema_key = schemas.route(it["agency"], it["doc_type"], it["title"])
         schema = schemas.SCHEMAS[schema_key]
-        if args.dry_run:
+        if dry_run:
             print(f"  would process [{schema_key:>18}] {it['agency']:>8} | "
                   f"{it['published_on']} | {it['title'][:60]}")
             continue
@@ -154,6 +153,14 @@ def main() -> None:
               f"{graded['delta_note'][:80]}")
 
     conn.commit()
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--limit", type=int, default=50)
+    args = ap.parse_args()
+    process_pending(limit=args.limit, dry_run=args.dry_run)
 
 
 def _mark(conn, it, status: int) -> None:
