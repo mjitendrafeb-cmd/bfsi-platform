@@ -4,6 +4,8 @@ on:
     - cron: "30 1 * * *"   # 07:00 IST
     - cron: "30 8 * * *"   # 14:00 IST
   workflow_dispatch: {}     # manual run button
+permissions:
+  contents: write   # needed so the "Commit DB" step can push back to the repo
 jobs:
   crawl:
     runs-on: ubuntu-latest
