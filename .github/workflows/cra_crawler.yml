@@ -15,6 +15,13 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install -r requirements.txt
       - run: python run.py all --days 3   # careedge + bse + news + future CRAs
+      - name: Process queue (Claude extraction + delta)
+        # Never let an AI-step failure block committing the data collection
+        # already did — collection and processing must fail independently.
+        continue-on-error: true
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m pipeline.process --limit 30
       # Dev mode: commit SQLite DB back to repo. Replace this step with
       # Supabase writes when you move to the full platform.
       - name: Commit DB
