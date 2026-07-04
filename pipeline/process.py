@@ -10,6 +10,7 @@ mark processed. News items skip PDF extraction (title/summary only).
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import logging
 import sqlite3
@@ -22,6 +23,7 @@ sys.stderr.reconfigure(encoding="utf-8")
 
 from dotenv import load_dotenv
 
+from common.entity_match import EntityMatcher
 from pipeline import schemas
 from pipeline.extract import doc_to_text, extract, extraction_confidence
 from pipeline.delta import diff_snapshots, grade_delta, baseline_note
@@ -30,6 +32,19 @@ load_dotenv()
 
 log = logging.getLogger(__name__)
 DB = Path("db/tracker.sqlite")
+ENTITY_MASTER = Path("data/entity_master.csv")
+
+# Which extracted field names "the entity this document is about", per
+# schema — most use entity_name, but sf_rationale describes a pool deal
+# rather than a single company, so the closest equivalent is the
+# originator that sold the pool.
+ENTITY_FIELD_BY_DOC_TYPE = {
+    "rating_rationale": "entity_name",
+    "exchange_filing": "entity_name",
+    "quarterly_results": "entity_name",
+    "news": "entity_name",
+    "sf_rationale": "originator",
+}
 
 # Only these doc types have a meaningful "previous version" to diff against
 # (successive rating rationales / quarterly results / SF surveillance notes
@@ -56,11 +71,48 @@ CREATE TABLE IF NOT EXISTS deltas (
 """
 
 
+def _load_entity_names(path: Path) -> dict[int, str]:
+    names = {}
+    with open(path, newline="", encoding="utf-8-sig") as f:
+        for row in csv.DictReader(f):
+            names[int(row["id"])] = row["display_name"].strip()
+    return names
+
+
+def _entity_mismatch(matcher: EntityMatcher, entity_names: dict[int, str],
+                      schema_key: str, snap: dict, it) -> dict | None:
+    """None if the extraction's stated entity corresponds to the entity
+    this item is tagged as (or if the schema doesn't state one at all —
+    can't check what wasn't extracted). Otherwise a dict describing the
+    mismatch, for both the warning message and the review flag.
+
+    Runs for every item regardless of source — a scraper's listing-page
+    fuzzy match can misfire same as a human mistyping an entity_id
+    during manual ingestion; this is the same re-check either way.
+    """
+    field = ENTITY_FIELD_BY_DOC_TYPE.get(schema_key)
+    doc_name = snap.get(field) if field else None
+    if not doc_name or not str(doc_name).strip():
+        return None
+    match = matcher.match(doc_name)
+    matched_id = match.entity_id if match else None
+    if matched_id == it["entity_id"]:
+        return None
+    return {
+        "doc_name": doc_name,
+        "tagged_name": entity_names.get(it["entity_id"], f"entity_id={it['entity_id']}"),
+        "matched_id": matched_id,
+    }
+
+
 def process_pending(limit: int = 50, dry_run: bool = False) -> None:
     """Drain the raw_items queue (processed=0, entity matched). Shared by
     the `python -m pipeline.process` CLI and `pipeline.ingest`, so manual
     ingestion runs through the exact same extraction/delta logic as
     scraper-sourced items — one code path, not two."""
+    matcher = EntityMatcher(ENTITY_MASTER)
+    entity_names = _load_entity_names(ENTITY_MASTER)
+
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
     conn.executescript(DDL)
@@ -95,6 +147,21 @@ def process_pending(limit: int = 50, dry_run: bool = False) -> None:
             log.exception("extract failed: %s", it["title"][:60])
             _mark(conn, it, status=3)
             continue
+
+        # ---- entity-mismatch guard -----------------------------------------
+        mismatch = _entity_mismatch(matcher, entity_names, schema_key, snap, it)
+        if mismatch:
+            if mismatch["matched_id"] is not None:
+                hint = f" (that name actually matches entity_id={mismatch['matched_id']})"
+            else:
+                hint = " (that name doesn't match any tracked entity)"
+            print(f"  ⚠ ENTITY MISMATCH [{it['agency']}] {it['title'][:60]!r}: "
+                  f"document says '{mismatch['doc_name']}', "
+                  f"you tagged '{mismatch['tagged_name']}'{hint}. "
+                  f"Not filed — marked for review.")
+            _mark(conn, it, status=4)
+            continue
+
         conf = extraction_confidence(snap)
         cur = conn.execute(
             "INSERT INTO snapshots VALUES (NULL,?,?,?,?,?,?,?)",
