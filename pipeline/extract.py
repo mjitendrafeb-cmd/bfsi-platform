@@ -19,6 +19,10 @@ preamble. Rules:
 Missing → null (or empty list).
 - Percentages as plain numbers (2.7 not "2.7%"). Amounts in Rs crore \
 (convert lakh/million/billion if needed; state as number).
+- Large figures (five digits and up) must be transcribed digit-by-digit \
+with extra care — copy every digit exactly as printed. Never round, \
+truncate, or approximate a figure to make it look cleaner; a misread or \
+rounded digit in a large number is a real error, not a stylistic choice.
 - Rating drivers/sensitivities: one concise bullet each, preserving the \
 document's substance and any figures it cites.
 - If the document is not the type described by the schema, return \
