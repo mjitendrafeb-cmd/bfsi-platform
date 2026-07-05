@@ -187,7 +187,8 @@ def process_pending(limit: int = 50, dry_run: bool = False,
     print(f"{len(pending)} items pending")
 
     for it in pending:
-        schema_key = schemas.route(it["agency"], it["doc_type"], it["title"])
+        schema_key = schemas.route(it["agency"], it["doc_type"], it["title"],
+                                    it["company_name_raw"])
         schema = schemas.SCHEMAS[schema_key]
         if dry_run:
             print(f"  would process [{schema_key:>18}] {it['agency']:>8} | "
@@ -295,12 +296,30 @@ def process_pending(limit: int = 50, dry_run: bool = False,
             else:
                 changes = diff_snapshots(json.loads(prev["snapshot_json"]), snap)
                 prev_id = prev["id"]
-                graded = grade_delta(it["company_name_raw"], schema_key, changes) \
-                    if changes else {"materiality": "low",
-                                     "delta_note": "No substantive changes vs "
-                                     "previous document.",
-                                     "changes_graded": [],
-                                     "suggested_watchlist_items": []}
+                if not changes:
+                    graded = {"materiality": "low",
+                              "delta_note": "No substantive changes vs "
+                              "previous document.",
+                              "changes_graded": [], "suggested_watchlist_items": []}
+                else:
+                    try:
+                        graded = grade_delta(it["company_name_raw"], schema_key, changes)
+                    except Exception:
+                        # The snapshot is already committed above by this point
+                        # (deterministic diff succeeded) — an API failure here
+                        # (e.g. rate limit, exhausted credits) must not crash
+                        # the whole batch and orphan that snapshot without a
+                        # matching delta row. Record the raw changes with a
+                        # clear "needs manual review" note instead of losing
+                        # the batch's remaining items. Found via a real case:
+                        # a mid-batch billing error killed the rest of a
+                        # 72-item reprocessing run.
+                        log.exception("grade_delta failed: %s", it["title"][:60])
+                        graded = {"materiality": "medium",
+                                  "delta_note": "Automatic grading failed (API "
+                                  "error) — changes recorded but not graded; "
+                                  "review manually.",
+                                  "changes_graded": [], "suggested_watchlist_items": []}
         else:
             # news / exchange_filing / credit_update: each item is its
             # own event, not a revision of a previous one — no diff,

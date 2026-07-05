@@ -170,6 +170,18 @@ SCHEMAS = {
 # (tranches + pool characteristics instead of a single entity's financials).
 _SF_KEYWORDS = ("securiti", "ptc", "pass-through", "pass through", "pool")
 
+# CareEdge tags every securitisation-originator PR with a CompanyName of
+# "<Legal Name>-Securitisation" (confirmed in scrapers/careedge.py) — but
+# the deal itself is filed under an arbitrary codename (e.g. "Jaguar IDSP
+# 05 2023", "Nirman Trust-I") that never contains an _SF_KEYWORDS hit in
+# its own title. Checking title/doc_type alone therefore missed every one
+# of these (found via a real backlog of 72 mismatched CareEdge PRs, all
+# routed to rating_rationale and flagged because a trust/pool document
+# has no single "entity_name" to extract). company_name_raw is agency
+# listing metadata, not document content, so this is a separate marker
+# from _SF_KEYWORDS, checked against a different string.
+_SF_COMPANY_MARKERS = ("-securitisation", "-securitization")
+
 # Beyond BSE/NSE's literal "Result" category name — see route()'s comment
 # on why this still can't be fully automatic.
 _RESULT_KEYWORDS = ("result", "audited", "annual account", "financial statement")
@@ -194,12 +206,15 @@ def is_info_note(text: str) -> bool:
     return any(kw in header for kw in _INFO_NOTE_KEYWORDS)
 
 
-# raw_items.doc_type / agency / title  →  schema routing
-def route(agency: str, doc_type: str, title: str = "") -> str:
+# raw_items.doc_type / agency / title / company_name_raw  →  schema routing
+def route(agency: str, doc_type: str, title: str = "",
+          company_name_raw: str = "") -> str:
     if agency in {"careedge", "crisil", "icra", "indiaratings",
                   "acuite", "infomerics", "brickwork"}:
         text = f"{doc_type or ''} {title or ''}".lower()
         if any(kw in text for kw in _SF_KEYWORDS):
+            return "sf_rationale"
+        if any(m in (company_name_raw or "").lower() for m in _SF_COMPANY_MARKERS):
             return "sf_rationale"
         return "rating_rationale"
     if agency == "news":
