@@ -46,7 +46,7 @@ from common.entity_match import EntityMatcher
 from common.storage import Storage
 from scrapers.careedge import CareEdgeScraper
 from scrapers.acuite import AcuiteScraper
-from pipeline.process import process_pending
+from pipeline.process import process_pending, recompute_chronological_deltas
 
 load_dotenv()
 
@@ -175,6 +175,18 @@ def bootstrap(entity_id: int, years: int) -> None:
           f"pipeline oldest-first...\n")
     if all_new_hashes:
         process_pending(limit=len(all_new_hashes) + 10, only_hashes=all_new_hashes)
+
+    # Backfilling can insert documents dated earlier than one already in
+    # the table (e.g. this entity already had a recent rationale before
+    # today) — process_pending() never revisits that pre-existing
+    # entry's delta, so it's left comparing against nothing instead of
+    # the newly-available earlier history. Rebuild the whole chain
+    # chronologically to guarantee correctness regardless.
+    for agency in ("careedge", "acuite"):
+        for doc_type in ("rating_rationale", "sf_rationale"):
+            n = recompute_chronological_deltas(entity_id, doc_type, agency)
+            if n:
+                print(f"Recomputed {n} {agency}/{doc_type} delta(s) in chronological order.")
 
     print_timeline(entity_id, entity["display_name"])
 

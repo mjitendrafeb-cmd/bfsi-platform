@@ -324,6 +324,72 @@ def process_pending(limit: int = 50, dry_run: bool = False,
     conn.commit()
 
 
+def recompute_chronological_deltas(entity_id: int, doc_type: str, agency: str) -> int:
+    """Rebuild an (entity, doc_type, agency) group's entire delta chain
+    from scratch, strictly in published_on order.
+
+    process_pending() only diffs each item against whatever already
+    existed in the snapshots table at the moment it was processed — if
+    a document is backfilled with a date EARLIER than one already
+    present (e.g. pipeline.bootstrap adding history behind an entity's
+    existing recent rationale), that pre-existing entry's delta is
+    never revisited, so it keeps comparing against nothing (a stale
+    "baseline established") instead of the now-available earlier
+    history. Found and fixed this exact bug twice (Spandana, then IKF)
+    during Stage D bootstraps — this makes the fix a standard, repeated
+    step instead of a manual one-off patch each time.
+
+    Returns the number of deltas recomputed.
+    """
+    conn = sqlite3.connect(DB)
+    conn.row_factory = sqlite3.Row
+
+    rows = conn.execute("""
+        SELECT s.id AS snap_id, s.snapshot_json, r.published_on, r.company_name_raw
+        FROM snapshots s
+        JOIN raw_items r ON r.dedupe_hash = s.dedupe_hash
+        WHERE s.entity_id=? AND s.doc_type=? AND s.agency=?
+        ORDER BY r.published_on ASC, s.id ASC
+    """, (entity_id, doc_type, agency)).fetchall()
+    if not rows:
+        return 0
+
+    snap_ids = [r["snap_id"] for r in rows]
+    placeholders = ",".join("?" * len(snap_ids))
+    conn.execute(
+        f"DELETE FROM deltas WHERE entity_id=? AND doc_type=? AND agency=? "
+        f"AND new_snapshot_id IN ({placeholders})",
+        (entity_id, doc_type, agency, *snap_ids))
+    conn.commit()
+
+    prev_row = None
+    for r in rows:
+        snap = json.loads(r["snapshot_json"])
+        if prev_row is None:
+            graded, changes, prev_id = baseline_note(snap), [], None
+        else:
+            prev_snap = json.loads(prev_row["snapshot_json"])
+            changes = diff_snapshots(prev_snap, snap)
+            prev_id = prev_row["snap_id"]
+            if changes:
+                graded = grade_delta(r["company_name_raw"], doc_type, changes)
+            else:
+                graded = {"materiality": "low",
+                          "delta_note": "No substantive changes vs previous document.",
+                          "changes_graded": [], "suggested_watchlist_items": []}
+
+        conn.execute(
+            "INSERT INTO deltas VALUES (NULL,?,?,?,?,?,?,?,?,?,?)",
+            (entity_id, doc_type, agency, r["snap_id"], prev_id,
+             json.dumps(changes, ensure_ascii=False), graded["materiality"],
+             graded["delta_note"],
+             json.dumps(graded.get("suggested_watchlist_items", [])), _now()))
+        conn.commit()
+        prev_row = r
+
+    return len(rows)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
