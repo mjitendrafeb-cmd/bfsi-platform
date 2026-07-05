@@ -47,6 +47,7 @@ ENTITY_FIELD_BY_DOC_TYPE = {
     "quarterly_results": "entity_name",
     "news": "entity_name",
     "sf_rationale": "originator",
+    "credit_update": "entity_name",
 }
 
 # Only these doc types have a meaningful "previous version" to diff against
@@ -212,6 +213,16 @@ def process_pending(limit: int = 50, dry_run: bool = False,
                 _mark(conn, it, status=2)   # needs OCR/visual — review queue
                 continue
 
+        # ---- reclassify informational CRA notes ---------------------------
+        # CareEdge's listing metadata (doc_type/title) is identical for a
+        # real rationale and a "Credit Update" — only the document's own
+        # header reveals it. Caught a real case where a payment-glitch
+        # note got forced into rating_rationale and fabricated a
+        # "Reaffirmed" action that was never actually stated.
+        if schema_key == "rating_rationale" and schemas.is_info_note(text):
+            schema_key = "credit_update"
+            schema = schemas.SCHEMAS[schema_key]
+
         # ---- extract -----------------------------------------------------
         max_chars = QUARTERLY_RESULTS_MAX_CHARS if schema_key == "quarterly_results" else 60000
         try:
@@ -291,13 +302,21 @@ def process_pending(limit: int = 50, dry_run: bool = False,
                                      "changes_graded": [],
                                      "suggested_watchlist_items": []}
         else:
-            # news / exchange_filing: each item is its own event, not a
-            # revision of a previous one — no diff, grade from the
-            # extraction itself.
+            # news / exchange_filing / credit_update: each item is its
+            # own event, not a revision of a previous one — no diff,
+            # grade from the extraction itself.
             changes, prev_id = [], None
             if snap.get("schema_mismatch"):
                 note = snap.get("actual_content", "Content did not match "
                                                    "the expected document type.")
+                materiality = "low"
+            elif schema_key == "credit_update":
+                # No rating action occurred by definition (that's what
+                # separates this doc_type from rating_rationale) — always
+                # low, never inferred from whatever rating is referenced.
+                subject = snap.get("subject", "")
+                summary = snap.get("summary", "")
+                note = f"{subject} {summary}".strip()
                 materiality = "low"
             else:
                 headline = snap.get("headline", "")

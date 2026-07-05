@@ -125,6 +125,25 @@ SF_RATIONALE = {
     },
 }
 
+CREDIT_UPDATE = {
+    "doc_type": "credit_update",
+    "fields": {
+        "entity_name": "string",
+        "date": "YYYY-MM-DD",
+        "subject": ("string — one line, what this note is actually about "
+                    "(e.g. 'Delayed debenture payment due to bank detail "
+                    "mismatch'). This is an informational note, not a "
+                    "rating action."),
+        "summary": "string — 2-4 lines, the substance of the update",
+        "referenced_current_rating": (
+            "string|null — the rating cited as ALREADY IN EFFECT, exactly "
+            "as stated (e.g. 'CARE A; Stable'), ONLY if the document "
+            "mentions one. This field exists purely for context — "
+            "mentioning an existing rating is NEVER itself a rating "
+            "action, so never infer or record an action from it."),
+    },
+}
+
 NEWS = {
     "doc_type": "news",
     "fields": {
@@ -143,6 +162,7 @@ SCHEMAS = {
     "quarterly_results": QUARTERLY_RESULTS,
     "news": NEWS,
     "sf_rationale": SF_RATIONALE,
+    "credit_update": CREDIT_UPDATE,
 }
 
 # Documents whose title/doc_type mentions these are securitisation/PTC/pool
@@ -153,6 +173,25 @@ _SF_KEYWORDS = ("securiti", "ptc", "pass-through", "pass through", "pool")
 # Beyond BSE/NSE's literal "Result" category name — see route()'s comment
 # on why this still can't be fully automatic.
 _RESULT_KEYWORDS = ("result", "audited", "annual account", "financial statement")
+
+# CRA informational notes (e.g. CareEdge's "Credit Update") mention an
+# existing rating for reference but don't take any rating action — found
+# a real case where extraction fabricated a "Reaffirmed" instrument entry
+# for one of these, since nothing in the listing metadata distinguishes
+# them from a real rationale (CareEdge's own API gives the same generic
+# doc_type/title for both). Only the document's own header text reveals
+# it, so this is checked against the extracted text, not the listing.
+_INFO_NOTE_KEYWORDS = ("credit update", "clarification", "payment status",
+                       "payment update")
+
+
+def is_info_note(text: str) -> bool:
+    """True if the document's own header (not just anywhere in the body,
+    to avoid a real rationale that happens to discuss a payment
+    elsewhere) identifies it as an informational note rather than a
+    rating-action document."""
+    header = text[:200].lower()
+    return any(kw in header for kw in _INFO_NOTE_KEYWORDS)
 
 
 # raw_items.doc_type / agency / title  →  schema routing

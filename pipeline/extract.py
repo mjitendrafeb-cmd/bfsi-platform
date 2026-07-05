@@ -23,6 +23,14 @@ Missing → null (or empty list).
 with extra care — copy every digit exactly as printed. Never round, \
 truncate, or approximate a figure to make it look cleaner; a misread or \
 rounded digit in a large number is a real error, not a stylistic choice.
+- A rating merely being MENTIONED is never an action. Only explicit \
+action language — upgraded, downgraded, reaffirmed, assigned, withdrawn, \
+placed on watch (or equivalent) — creates an action entry. A document \
+that cites an existing rating for reference (e.g. "rated CARE A; \
+Stable" used only to identify the company) without that action \
+language is not reporting a rating action, even if the schema has a \
+field for one — leave it out rather than infer "Reaffirmed" from the \
+rating simply being unchanged.
 - Rating drivers/sensitivities: one concise bullet each, preserving the \
 document's substance and any figures it cites.
 - If the document is not the type described by the schema, return \

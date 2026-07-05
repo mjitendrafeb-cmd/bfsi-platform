@@ -130,18 +130,25 @@ def print_timeline(entity_id: int, entity_name: str) -> None:
     # so id order and date order can disagree (see pipeline/process.py's
     # prev-lookup fix for the bug this caused).
     rows = conn.execute("""
-        SELECT s.agency, s.snapshot_json, s.created_at, r.published_on
+        SELECT s.agency, s.doc_type, s.snapshot_json, s.created_at, r.published_on
         FROM snapshots s
         JOIN raw_items r ON r.dedupe_hash = s.dedupe_hash
-        WHERE s.entity_id = ? AND s.doc_type = 'rating_rationale'
+        WHERE s.entity_id = ? AND s.doc_type IN ('rating_rationale', 'credit_update')
         ORDER BY r.published_on ASC, s.id ASC
     """, (entity_id,)).fetchall()
 
-    print(f"\n=== Rating timeline: {entity_name} ({len(rows)} rationale(s)) ===\n")
+    n_ratings = sum(1 for r in rows if r["doc_type"] == "rating_rationale")
+    n_updates = len(rows) - n_ratings
+    print(f"\n=== Rating timeline: {entity_name} "
+          f"({n_ratings} rationale(s), {n_updates} credit update(s)) ===\n")
     for r in rows:
         snap = json.loads(r["snapshot_json"])
-        rating_date = snap.get("rating_date") or r["published_on"] or r["created_at"][:10]
-        print(f"  {rating_date}  [{r['agency']:>10}]  {_rating_summary(snap.get('instruments'))}")
+        if r["doc_type"] == "credit_update":
+            date = snap.get("date") or r["published_on"] or r["created_at"][:10]
+            print(f"  {date}  [{r['agency']:>10}]  [Credit Update] {snap.get('subject', '')}")
+        else:
+            rating_date = snap.get("rating_date") or r["published_on"] or r["created_at"][:10]
+            print(f"  {rating_date}  [{r['agency']:>10}]  {_rating_summary(snap.get('instruments'))}")
 
 
 def bootstrap(entity_id: int, years: int) -> None:
