@@ -262,11 +262,22 @@ def process_pending(limit: int = 50, dry_run: bool = False,
 
         # ---- diff vs previous (rating_rationale / quarterly_results only) --
         if schema_key in DIFFABLE_DOC_TYPES:
+            # Chronological (published_on), NOT insertion order (id) — a
+            # historical backfill inserts documents dated well before
+            # whatever already exists in the table, and those get a
+            # HIGHER id despite an EARLIER date. id-based "previous"
+            # lookup would then diff a document against one that's
+            # actually chronologically after it. Found via a real bug:
+            # a March-2024 backfilled document got compared against an
+            # already-present July-2026 one and produced a nonsensical
+            # "massive rating upgrade" — the two were just reversed.
             prev = conn.execute("""
-                SELECT id, snapshot_json FROM snapshots
-                WHERE entity_id=? AND doc_type=? AND agency=? AND id<?
-                ORDER BY id DESC LIMIT 1""",
-                (it["entity_id"], schema_key, it["agency"], snap_id)).fetchone()
+                SELECT s.id, s.snapshot_json FROM snapshots s
+                JOIN raw_items r ON r.dedupe_hash = s.dedupe_hash
+                WHERE s.entity_id=? AND s.doc_type=? AND s.agency=?
+                  AND r.published_on < ?
+                ORDER BY r.published_on DESC, s.id DESC LIMIT 1""",
+                (it["entity_id"], schema_key, it["agency"], it["published_on"])).fetchone()
 
             if prev is None:
                 graded, changes, prev_id = baseline_note(snap), [], None

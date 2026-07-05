@@ -41,9 +41,13 @@ PAGE_DELAY_SECS = 1.5   # gentle pacing between page requests
 class AcuiteScraper(BaseScraper):
     agency = "acuite"
 
-    def fetch_new_items(self, since: date) -> list[RatingItem]:
+    def fetch_new_items(self, since: date, max_pages: int | None = None) -> list[RatingItem]:
+        """`max_pages` lets pipeline.bootstrap raise the page budget for
+        a multi-year historical pull without changing the routine
+        scraper's normal (much smaller) default."""
+        max_pages = max_pages if max_pages is not None else MAX_PAGES
         items: list[RatingItem] = []
-        for page in range(1, MAX_PAGES + 1):
+        for page in range(1, max_pages + 1):
             r = self.session.get(LIST_ENDPOINT, params={"page": page}, timeout=45)
             r.raise_for_status()
             soup = BeautifulSoup(r.text, "html.parser")

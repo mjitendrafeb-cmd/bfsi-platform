@@ -25,9 +25,13 @@ PDF_BASE = "https://www.careratings.com/upload/CompanyFiles/PR/"
 class CareEdgeScraper(BaseScraper):
     agency = "careedge"
 
-    def fetch_new_items(self, since: date) -> list[RatingItem]:
+    def fetch_new_items(self, since: date, company_name: str = "") -> list[RatingItem]:
+        """`company_name` filters server-side (confirmed live — fuzzy
+        enough to also catch e.g. "X-Securitisation" variants) — used by
+        pipeline.bootstrap to pull one entity's multi-year history
+        without downloading every company's PRs for that window."""
         params = {
-            "companyName": "",
+            "companyName": company_name,
             "YearID": "",
             "fdate": since.isoformat(),
             "tdate": date.today().isoformat(),
