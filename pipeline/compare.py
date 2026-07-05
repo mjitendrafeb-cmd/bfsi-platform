@@ -26,9 +26,10 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-DB = Path("db/tracker.sqlite")
-ENTITY_MASTER = Path("data/entity_master.csv")
-OUT_DIR = Path("db/comparisons")
+ROOT = Path(__file__).resolve().parent.parent
+DB = ROOT / "db" / "tracker.sqlite"
+ENTITY_MASTER = ROOT / "data" / "entity_master.csv"
+OUT_DIR = ROOT / "db" / "comparisons"
 
 METRIC_LABELS = [
     ("aum_cr", "AUM (Rs cr)"),

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Review Queue — BFSI Intelligence Platform{% endblock %}
+{% block content %}
+<h1>Review Queue</h1>
+<div class="subtitle">Rows waiting on a human decision. Approving a financials row is the only write action this app performs.</div>
+
+<h2>Unverified Financials ({{ unverified|length }})</h2>
+{% if unverified %}
+<form method="post" action="/review/verify-all" onsubmit="return confirm('Mark all {{ unverified|length }} rows below as verified?');">
+  <button type="submit" class="verify-all">Approve all shown ({{ unverified|length }})</button>
+</form>
+<table class="data">
+  <tr><th>Entity</th><th>Period</th><th>Basis</th><th>Source</th><th>Published</th><th></th><th></th></tr>
+  {% for r in unverified %}
+  <tr>
+    <td>{{ r.entity }}</td>
+    <td class="mono">{{ r.period }}</td>
+    <td>{{ r.basis }}</td>
+    <td>{{ r.source }}</td>
+    <td class="mono">{{ r.published_on }}</td>
+    <td>{% if r.pdf_url %}<a class="src-link" href="{{ r.pdf_url }}" target="_blank">source</a>{% endif %}</td>
+    <td>
+      <form method="post" action="/review/verify/{{ r.id }}">
+        <button type="submit" class="approve">Approve</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<div class="empty-note">Nothing unverified — all financial rows are marked verified.</div>
+{% endif %}
+
+<h2>Flagged Entity Mismatches ({{ mismatches|length }})</h2>
+<div class="subtitle" style="margin-top:-10px;">Extraction found a different company name than the entity this item was tagged under. Not filed — requires re-tagging and reprocessing via <span class="mono">pipeline.ingest</span>, so no approve action here.</div>
+{% if mismatches %}
+<table class="data">
+  <tr><th>Agency</th><th>Tagged as</th><th>Company (as scraped)</th><th>Title</th><th>Published</th><th></th></tr>
+  {% for r in mismatches %}
+  <tr>
+    <td>{{ r.agency }}</td>
+    <td>{{ r.tagged_entity }}</td>
+    <td>{{ r.company_name_raw }}</td>
+    <td>{{ r.title }}</td>
+    <td class="mono">{{ r.published_on }}</td>
+    <td>{% if r.pdf_url %}<a class="src-link" href="{{ r.pdf_url }}" target="_blank">source</a>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<div class="empty-note">No flagged entity mismatches.</div>
+{% endif %}
+
+{% if needs_ocr %}
+<h2>Needs OCR / Visual Review ({{ needs_ocr|length }})</h2>
+<table class="data">
+  <tr><th>Agency</th><th>Entity tagged</th><th>Title</th><th>Published</th><th></th></tr>
+  {% for r in needs_ocr %}
+  <tr>
+    <td>{{ r.agency }}</td><td>{{ r.tagged_entity }}</td><td>{{ r.title }}</td>
+    <td class="mono">{{ r.published_on }}</td>
+    <td>{% if r.pdf_url %}<a class="src-link" href="{{ r.pdf_url }}" target="_blank">source</a>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% if extract_failed %}
+<h2>Extraction Failed ({{ extract_failed|length }})</h2>
+<table class="data">
+  <tr><th>Agency</th><th>Entity tagged</th><th>Title</th><th>Published</th><th></th></tr>
+  {% for r in extract_failed %}
+  <tr>
+    <td>{{ r.agency }}</td><td>{{ r.tagged_entity }}</td><td>{{ r.title }}</td>
+    <td class="mono">{{ r.published_on }}</td>
+    <td>{% if r.pdf_url %}<a class="src-link" href="{{ r.pdf_url }}" target="_blank">source</a>{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}{{ entity['display_name'] }} — BFSI Intelligence Platform{% endblock %}
+{% block content %}
+<h1>{{ entity['display_name'] }}</h1>
+<div class="subtitle">
+  {{ entity['legal_name'] }} &middot; {{ entity['sector'] }}/{{ entity['sub_sector'] }}
+  &middot; {{ 'Listed' if entity['listed'] == 'TRUE' else 'Unlisted' }}
+  {% if entity['bse_code'] %} &middot; BSE {{ entity['bse_code'] }}{% endif %}
+  {% if entity['nse_symbol'] %} &middot; NSE {{ entity['nse_symbol'] }}{% endif %}
+</div>
+
+<h2>Current Ratings</h2>
+{% if current_ratings %}
+<table class="data">
+  <tr><th>Agency</th><th>Instrument</th><th class="num">Amount (Rs cr)</th><th>Rating</th><th>Outlook</th><th>As of</th></tr>
+  {% for r in current_ratings %}
+  <tr>
+    <td>{{ r.agency }}</td>
+    <td>{{ r.instrument }}</td>
+    <td class="num">{{ r.amount_cr if r.amount_cr is not none else '-' }}</td>
+    <td class="mono">{{ r.rating or '-' }}</td>
+    <td>{{ r.outlook or '-' }}</td>
+    <td class="mono">{{ r.as_of or '-' }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<div class="empty-note">No rating data on record for this entity yet.</div>
+{% endif %}
+
+<h2>Rating-Action Timeline</h2>
+{% if timeline %}
+<div class="card">
+  {% for t in timeline %}
+  <div class="timeline-row {{ 'credit-update' if t.kind == 'credit_update' }}">
+    <span class="tdate">{{ t.date or '?' }}</span>
+    <span class="tagency">{{ t.agency }}</span>
+    <span class="tlabel">{{ t.label }}</span>
+    {% if t.pdf_url %}<a class="src-link" href="{{ t.pdf_url }}" target="_blank">source</a>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="empty-note">No rating history on record for this entity yet.</div>
+{% endif %}
+
+<h2>Verified Financials</h2>
+{% if financials %}
+{% for f in financials %}
+<div class="card">
+  <div class="delta-head">
+    <span class="tag mono">{{ f.period }}</span>
+    <span class="tag">{{ f.basis }}</span>
+    <span class="date-dim">{{ f.source }}</span>
+    {% if f.pdf_url %}<a class="src-link" href="{{ f.pdf_url }}" target="_blank">source</a>{% endif %}
+  </div>
+  <div class="metric-grid">
+    {% for label, value in f.metrics %}
+    {% if value is not none %}
+    <div class="metric-cell">
+      <div class="mlabel">{{ label }}</div>
+      <div class="mvalue">{{ value }}</div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="empty-note">No verified financials for this entity yet — see Review Queue.</div>
+{% endif %}
+
+<h2>Delta-Note History</h2>
+{% if deltas %}
+{% for d in deltas %}
+<div class="delta-card mat-{{ d.materiality }}">
+  <div class="delta-head">
+    <span class="date-dim">{{ d.date or '?' }}</span>
+    <span class="tag">{{ d.agency }}</span>
+    <span class="tag">{{ d.doc_type }}</span>
+    <span class="tag mat-{{ d.materiality }}">{{ d.materiality|upper }}</span>
+  </div>
+  {% if d.ribbons %}
+  <div class="ribbons">
+    {% for r in d.ribbons %}<span class="ribbon">{{ r }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  <div class="delta-note">{{ d.note }}</div>
+  {% if d.pdf_url %}<a class="src-link" href="{{ d.pdf_url }}" target="_blank">source: {{ d.title }}</a>{% endif %}
+</div>
+{% endfor %}
+{% else %}
+<div class="empty-note">No delta notes for this entity yet.</div>
+{% endif %}
+{% endblock %}

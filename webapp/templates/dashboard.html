@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — BFSI Intelligence Platform{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+<div class="subtitle">Recent delta notes across all tracked entities, newest first.</div>
+
+{% if not deltas %}
+<div class="empty-note">No delta notes recorded yet.</div>
+{% endif %}
+
+{% for d in deltas %}
+<div class="delta-card mat-{{ d.materiality }}">
+  <div class="delta-head">
+    <a class="entity-link" href="/entity/{{ d.entity_id }}">{{ d.entity }}</a>
+    <span class="date-dim">{{ d.date or '?' }}</span>
+    <span class="tag">{{ d.agency }}</span>
+    <span class="tag">{{ d.doc_type }}</span>
+    <span class="tag mat-{{ d.materiality }}">{{ d.materiality|upper }}</span>
+  </div>
+  {% if d.ribbons %}
+  <div class="ribbons">
+    {% for r in d.ribbons %}<span class="ribbon">{{ r }}</span>{% endfor %}
+  </div>
+  {% endif %}
+  <div class="delta-note">{{ d.note }}</div>
+  {% if d.pdf_url %}<a class="src-link" href="{{ d.pdf_url }}" target="_blank">source: {{ d.title }}</a>{% endif %}
+</div>
+{% endfor %}
+{% endblock %}

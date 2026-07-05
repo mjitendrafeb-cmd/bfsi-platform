@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Peer Comparison — BFSI Intelligence Platform{% endblock %}
+{% block content %}
+<h1>Peer Comparison</h1>
+<div class="subtitle">Latest annual-period financials, one column per (entity, basis). Same logic as <span class="mono">pipeline.compare</span>.</div>
+
+<div class="filter-bar">
+  {% for e in all_entities %}
+  {% set eid = e['id']|int %}
+  <a href="/compare?entities={{ eid }}" class="{{ 'active' if selected_ids == [eid] }}">{{ e['display_name'] }} only</a>
+  {% endfor %}
+  <a href="/compare" class="{{ 'active' if selected_ids|length > 1 }}">All entities</a>
+</div>
+
+<a class="button primary" href="/compare/download?entities={{ selected_ids|join(',') }}" style="margin-bottom:20px; display:inline-block;">
+  Download as Excel
+</a>
+
+{% if not columns %}
+<div class="empty-note">No financials data to compare for the selected entities.</div>
+{% else %}
+<table class="data">
+  <tr>
+    <th>Metric</th>
+    {% for c in columns %}<th>{{ c.entity }} ({{ c.basis }})</th>{% endfor %}
+  </tr>
+  <tr><td>Period</td>{% for c in columns %}<td class="mono">{{ c.period }}</td>{% endfor %}</tr>
+  <tr><td>Status</td>{% for c in columns %}<td>{{ c.verified }}</td>{% endfor %}</tr>
+  <tr><td>Source</td>{% for c in columns %}<td>{{ c.source }}</td>{% endfor %}</tr>
+  <tr><td>Published</td>{% for c in columns %}<td class="mono">{{ c.published_on }}</td>{% endfor %}</tr>
+  {% for key, label in metrics %}
+  <tr>
+    <td>{{ label }}</td>
+    {% for c in columns %}
+    <td class="num">{{ c[key] if c[key] is not none else '-' }}</td>
+    {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}
