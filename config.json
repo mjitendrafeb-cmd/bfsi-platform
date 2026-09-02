@@ -1,0 +1,38 @@
+{
+  "delivery_window_ist": "07:15",
+  "sources": {
+    "google_news": true,
+    "rbi_press_releases": true,
+    "rbi_notifications": true,
+    "sebi": true,
+    "nse_announcements": true,
+    "bse_announcements": true
+  },
+  "source_urls": {
+    "rbi_press_releases": [
+      "https://website.rbi.org.in/web/rbi/press-releases/rss",
+      "https://rbi.org.in/scripts/BS_PressReleaseDisplay.aspx?format=rss"
+    ],
+    "rbi_notifications": [
+      "https://website.rbi.org.in/web/rbi/notifications/rss",
+      "https://rbi.org.in/scripts/NotificationUser.aspx?format=rss"
+    ],
+    "sebi": [
+      "https://www.sebi.gov.in/sebirss.xml"
+    ],
+    "nse_announcements": [
+      "https://nsearchives.nseindia.com/content/RSS/Online_announcements.xml"
+    ],
+    "bse_announcements": [
+      "https://www.bseindia.com/data/xml/announcements.xml",
+      "https://www.bseindia.com/data/xml/notices.xml"
+    ]
+  },
+  "claude_mode": false,
+  "claude_model": "claude-sonnet-4-6",
+  "send_empty_portfolio_email": true,
+  "cc_all": [],
+  "google_request_delay_seconds": 1.0,
+  "google_empty_backoff_seconds": 8,
+  "repository_edit_url": "https://github.com/OWNER/REPOSITORY/edit/main/portfolios.csv"
+}

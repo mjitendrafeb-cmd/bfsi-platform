@@ -1,0 +1,54 @@
+name: Daily portfolio news
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "52 21 * * *"
+    - cron: "37 22 * * *"
+    - cron: "22 23 * * *"
+    - cron: "07 00 * * *"
+    - cron: "52 00 * * *"
+    - cron: "37 01 * * *"
+    - cron: "22 02 * * *"
+    - cron: "07 03 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: portfolio-news-daily
+  cancel-in-progress: false
+
+jobs:
+  deliver:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Wait for configured IST window
+        if: github.event_name == 'schedule'
+        run: python scripts/wait_for_delivery_window.py
+      - name: Refresh state after waiting
+        run: |
+          git fetch origin "${GITHUB_REF_NAME}"
+          git checkout "origin/${GITHUB_REF_NAME}" -- data/last_sent.json data/seen_headlines.json
+      - name: Fetch, route, and deliver
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python -m watchlist_news.app
+      - name: Commit delivery state
+        run: |
+          if git diff --quiet -- data/last_sent.json data/seen_headlines.json; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/last_sent.json data/seen_headlines.json
+          git commit -m "chore: update portfolio news delivery state"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
