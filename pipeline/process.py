@@ -21,7 +21,11 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ModuleNotFoundError:  # test/offline environments may not install python-dotenv
+    def load_dotenv(*args, **kwargs):
+        return False
 
 from common.entity_match import EntityMatcher
 from pipeline import schemas
@@ -30,6 +34,7 @@ from pipeline.extract import (
     QUARTERLY_RESULTS_MAX_PAGES, QUARTERLY_RESULTS_MAX_CHARS,
 )
 from pipeline.delta import diff_snapshots, grade_delta, baseline_note
+from qc.figure_trace import audit_snapshot
 
 load_dotenv()
 
@@ -86,6 +91,12 @@ CREATE TABLE IF NOT EXISTS financials (
     created_at TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_financials_entity ON financials(entity_id, period);
+CREATE TABLE IF NOT EXISTS review_queue (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    entity_id INTEGER, item_type TEXT, item_id TEXT, reason TEXT,
+    payload_json TEXT, status TEXT DEFAULT 'open', created_at TEXT, resolved_at TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_review_queue_status ON review_queue(status, reason, entity_id);
 """
 
 # Same 14 fields as QUARTERLY_RESULTS.fields["metrics"] in schemas.py —
@@ -157,6 +168,61 @@ def _store_financials(conn, entity_id: int, statements: list[dict],
             f"VALUES (?, ?, ?, {placeholders}, ?, 0, ?)",
             (entity_id, stmt.get("period"), stmt.get("basis"),
              *values, snapshot_id, _now()))
+
+
+def _record_review_item(conn, *, entity_id: int | None, item_type: str,
+                        item_id: str, reason: str, payload: dict) -> bool:
+    """Create one open review item per item/reason pair.
+
+    The review queue is the analyst-facing stop sign: extraction may have
+    succeeded, but filing/approval must pause until a human checks a figure,
+    entity mismatch, OCR problem, or failed AI step. The duplicate check keeps
+    repeated processor runs from spamming the queue with the same issue.
+    """
+    exists = conn.execute(
+        """SELECT 1 FROM review_queue
+           WHERE item_type=? AND item_id=? AND reason=? AND status='open'
+           LIMIT 1""",
+        (item_type, item_id, reason),
+    ).fetchone()
+    if exists:
+        return False
+    conn.execute(
+        """INSERT INTO review_queue
+           (entity_id, item_type, item_id, reason, payload_json, status, created_at, resolved_at)
+           VALUES (?, ?, ?, ?, ?, 'open', ?, NULL)""",
+        (entity_id, item_type, item_id, reason,
+         json.dumps(payload, ensure_ascii=False), _now()),
+    )
+    conn.commit()
+    return True
+
+
+def _record_qc_trace_failures(conn, *, entity_id: int, dedupe_hash: str,
+                              snapshot_id: int, schema_key: str,
+                              text: str, snap: dict) -> int:
+    """Audit extracted figures against the source text and queue failures.
+
+    Numeric LLM outputs remain unverified regardless, but a missing source
+    trace is stronger: the analyst must inspect the source before relying on
+    that field or anything derived from it.
+    """
+    failures = audit_snapshot(snap, text)
+    if not failures:
+        return 0
+    return int(_record_review_item(
+        conn,
+        entity_id=entity_id,
+        item_type="snapshot",
+        item_id=str(snapshot_id),
+        reason="figure_trace_failed",
+        payload={
+            "dedupe_hash": dedupe_hash,
+            "snapshot_id": snapshot_id,
+            "doc_type": schema_key,
+            "failures": failures,
+        },
+    ))
 
 
 def process_pending(limit: int = 50, dry_run: bool = False,
@@ -244,6 +310,22 @@ def process_pending(limit: int = 50, dry_run: bool = False,
                   f"document says '{mismatch['doc_name']}', "
                   f"you tagged '{mismatch['tagged_name']}'{hint}. "
                   f"Not filed — marked for review.")
+            _record_review_item(
+                conn,
+                entity_id=it["entity_id"],
+                item_type="raw_item",
+                item_id=it["dedupe_hash"],
+                reason="entity_mismatch",
+                payload={
+                    "dedupe_hash": it["dedupe_hash"],
+                    "agency": it["agency"],
+                    "title": it["title"],
+                    "company_name_raw": it["company_name_raw"],
+                    "doc_name": mismatch["doc_name"],
+                    "tagged_name": mismatch["tagged_name"],
+                    "matched_id": mismatch["matched_id"],
+                },
+            )
             _mark(conn, it, status=4)
             continue
 
@@ -253,6 +335,14 @@ def process_pending(limit: int = 50, dry_run: bool = False,
             (it["dedupe_hash"], it["entity_id"], it["agency"], schema_key,
              json.dumps(snap, ensure_ascii=False), conf, _now()))
         snap_id = cur.lastrowid
+
+        trace_review_count = _record_qc_trace_failures(
+            conn, entity_id=it["entity_id"], dedupe_hash=it["dedupe_hash"],
+            snapshot_id=snap_id, schema_key=schema_key, text=text, snap=snap)
+        if trace_review_count:
+            print(f"  ⚠ QC TRACE [{it['agency']}] {it['title'][:60]!r}: "
+                  "one or more extracted figures were not found in source text; "
+                  "queued for review.")
 
         # ---- financials table --------------------------------------------
         if schema_key == "quarterly_results":

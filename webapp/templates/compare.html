@@ -2,40 +2,56 @@
 {% block title %}Peer Comparison — BFSI Intelligence Platform{% endblock %}
 {% block content %}
 <h1>Peer Comparison</h1>
-<div class="subtitle">Latest annual-period financials, one column per (entity, basis). Same logic as <span class="mono">pipeline.compare</span>.</div>
+<div class="subtitle">Financials, ratings, and deterministic risk flags for selected peers.</div>
 
-<div class="filter-bar">
-  {% for e in all_entities %}
-  {% set eid = e['id']|int %}
-  <a href="/compare?entities={{ eid }}" class="{{ 'active' if selected_ids == [eid] }}">{{ e['display_name'] }} only</a>
-  {% endfor %}
-  <a href="/compare" class="{{ 'active' if selected_ids|length > 1 }}">All entities</a>
+<div class="peer-picker card">
+  <label for="peer-select">Select up to five peers</label>
+  <select id="peer-select" multiple size="8">
+    {% for e in all_entities %}{% set eid = e['id']|int %}<option value="{{ eid }}" {{ 'selected' if eid in selected_ids }}>{{ e['display_name'] }} — {{ e['sector'] }}/{{ e['sub_sector'] }}</option>{% endfor %}
+  </select>
+  <div class="peer-actions">
+    <button type="button" class="filter-submit" onclick="applyPeers()">Compare selected</button>
+    <a class="button" href="/compare">Reset to pilot entities</a>
+  </div>
 </div>
 
-<a class="button primary" href="/compare/download?entities={{ selected_ids|join(',') }}" style="margin-bottom:20px; display:inline-block;">
-  Download as Excel
-</a>
+<script>
+function applyPeers() {
+  const ids = Array.from(document.getElementById('peer-select').selectedOptions)
+    .slice(0, 5).map(option => option.value);
+  window.location.href = '/compare?entities=' + ids.join(',');
+}
+</script>
 
+<a class="button primary" href="/compare/download?entities={{ selected_ids|join(',') }}" style="margin-bottom:20px; display:inline-block;">Download as Excel</a>
+
+<h2>Risk Flags</h2>
+{% if risk_flags %}
+<table class="data">
+  <tr><th>Entity</th><th>Basis</th><th>Status</th><th>Issues</th><th>Positives</th></tr>
+  {% for r in risk_flags %}<tr><td>{{ r.entity }}</td><td>{{ r.basis }}</td><td><span class="tag {{ 'mat-medium' if r.status == 'Watch' else 'mat-low' }}">{{ r.status }}</span></td><td>{{ r.issues|join('; ') if r.issues else '—' }}</td><td>{{ r.positives|join('; ') if r.positives else '—' }}</td></tr>{% endfor %}
+</table>
+{% else %}<div class="empty-note">No risk flags available.</div>{% endif %}
+
+<h2>Rating Matrix</h2>
+{% if rating_matrix %}
+<table class="data">
+  <tr><th>Entity</th><th>Agency</th><th>Instrument</th><th class="num">Amount</th><th>Rating</th><th>Outlook</th><th>As of</th></tr>
+  {% for r in rating_matrix %}<tr><td>{{ r.entity }}</td><td>{{ r.agency }}</td><td>{{ r.instrument }}</td><td class="num">{{ r.amount_cr if r.amount_cr is defined and r.amount_cr is not none else '—' }}</td><td class="mono">{{ r.rating }}</td><td>{{ r.outlook }}</td><td class="mono">{{ r.as_of }}</td></tr>{% endfor %}
+</table>
+{% else %}<div class="empty-note">No rating data available for selected peers.</div>{% endif %}
+
+<h2>Financial Comparison</h2>
 {% if not columns %}
 <div class="empty-note">No financials data to compare for the selected entities.</div>
 {% else %}
 <table class="data">
-  <tr>
-    <th>Metric</th>
-    {% for c in columns %}<th>{{ c.entity }} ({{ c.basis }})</th>{% endfor %}
-  </tr>
+  <tr><th>Metric</th>{% for c in columns %}<th>{{ c.entity }} ({{ c.basis }})</th>{% endfor %}</tr>
   <tr><td>Period</td>{% for c in columns %}<td class="mono">{{ c.period }}</td>{% endfor %}</tr>
   <tr><td>Status</td>{% for c in columns %}<td>{{ c.verified }}</td>{% endfor %}</tr>
   <tr><td>Source</td>{% for c in columns %}<td>{{ c.source }}</td>{% endfor %}</tr>
   <tr><td>Published</td>{% for c in columns %}<td class="mono">{{ c.published_on }}</td>{% endfor %}</tr>
-  {% for key, label in metrics %}
-  <tr>
-    <td>{{ label }}</td>
-    {% for c in columns %}
-    <td class="num">{{ c[key] if c[key] is not none else '-' }}</td>
-    {% endfor %}
-  </tr>
-  {% endfor %}
+  {% for key, label in metrics %}<tr><td>{{ label }}</td>{% for c in columns %}<td class="num">{{ c[key] if c[key] is not none else '—' }}</td>{% endfor %}</tr>{% endfor %}
 </table>
 {% endif %}
 {% endblock %}

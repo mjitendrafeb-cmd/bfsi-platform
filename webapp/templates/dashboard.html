@@ -1,29 +1,65 @@
 {% extends "base.html" %}
-{% block title %}Dashboard — BFSI Intelligence Platform{% endblock %}
+{% block title %}Surveillance Desk — BFSI Credit Intelligence{% endblock %}
 {% block content %}
-<h1>Dashboard</h1>
-<div class="subtitle">Recent delta notes across all tracked entities, newest first.</div>
-
-{% if not deltas %}
-<div class="empty-note">No delta notes recorded yet.</div>
-{% endif %}
-
-{% for d in deltas %}
-<div class="delta-card mat-{{ d.materiality }}">
-  <div class="delta-head">
-    <a class="entity-link" href="/entity/{{ d.entity_id }}">{{ d.entity }}</a>
-    <span class="date-dim">{{ d.date or '?' }}</span>
-    <span class="tag">{{ d.agency }}</span>
-    <span class="tag">{{ d.doc_type }}</span>
-    <span class="tag mat-{{ d.materiality }}">{{ d.materiality|upper }}</span>
+<section class="page-heading">
+  <div>
+    <div class="eyebrow">Daily credit intelligence</div>
+    <h1>Surveillance Desk</h1>
+    <p>Material rating, financial and filing changes across the tracked BFSI universe.</p>
   </div>
-  {% if d.ribbons %}
-  <div class="ribbons">
-    {% for r in d.ribbons %}<span class="ribbon">{{ r }}</span>{% endfor %}
-  </div>
-  {% endif %}
-  <div class="delta-note">{{ d.note }}</div>
-  {% if d.pdf_url %}<a class="src-link" href="{{ d.pdf_url }}" target="_blank">source: {{ d.title }}</a>{% endif %}
+  <div class="heading-meta"><span>Latest source date</span><b>{{ stats.latest_update }}</b></div>
+</section>
+
+<section class="stat-grid">
+  <a class="stat-card" href="/entities">
+    <span>Tracked entities</span><strong>{{ stats.entities }}</strong><small>{{ stats.priority_entities }} priority names</small>
+  </a>
+  <div class="stat-card"><span>Source documents</span><strong>{{ stats.documents }}</strong><small>Deduplicated collection</small></div>
+  <div class="stat-card alert"><span>High-materiality changes</span><strong>{{ stats.high_changes }}</strong><small>Across available history</small></div>
+  <a class="stat-card review" href="/review"><span>Open review items</span><strong>{{ stats.open_reviews }}</strong><small>Awaiting analyst action</small></a>
+</section>
+
+<div class="dashboard-layout">
+  <section class="feed-column">
+    <div class="section-heading">
+      <div><div class="eyebrow">Change feed</div><h2>Recent credit developments</h2></div>
+      <span class="feed-count">{{ deltas|length }} events</span>
+    </div>
+
+    {% if not deltas %}<div class="empty-note">No delta notes recorded yet.</div>{% endif %}
+    {% for d in deltas %}
+    <article class="delta-card mat-{{ d.materiality }}">
+      <div class="materiality-rail"></div>
+      <div class="delta-content">
+        <div class="delta-head">
+          <div>
+            <div class="change-kicker">{{ d.doc_type|replace('_', ' ') }} · {{ d.agency }}</div>
+            <a class="entity-link" href="/entity/{{ d.entity_id }}">{{ d.entity }}</a>
+          </div>
+          <div class="delta-meta"><span class="date-dim">{{ d.date or '—' }}</span><span class="tag mat-{{ d.materiality }}">{{ d.materiality|upper }}</span></div>
+        </div>
+        {% if d.ribbons %}<div class="ribbons">{% for r in d.ribbons %}<span class="ribbon">{{ r }}</span>{% endfor %}</div>{% endif %}
+        <div class="delta-note">{{ d.note }}</div>
+        {% if d.pdf_url %}<a class="src-link" href="{{ d.pdf_url }}" target="_blank" rel="noopener">View source · {{ d.title }}</a>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </section>
+
+  <aside class="insight-column">
+    <div class="insight-card">
+      <div class="eyebrow">Materiality guide</div>
+      <h3>Credit signal</h3>
+      <div class="legend-row"><span class="legend-dot high"></span><div><b>High</b><small>Rating, capital or asset-quality event</small></div></div>
+      <div class="legend-row"><span class="legend-dot medium"></span><div><b>Medium</b><small>Monitor in the next review cycle</small></div></div>
+      <div class="legend-row"><span class="legend-dot low"></span><div><b>Low</b><small>Informational or baseline update</small></div></div>
+    </div>
+    <div class="insight-card workflow-card">
+      <div class="eyebrow">Control framework</div>
+      <h3>Delta-first workflow</h3>
+      <ol class="workflow-list"><li>Collect source document</li><li>Extract structured JSON</li><li>Run deterministic diff</li><li>Queue exceptions for review</li></ol>
+      <a href="/review" class="text-link">Open review queue →</a>
+    </div>
+  </aside>
 </div>
-{% endfor %}
 {% endblock %}

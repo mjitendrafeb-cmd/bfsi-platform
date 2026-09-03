@@ -9,87 +9,76 @@
   {% if entity['nse_symbol'] %} &middot; NSE {{ entity['nse_symbol'] }}{% endif %}
 </div>
 
+<div class="filter-bar">
+  {% for key, label in [('overview','Overview'),('ratings','Ratings'),('financials','Financials'),('timeline','Timeline'),('documents','Documents'),('news','News'),('review','Review')] %}
+  <a href="/entity/{{ entity['id'] }}?tab={{ key }}" class="{{ 'active' if active_tab == key }}">{{ label }}</a>
+  {% endfor %}
+</div>
+
+{% if active_tab == 'overview' %}
+<div class="metric-grid">
+  <div class="metric-cell"><div class="mlabel">Current instruments</div><div class="mvalue">{{ current_ratings|length }}</div></div>
+  <div class="metric-cell"><div class="mlabel">Verified financial rows</div><div class="mvalue">{{ financials|length }}</div></div>
+  <div class="metric-cell"><div class="mlabel">Recent events</div><div class="mvalue">{{ deltas|length }}</div></div>
+  <div class="metric-cell"><div class="mlabel">Open review items</div><div class="mvalue">{{ entity_reviews|length }}</div></div>
+</div>
+
+<h2>Latest Credit Changes</h2>
+{% for d in deltas[:5] %}
+<div class="delta-card mat-{{ d.materiality }}">
+  <div class="delta-head"><span class="date-dim">{{ d.date or '?' }}</span><span class="tag">{{ d.agency }}</span><span class="tag">{{ d.doc_type }}</span><span class="tag mat-{{ d.materiality }}">{{ d.materiality|upper }}</span></div>
+  <div class="delta-note">{{ d.note }}</div>
+</div>
+{% else %}<div class="empty-note">No delta notes for this entity yet.</div>{% endfor %}
+
+<div class="card">
+  <h2 style="margin-top:0;">[AI] Credit Health Summary</h2>
+  <div class="empty-note">On-demand summary placeholder. When enabled, it will remain source-linked, expandable, editable, and qualitative only.</div>
+</div>
+{% endif %}
+
+{% if active_tab == 'ratings' %}
 <h2>Current Ratings</h2>
 {% if current_ratings %}
 <table class="data">
   <tr><th>Agency</th><th>Instrument</th><th class="num">Amount (Rs cr)</th><th>Rating</th><th>Outlook</th><th>As of</th></tr>
-  {% for r in current_ratings %}
-  <tr>
-    <td>{{ r.agency }}</td>
-    <td>{{ r.instrument }}</td>
-    <td class="num">{{ r.amount_cr if r.amount_cr is not none else '-' }}</td>
-    <td class="mono">{{ r.rating or '-' }}</td>
-    <td>{{ r.outlook or '-' }}</td>
-    <td class="mono">{{ r.as_of or '-' }}</td>
-  </tr>
-  {% endfor %}
+  {% for r in current_ratings %}<tr><td>{{ r.agency }}</td><td>{{ r.instrument }}</td><td class="num">{{ r.amount_cr if r.amount_cr is not none else '—' }}</td><td class="mono">{{ r.rating or '—' }}</td><td>{{ r.outlook or '—' }}</td><td class="mono">{{ r.as_of or '—' }}</td></tr>{% endfor %}
 </table>
-{% else %}
-<div class="empty-note">No rating data on record for this entity yet.</div>
+{% else %}<div class="empty-note">No rating data on record for this entity yet.</div>{% endif %}
 {% endif %}
 
-<h2>Rating-Action Timeline</h2>
-{% if timeline %}
-<div class="card">
-  {% for t in timeline %}
-  <div class="timeline-row {{ 'credit-update' if t.kind == 'credit_update' }}">
-    <span class="tdate">{{ t.date or '?' }}</span>
-    <span class="tagency">{{ t.agency }}</span>
-    <span class="tlabel">{{ t.label }}</span>
-    {% if t.pdf_url %}<a class="src-link" href="{{ t.pdf_url }}" target="_blank">source</a>{% endif %}
-  </div>
-  {% endfor %}
-</div>
-{% else %}
-<div class="empty-note">No rating history on record for this entity yet.</div>
-{% endif %}
-
+{% if active_tab == 'financials' %}
 <h2>Verified Financials</h2>
 {% if financials %}
 {% for f in financials %}
 <div class="card">
-  <div class="delta-head">
-    <span class="tag mono">{{ f.period }}</span>
-    <span class="tag">{{ f.basis }}</span>
-    <span class="date-dim">{{ f.source }}</span>
-    {% if f.pdf_url %}<a class="src-link" href="{{ f.pdf_url }}" target="_blank">source</a>{% endif %}
-  </div>
-  <div class="metric-grid">
-    {% for label, value in f.metrics %}
-    {% if value is not none %}
-    <div class="metric-cell">
-      <div class="mlabel">{{ label }}</div>
-      <div class="mvalue">{{ value }}</div>
-    </div>
-    {% endif %}
-    {% endfor %}
-  </div>
+  <div class="delta-head"><span class="tag mono">{{ f.period }}</span><span class="tag">{{ f.basis }}</span><span class="date-dim">{{ f.source }}</span>{% if f.pdf_url %}<a class="src-link" href="{{ f.pdf_url }}" target="_blank">source</a>{% endif %}</div>
+  <div class="metric-grid">{% for label, value in f.metrics %}{% if value is not none %}<div class="metric-cell"><div class="mlabel">{{ label }}</div><div class="mvalue">{{ value }}</div></div>{% endif %}{% endfor %}</div>
 </div>
 {% endfor %}
-{% else %}
-<div class="empty-note">No verified financials for this entity yet — see Review Queue.</div>
+{% else %}<div class="empty-note">No verified financials for this entity yet — see Review Queue.</div>{% endif %}
 {% endif %}
 
+{% if active_tab == 'timeline' %}
+<h2>Timeline</h2>
+{% if timeline %}<div class="card">{% for t in timeline %}<div class="timeline-row {{ 'credit-update' if t.kind == 'credit_update' }}"><span class="tdate">{{ t.date or '?' }}</span><span class="tagency">{{ t.agency }}</span><span class="tlabel">{{ t.label }}</span>{% if t.pdf_url %}<a class="src-link" href="{{ t.pdf_url }}" target="_blank">source</a>{% endif %}</div>{% endfor %}</div>{% else %}<div class="empty-note">No rating history on record for this entity yet.</div>{% endif %}
+
 <h2>Delta-Note History</h2>
-{% if deltas %}
-{% for d in deltas %}
-<div class="delta-card mat-{{ d.materiality }}">
-  <div class="delta-head">
-    <span class="date-dim">{{ d.date or '?' }}</span>
-    <span class="tag">{{ d.agency }}</span>
-    <span class="tag">{{ d.doc_type }}</span>
-    <span class="tag mat-{{ d.materiality }}">{{ d.materiality|upper }}</span>
-  </div>
-  {% if d.ribbons %}
-  <div class="ribbons">
-    {% for r in d.ribbons %}<span class="ribbon">{{ r }}</span>{% endfor %}
-  </div>
-  {% endif %}
-  <div class="delta-note">{{ d.note }}</div>
-  {% if d.pdf_url %}<a class="src-link" href="{{ d.pdf_url }}" target="_blank">source: {{ d.title }}</a>{% endif %}
-</div>
-{% endfor %}
-{% else %}
-<div class="empty-note">No delta notes for this entity yet.</div>
+{% for d in deltas %}<div class="delta-card mat-{{ d.materiality }}"><div class="delta-head"><span class="date-dim">{{ d.date or '?' }}</span><span class="tag">{{ d.agency }}</span><span class="tag">{{ d.doc_type }}</span><span class="tag mat-{{ d.materiality }}">{{ d.materiality|upper }}</span></div>{% if d.ribbons %}<div class="ribbons">{% for r in d.ribbons %}<span class="ribbon">{{ r }}</span>{% endfor %}</div>{% endif %}<div class="delta-note">{{ d.note }}</div>{% if d.pdf_url %}<a class="src-link" href="{{ d.pdf_url }}" target="_blank">source: {{ d.title }}</a>{% endif %}</div>{% else %}<div class="empty-note">No delta notes for this entity yet.</div>{% endfor %}
+{% endif %}
+
+{% if active_tab == 'documents' %}
+<h2>Documents</h2>
+{% if documents %}<table class="data"><tr><th>Date</th><th>Agency</th><th>Type</th><th>Title</th><th>Status</th><th></th></tr>{% for d in documents %}<tr><td class="mono">{{ d.published_on }}</td><td>{{ d.agency }}</td><td>{{ d.doc_type }}</td><td>{{ d.title }}</td><td>{{ d.status }}</td><td>{% if d.pdf_url %}<a class="src-link" href="{{ d.pdf_url }}" target="_blank">source</a>{% endif %}</td></tr>{% endfor %}</table>{% else %}<div class="empty-note">No documents on record.</div>{% endif %}
+{% endif %}
+
+{% if active_tab == 'news' %}
+<h2>News</h2>
+{% if news_events %}{% for n in news_events %}<div class="delta-card mat-{{ n.materiality or 'low' }}"><div class="delta-head"><span class="date-dim">{{ n.event_date or '—' }}</span><span class="tag">{{ n.source or 'news' }}</span>{% if n.ai_flag %}<span class="tag mat-medium">[AI]</span>{% endif %}</div><div class="entity-link">{{ n.headline }}</div><div class="delta-note">{{ n.summary }}</div>{% if n.source_link %}<a class="src-link" href="{{ n.source_link }}" target="_blank">source</a>{% endif %}</div>{% endfor %}{% else %}<div class="empty-note">No material news events on record.</div>{% endif %}
+{% endif %}
+
+{% if active_tab == 'review' %}
+<h2>Entity Review Queue</h2>
+{% if entity_reviews %}<table class="data"><tr><th>Reason</th><th>Item</th><th>Details</th><th>Created</th></tr>{% for r in entity_reviews %}<tr><td><span class="tag mat-medium">{{ r.reason }}</span></td><td class="mono">{{ r.item_type }}:{{ r.item_id }}</td><td class="mono">{{ r.payload }}</td><td class="mono">{{ r.created_at }}</td></tr>{% endfor %}</table>{% else %}<div class="empty-note">No open review items for this entity.</div>{% endif %}
 {% endif %}
 {% endblock %}

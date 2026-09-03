@@ -2,26 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>{% block title %}BFSI Intelligence Platform{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171512">
+  <title>{% block title %}BFSI Credit Intelligence{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Spectral:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  <nav class="topnav">
-    <span class="brand">BFSI Intelligence Platform</span>
-    <a href="/dashboard" class="{{ 'active' if active == 'dashboard' }}">Dashboard</a>
-    <a href="/entity/1" class="{{ 'active' if active == 'entity' }}">Entities</a>
-    <a href="/compare" class="{{ 'active' if active == 'compare' }}">Peer Comparison</a>
-    <a href="/review" class="{{ 'active' if active == 'review' }}">Review Queue</a>
-    {% if active == 'entity' and entities %}
-    <span class="entity-subnav">
-      {% for eid, e in entities.items() %}
-      <a href="/entity/{{ eid }}" class="{{ 'active' if entity and entity['id']|int == eid }}">{{ e['display_name'] }}</a>
-      {% endfor %}
-    </span>
-    {% endif %}
-  </nav>
-  <main>
-    {% block content %}{% endblock %}
-  </main>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand-lockup" href="/dashboard">
+        <span class="brand-mark">CI</span>
+        <span><b>Credit Intelligence</b><small>BFSI surveillance</small></span>
+      </a>
+
+      <div class="nav-label">Workspace</div>
+      <nav class="side-nav">
+        <a href="/dashboard" class="{{ 'active' if active == 'dashboard' }}"><span class="nav-icon">⌂</span>Dashboard</a>
+        <a href="/entities" class="{{ 'active' if active == 'entity' }}"><span class="nav-icon">◇</span>Entities</a>
+        <a href="/compare" class="{{ 'active' if active == 'compare' }}"><span class="nav-icon">⇄</span>Peer comparison</a>
+        <a href="/review" class="{{ 'active' if active == 'review' }}"><span class="nav-icon">✓</span>Review queue</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span class="status-dot"></span>
+        <span><b>Local workspace</b><small>Source-linked · QC enabled</small></span>
+      </div>
+    </aside>
+
+    <section class="workspace">
+      <header class="topbar">
+        <button class="menu-button" type="button" aria-label="Toggle navigation" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <div class="topbar-context"><span class="live-dot"></span> Surveillance workspace</div>
+        <div class="topbar-actions">
+          <a href="/entities" class="quick-search">⌕&nbsp; Search entities</a>
+          <span class="asof">Local · SQLite</span>
+        </div>
+      </header>
+      <main>{% block content %}{% endblock %}</main>
+    </section>
+  </div>
 </body>
 </html>

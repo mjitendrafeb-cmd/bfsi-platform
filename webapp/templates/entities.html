@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Entities — BFSI Intelligence Platform{% endblock %}
+{% block content %}
+<h1>Entities</h1>
+<div class="subtitle">{{ total }} tracked BFSI entities. Names and aliases can be refined without changing scraper code.</div>
+
+<form method="get" action="/entities" class="directory-filters">
+  <input type="search" name="query" value="{{ query }}" placeholder="Search name, alias, BSE or NSE symbol">
+  <select name="sector">
+    <option value="">All sectors</option>
+    {% for value in sectors %}<option value="{{ value }}" {{ 'selected' if sector == value }}>{{ value }}</option>{% endfor %}
+  </select>
+  <select name="sub_sector">
+    <option value="">All sub-sectors</option>
+    {% for value in sub_sectors %}<option value="{{ value }}" {{ 'selected' if sub_sector == value }}>{{ value }}</option>{% endfor %}
+  </select>
+  <button type="submit" class="filter-submit">Filter</button>
+  <a href="/entities" class="button">Reset</a>
+</form>
+
+{% if entities %}
+<table class="data">
+  <tr><th>Name</th><th>Sector</th><th>Sub-sector</th><th>Listed</th><th>Priority</th><th>Identifiers</th></tr>
+  {% for e in entities %}
+  <tr>
+    <td><a class="entity-link" href="/entity/{{ e.id }}">{{ e.display_name }}</a><div class="date-dim">{{ e.legal_name }}</div></td>
+    <td>{{ e.sector or '—' }}</td>
+    <td>{{ e.sub_sector or '—' }}</td>
+    <td>{{ 'Yes' if e.listed == 'TRUE' else ('No' if e.listed == 'FALSE' else '—') }}</td>
+    <td class="mono">{{ e.priority_tier or '—' }}</td>
+    <td class="mono">{% if e.bse_code %}BSE {{ e.bse_code }}{% endif %}{% if e.nse_symbol %} NSE {{ e.nse_symbol }}{% endif %}{% if not e.bse_code and not e.nse_symbol %}—{% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% if page_count > 1 %}
+<div class="pagination">
+  {% if page > 1 %}<a href="/entities?query={{ query }}&sector={{ sector }}&sub_sector={{ sub_sector }}&page={{ page - 1 }}">Previous</a>{% endif %}
+  <span>Page {{ page }} of {{ page_count }}</span>
+  {% if page < page_count %}<a href="/entities?query={{ query }}&sector={{ sector }}&sub_sector={{ sub_sector }}&page={{ page + 1 }}">Next</a>{% endif %}
+</div>
+{% endif %}
+{% else %}
+<div class="empty-note">No entities match these filters.</div>
+{% endif %}
+{% endblock %}
