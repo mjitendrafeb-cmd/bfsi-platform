@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 db/comparisons/
+
+# Generated demo screenshots (keep binary previews out of Git history).
+docs/demo_screenshot.png
+docs/entities_screenshot.png

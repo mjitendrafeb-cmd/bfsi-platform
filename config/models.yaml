@@ -1,0 +1,4 @@
+routes:
+  accurate: claude-sonnet-4-6
+  cheap: claude-haiku-4-5
+  summaries: claude-sonnet-4-6

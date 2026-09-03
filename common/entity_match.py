@@ -15,7 +15,30 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-from rapidfuzz import fuzz, process
+try:
+    from rapidfuzz import fuzz, process
+except ModuleNotFoundError:  # offline/dev fallback; production uses rapidfuzz
+    from difflib import SequenceMatcher
+
+    class _Fuzz:
+        @staticmethod
+        def token_sort_ratio(a: str, b: str) -> int:
+            aa = " ".join(sorted(a.split()))
+            bb = " ".join(sorted(b.split()))
+            return round(SequenceMatcher(None, aa, bb).ratio() * 100)
+
+    class _Process:
+        @staticmethod
+        def extractOne(query, choices, scorer, score_cutoff=0):
+            best = None
+            for idx, choice in enumerate(choices):
+                score = scorer(query, choice)
+                if score >= score_cutoff and (best is None or score > best[1]):
+                    best = (choice, score, idx)
+            return best
+
+    fuzz = _Fuzz()
+    process = _Process()
 
 _SUFFIXES = re.compile(
     r"\b(private|pvt|limited|ltd|co|company|india)\b\.?", re.I)

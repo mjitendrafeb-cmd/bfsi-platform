@@ -1,4 +1,357 @@
-id,legal_name,display_name,aliases,cin,sector,sub_sector,listed,bse_code,nse_symbol,priority
-1,Spandana Sphoorty Financial Limited,Spandana Sphoorty,Spandana Sphoorty Financial;Spandana,L65929TG2003PLC040648,NBFC,MFI,TRUE,542759,SPANDANA,1
-2,Muthoot Finance Limited,Muthoot Finance,Muthoot Finance Ltd,L65910KL1997PLC011300,NBFC,gold_loan,TRUE,533398,MUTHOOTFIN,1
-3,IKF Home Finance Limited,IKF Home Finance,IKF Home Finance Ltd,U65922TG1998PLC029847,HFC,affordable_housing,FALSE,,,1
+id,legal_name,display_name,aliases,cin,sector,sub_sector,listed,bse_code,nse_symbol,isins,priority_tier
+1,Spandana Sphoorty Financial Limited,Spandana Sphoorty,Spandana;Spandana Sphoorty Financial,L65929TG2003PLC040648,NBFC,MFI,TRUE,542759,SPANDANA,,1
+2,Muthoot Finance Limited,Muthoot Finance,Muthoot Finance Ltd,L65910KL1997PLC011300,NBFC,gold_loan,TRUE,533398,MUTHOOTFIN,,1
+3,IKF Home Finance Limited,IKF Home Finance,IKF Home Finance Ltd,U65922TG1998PLC029847,HFC,affordable_housing,FALSE,,,,1
+4,Namdev Finvest Private Limited,Namdev Finvest,,,NBFC,other_finance,,,,,2
+5,MINTIFI Finserve Private Limited,MINTIFI Finserve,,,NBFC,other_finance,,,,,2
+6,KrazyBee Services Limited,KrazyBee Services,,,NBFC,other_finance,,,,,2
+7,HDFC Mutual Fund,HDFC Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+8,Manba Finance Limited,Manba Finance,,,NBFC,other_finance,,,,,2
+9,Nabkisan Finance Limited,Nabkisan Finance,,,NBFC,other_finance,,,,,2
+10,Karnataka Bank Limited,Karnataka Bank,,,Bank,bank,,,,,2
+11,Laxmi India Finance Limited,Laxmi India Finance,,,NBFC,other_finance,,,,,2
+12,Axis Securities Limited,Axis Securities,,,Capital Markets,securities_broking,,,,,2
+13,Kissandhan Agri Financial Serviced Limited,Kissandhan Agri Financial Serviced,,,NBFC,other_finance,,,,,2
+14,Ashika Stock Services Limited,Ashika Stock Services,,,NBFC,other_finance,,,,,2
+15,IFCI Limited,IFCI,,,NBFC,other_finance,,,,,2
+16,Punjab and Sind Bank,Punjab and Sind Bank,,,Bank,bank,,,,,2
+17,Wonder Home Finance Limited,Wonder Home Finance,,,HFC,housing_finance,,,,,2
+18,CFM ARC,CFM ARC,,,ARC,asset_reconstruction,,,,,2
+19,Aye Finance Limited,Aye Finance,,,NBFC,other_finance,,,,,2
+20,SBM Bank (India) Limited,SBM Bank (India),,,Bank,bank,,,,,2
+21,Tourism Finance Corporation of India Limited,Tourism Finance Corporation of India,,,NBFC,other_finance,,,,,2
+22,Home First Finance Company India Limited,Home First Finance Company India,,,HFC,housing_finance,,,,,2
+23,Karnataka State Financial Corporation,Karnataka State Financial Corporation,,,Financial Institution,development_finance,,,,,2
+24,Supreme Housing Finance Limited,Supreme Housing Finance,,,HFC,housing_finance,,,,,2
+25,Religare Broking Limited,Religare Broking,,,Capital Markets,securities_broking,,,,,2
+26,Finova Capital Private Limited,Finova Capital,,,NBFC,other_finance,,,,,2
+27,KLM Axiva Finvest Limited,KLM Axiva Finvest,,,NBFC,other_finance,,,,,2
+28,Gajet Financial Services Private Limited,Gajet Financial Services,,,NBFC,other_finance,,,,,2
+29,IDBI Bank Limited,IDBI Bank,,,Bank,bank,,,,,2
+30,Way2Wealth Brokers Private Limited,Way2Wealth Brokers,,,Capital Markets,securities_broking,,,,,2
+31,Svamaan Financial Services Private Limited,Svamaan Financial Services,,,NBFC,other_finance,,,,,2
+32,Bank of Baroda,Bank of Baroda,,,Bank,bank,,,,,2
+33,Sitara Housing Finance Limited,Sitara Housing Finance,,,HFC,housing_finance,,,,,2
+34,Nisus Finance Services Co Limited,Nisus Finance Services Co,,,NBFC,other_finance,,,,,2
+35,Indian Clearing Corporation Limited,Indian Clearing Corporation,,,Market Infrastructure,clearing_corporation,,,,,2
+36,NSE IFSC Clearing Corporation Limited,NSE IFSC Clearing Corporation,,,Market Infrastructure,clearing_corporation,,,,,2
+37,Repco Home Finance Limited,Repco Home Finance,,,HFC,housing_finance,,,,,2
+38,Nivara Home Finance Limited,Nivara Home Finance,,,HFC,housing_finance,,,,,2
+39,Jharkhand Rajya Gramin Bank,Jharkhand Rajya Gramin Bank,,,Bank,bank,,,,,2
+40,Bharti Axa Life Insurance Company Limited,Bharti Axa Life Insurance Company,,,Insurance,insurance,,,,,2
+41,MS Fincap Private Limited,MS Fincap,,,NBFC,other_finance,,,,,2
+42,Jammu & Kashmir Bank Limited,Jammu & Kashmir Bank,,,Bank,bank,,,,,2
+43,HDFC Life Insurance Company Limited,HDFC Life Insurance Company,,,Insurance,insurance,,,,,2
+44,ESAF Small Finance Bank Limited,ESAF Small Finance Bank,,,Bank,small_finance_bank,,,,,2
+45,Goenka Business and Finance Limited,Goenka Business and Finance,,,NBFC,other_finance,,,,,2
+46,Religare Housing Development Finance Corporation Limited,Religare Housing Development Finance Corporation,,,NBFC,other_finance,,,,,2
+47,NIPUN PROJECTS & FINANCE PRIVATE LIMITED,NIPUN PROJECTS & FINANCE,,,NBFC,other_finance,,,,,2
+48,Sarala Development & Microfinance Private Limited,Sarala Development & Microfinance,,,NBFC,MFI,,,,,2
+49,SMIFS LIMITED,SMIFS,,,NBFC,other_finance,,,,,2
+50,Cyqure India Private Limited,Cyqure India,,,NBFC,other_finance,,,,,2
+51,Reliance Capital Limited,Reliance Capital,,,NBFC,other_finance,,,,,2
+52,SBFC Finance Limited,SBFC Finance,,,NBFC,other_finance,,,,,2
+53,Maanaveeya Development & Finance Private Limited,Maanaveeya Development & Finance,,,NBFC,other_finance,,,,,2
+54,Pahal Financial Services Private Limited,Pahal Financial Services,,,NBFC,other_finance,,,,,2
+55,HDFC Securities Limited,HDFC Securities,,,Capital Markets,securities_broking,,,,,2
+56,Shrinithi Capital Private Limited,Shrinithi Capital,,,NBFC,other_finance,,,,,2
+57,Agrim Housing Finance Private Limited,Agrim Housing Finance,,,HFC,housing_finance,,,,,2
+58,National Bank For Financing Infrastructure And Development,National Bank For Financing Infrastructure And Development,,,Bank,bank,,,,,2
+59,Decent Securities Limited,Decent Securities,,,Capital Markets,securities_broking,,,,,2
+60,Geojit Credits Private Limited,Geojit Credits,,,NBFC,other_finance,,,,,2
+61,Geojit Financial Services Limited,Geojit Financial Services,,,NBFC,other_finance,,,,,2
+62,Geojit Investment,Geojit Investment,,,NBFC,other_finance,,,,,2
+63,Profectus Capital Private Limited,Profectus Capital,,,NBFC,other_finance,,,,,2
+64,360 One Alternates Asset Management Limited,360 One Alternates Asset Management,,,Asset Management,mutual_fund,,,,,2
+65,360 One Distribution Services Limited,360 One Distribution Services,,,NBFC,other_finance,,,,,2
+66,360 One Prime Limited,360 One Prime,,,NBFC,other_finance,,,,,2
+67,360 One Wam Limited,360 One Wam,,,NBFC,other_finance,,,,,2
+68,Equitas Small Finance Bank Limited,Equitas Small Finance Bank,,,Bank,small_finance_bank,,,,,2
+69,IndusInd General Insurance Company Limited,IndusInd General Insurance Company,,,Insurance,insurance,,,,,2
+70,NABFINS Limited,NABFINS,,,NBFC,other_finance,,,,,2
+71,Northern Arc Capital Limited,Northern Arc Capital,,,NBFC,other_finance,,,,,2
+72,Baid Finserv Limited,Baid Finserv,,,NBFC,other_finance,,,,,2
+73,Star Union Dai-ichi Life Insurance Company Limited,Star Union Dai-ichi Life Insurance Company,,,Insurance,insurance,,,,,2
+74,Kusalava Finance Limited,Kusalava Finance,,,NBFC,other_finance,,,,,2
+75,Sammaan Capital Limited,Sammaan Capital,,,NBFC,other_finance,,,,,2
+76,Sammaan Finserve Limited,Sammaan Finserve,,,NBFC,other_finance,,,,,2
+77,Shubham Housing Development Finance Company Limited,Shubham Housing Development Finance Company,,,NBFC,other_finance,,,,,2
+78,SMFG India Credit Company Limited,SMFG India Credit Company,,,NBFC,other_finance,,,,,2
+79,SMFG India Home Finance Company Limited,SMFG India Home Finance Company,,,HFC,housing_finance,,,,,2
+80,Hinduja Housing Finance Limited,Hinduja Housing Finance,,,HFC,housing_finance,,,,,2
+81,Hinduja Leyland Finance Limited,Hinduja Leyland Finance,,,NBFC,other_finance,,,,,2
+82,L&T Finance Limited,L&T Finance,L&T Finance Holdings Limited;L&T Finance Limited (formerly known as L&T Finance Holdings Limited),,NBFC,other_finance,,,,,2
+83,Light Microfinance Private Limited,Light Microfinance,,,NBFC,MFI,,,,,2
+84,National Housing Bank,National Housing Bank,,,Bank,bank,,,,,2
+85,Comfort Fincap Limited,Comfort Fincap,,,NBFC,other_finance,,,,,2
+86,Earlysalary Services Private Limited,Earlysalary Services,,,NBFC,other_finance,,,,,2
+87,Crest Ventures Limited,Crest Ventures,,,NBFC,other_finance,,,,,2
+88,IDBI Capital Markets & Securities Limited,IDBI Capital Markets & Securities,,,Capital Markets,securities_broking,,,,,2
+89,Axis Bank Limited,Axis Bank,,,Bank,bank,,,,,2
+90,Muthoot Homefin (India) Limited,Muthoot Homefin (India),,,HFC,housing_finance,,,,,2
+91,Share India Fincap Private Limited,Share India Fincap,,,NBFC,other_finance,,,,,2
+92,Share India Securities Limited,Share India Securities,,,Capital Markets,securities_broking,,,,,2
+93,Poonawalla Fincorp Limited,Poonawalla Fincorp,,,NBFC,other_finance,,,,,2
+94,Power Finance Corporation Limited,Power Finance Corporation,,,NBFC,other_finance,,,,,2
+95,REC Limited,REC,,,NBFC,other_finance,,,,,2
+96,IDFC First Bank,IDFC First Bank,,,Bank,bank,,,,,2
+97,Federal Bank Limited,Federal Bank,,,Bank,bank,,,,,2
+98,HDB Financial Services Limited,HDB Financial Services,,,NBFC,other_finance,,,,,2
+99,Union Bank of India,Union Bank of India,,,Bank,bank,,,,,2
+100,State Bank of India,State Bank of India,,,Bank,bank,,,,,2
+101,Arya Fin-Trade Services (India) Private Limited,Arya Fin-Trade Services (India),,,NBFC,other_finance,,,,,2
+102,Asthana Rural Development & Services Private Limited,Asthana Rural Development & Services,,,NBFC,other_finance,,,,,2
+103,Aavas Financiers Limited,Aavas Financiers,,,NBFC,other_finance,,,,,2
+104,Auriolus Finvest,Auriolus Finvest,,,NBFC,other_finance,,,,,2
+105,Alpha Alternatives Financial Services Private Limited,Alpha Alternatives Financial Services,,,NBFC,other_finance,,,,,2
+106,Canara Bank,Canara Bank,,,Bank,bank,,,,,2
+107,Central Bank of India,Central Bank of India,,,Bank,bank,,,,,2
+108,Bank of India,Bank of India,,,Bank,bank,,,,,2
+109,Truhome Finance Limited,Truhome Finance,,,HFC,housing_finance,,,,,2
+110,ART Housing Finance India Limited,ART Housing Finance India,,,HFC,housing_finance,,,,,2
+111,ICICI Bank Limited,ICICI Bank,,,Bank,bank,,,,,2
+112,Bandhan Mutual Fund,Bandhan Mutual Fund,Bandhan Mutual Fund (BLR),,Asset Management,mutual_fund,,,,,2
+113,Aditya Birla Sun Life Mutual Fund,Aditya Birla Sun Life Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+114,Finnable Credit Private Limited,Finnable Credit,,,NBFC,other_finance,,,,,2
+115,Midland Microfin Limited,Midland Microfin,,,NBFC,MFI,,,,,2
+116,Fedbank Financial Services Limited,Fedbank Financial Services,,,NBFC,other_finance,,,,,2
+117,Keshava Prabha Microfin Private Limited,Keshava Prabha Microfin,,,NBFC,MFI,,,,,2
+118,Cars24 Financial Services Private Limited,Cars24 Financial Services,,,NBFC,other_finance,,,,,2
+119,Flat White Capital Private Limited,Flat White Capital,,,NBFC,other_finance,,,,,2
+120,Setia Auto Finance Private Limited,Setia Auto Finance,,,NBFC,other_finance,,,,,2
+121,Svatantra Micro Housing Finance Corporation Limited,Svatantra Micro Housing Finance Corporation,,,HFC,housing_finance,,,,,2
+122,Svatantra Microfin Limited,Svatantra Microfin,,,NBFC,MFI,,,,,2
+123,RAR Fincare Limited,RAR Fincare,,,NBFC,other_finance,,,,,2
+124,Aseem Infrastructure Finance Limited,Aseem Infrastructure Finance,,,Financial Institution,development_finance,,,,,2
+125,Red Fort Capital Finance Company Private Limited,Red Fort Capital Finance Company,,,NBFC,other_finance,,,,,2
+126,Yogakshemam Loans Limited,Yogakshemam Loans,,,NBFC,other_finance,,,,,2
+127,The Puducherry Public Servants Co-op. Credit Society Ltd P-52,The Puducherry Public Servants Co-op. Credit Society Ltd P-52,,,NBFC,other_finance,,,,,2
+128,Star Housing Finance Limited,Star Housing Finance,,,HFC,housing_finance,,,,,2
+129,Manipal Cigna Health Insurance Company Limited,Manipal Cigna Health Insurance Company,,,Insurance,insurance,,,,,2
+130,LIC Housing Finance Limited,LIC Housing Finance,,,HFC,housing_finance,,,,,2
+131,ECAP EQUITIES LIMITED,ECAP EQUITIES,ECAP EQUITIES LIMITED (formerly known as EDEL LAND LIMITED);EDEL LAND LIMITED,,Capital Markets,securities_broking,,,,,2
+132,ECL Finance Limited,ECL Finance,,,NBFC,other_finance,,,,,2
+133,Edel Finance Company Limited,Edel Finance Company,,,NBFC,other_finance,,,,,2
+134,Edelweiss Asset Reconstruction Company Limited,Edelweiss Asset Reconstruction Company,,,ARC,asset_reconstruction,,,,,2
+135,Edelweiss Financial Services Limited,Edelweiss Financial Services,,,NBFC,other_finance,,,,,2
+136,Nido Home Finance Limited,Nido Home Finance,,,HFC,housing_finance,,,,,2
+137,Svasti Microfinance Private Limited,Svasti Microfinance,,,NBFC,MFI,,,,,2
+138,Home Credit India Finance Private Limited,Home Credit India Finance,,,NBFC,other_finance,,,,,2
+139,TVS Holdings Limited,TVS Holdings,,,NBFC,other_finance,,,,,2
+140,TVS Credit Services Limited,TVS Credit Services,,,NBFC,other_finance,,,,,2
+141,Grow Money Capital Private Limited,Grow Money Capital,,,NBFC,other_finance,,,,,2
+142,India Mortgage Guarantee Corporation Private Limited,India Mortgage Guarantee Corporation,,,NBFC,other_finance,,,,,2
+143,Utkarsh Small Finance Bank Limited,Utkarsh Small Finance Bank,,,Bank,small_finance_bank,,,,,2
+144,Oxyzo Finance,Oxyzo Finance,,,NBFC,other_finance,,,,,2
+145,Can Fin Homes Limited,Can Fin Homes,,,NBFC,other_finance,,,,,2
+146,Hero Fincorp Limited,Hero Fincorp,,,NBFC,other_finance,,,,,2
+147,STCI Finance Limited,STCI Finance,,,NBFC,other_finance,,,,,2
+148,Spark Institutional Equities Private Limited,Spark Institutional Equities,,,Capital Markets,securities_broking,,,,,2
+149,Avendus Finance Private Limited,Avendus Finance,,,NBFC,other_finance,,,,,2
+150,Coimbatore Capital Limited,Coimbatore Capital,,,NBFC,other_finance,,,,,2
+151,Au Small Finance Bank Limited,Au Small Finance Bank,,,Bank,small_finance_bank,,,,,2
+152,Godrej Finance Limited,Godrej Finance,,,NBFC,other_finance,,,,,2
+153,Godrej Housing Finance Limited,Godrej Housing Finance,,,HFC,housing_finance,,,,,2
+154,North Eastern Development Finance Corporation Limited,North Eastern Development Finance Corporation,,,NBFC,other_finance,,,,,2
+155,Punjab National Bank,Punjab National Bank,,,Bank,bank,,,,,2
+156,Indresh Financial,Indresh Financial,,,NBFC,other_finance,,,,,2
+157,Axis Finance Limited,Axis Finance,,,NBFC,other_finance,,,,,2
+158,Savery Transport Finance Limited,Savery Transport Finance,,,NBFC,other_finance,,,,,2
+159,Madhya Pradesh Financial Corporation,Madhya Pradesh Financial Corporation,,,Financial Institution,development_finance,,,,,2
+160,Union Mutual Fund,Union Mutual Fund,Union Mutual Fund (BLR),,Asset Management,mutual_fund,,,,,2
+161,Ambium Finserve Limited,Ambium Finserve,,,NBFC,other_finance,,,,,2
+162,Taru Agencies and Investment Private Limited,Taru Agencies and Investment,,,NBFC,other_finance,,,,,2
+163,Infinity Fincorp Solutions Private Limited,Infinity Fincorp Solutions,,,NBFC,other_finance,,,,,2
+164,Mas Financial Services Limited,Mas Financial Services,,,NBFC,other_finance,,,,,2
+165,MAS Rural Housing and Mortgage Finance Limited,MAS Rural Housing and Mortgage Finance,,,NBFC,other_finance,,,,,2
+166,Tata Capital Limited,Tata Capital,,,NBFC,other_finance,,,,,2
+167,Darashaw and Company Private Limited,Darashaw and Company,,,NBFC,other_finance,,,,,2
+168,ICICI Prudential Mutual Fund,ICICI Prudential Mutual Fund,ICICI Prudential Mutual Fund - BLR,,Asset Management,mutual_fund,,,,,2
+169,Arohan Financial Services Limited,Arohan Financial Services,,,NBFC,other_finance,,,,,2
+170,Akme Fintrade (India) Limited,Akme Fintrade (India),,,NBFC,other_finance,,,,,2
+171,Aryadhan Financial Solutions Private Limited,Aryadhan Financial Solutions,,,NBFC,other_finance,,,,,2
+172,Bahadur Chand Investments Private Limited,Bahadur Chand Investments,,,NBFC,other_finance,,,,,2
+173,Indian Bank,Indian Bank,,,Bank,bank,,,,,2
+174,The Kalupur Commercial Co-Operative Bank Limited,The Kalupur Commercial Co-Operative Bank,,,Bank,bank,,,,,2
+175,Hiranandani Financial Services Private Limited,Hiranandani Financial Services,,,NBFC,other_finance,,,,,2
+176,Namra Finance Limited,Namra Finance,,,NBFC,other_finance,,,,,2
+177,Arman Financial Services Limited,Arman Financial Services,,,NBFC,other_finance,,,,,2
+178,The Karur Vysya Bank Limited,The Karur Vysya Bank,,,Bank,bank,,,,,2
+179,ICICI Securities Primary Dealership Limited,ICICI Securities Primary Dealership,,,Capital Markets,securities_broking,,,,,2
+180,Best Finance Corporation Limited,Best Finance Corporation,,,NBFC,other_finance,,,,,2
+181,Navi Finserv Limited,Navi Finserv,,,NBFC,other_finance,,,,,2
+182,Amrit Malwa Capital Limited,Amrit Malwa Capital,,,NBFC,other_finance,,,,,2
+183,Capital Trust Limited,Capital Trust,,,NBFC,other_finance,,,,,2
+184,GIC-Bhutan Reinsurance Company Limited,GIC-Bhutan Reinsurance Company,,,Insurance,insurance,,,,,2
+185,Shriram Finance Limited,Shriram Finance,,,NBFC,other_finance,,,,,2
+186,Muthoot Mcred Limited,Muthoot Mcred,,,NBFC,other_finance,,,,,2
+187,IL&FS Financial Services Limited,IL&FS Financial Services,,,NBFC,other_finance,,,,,2
+188,Infrastructure Leasing & Financial Services Limited,Infrastructure Leasing & Financial Services,,,NBFC,other_finance,,,,,2
+189,Khushbu Auto Finance Limited,Khushbu Auto Finance,,,NBFC,other_finance,,,,,2
+190,The Gujarat State Co Operative Bank Limited,The Gujarat State Co Operative Bank,,,Bank,bank,,,,,2
+191,SBI Mutual Fund,SBI Mutual Fund,SBI Mutual Fund - BLR,,Asset Management,mutual_fund,,,,,2
+192,HDFC Bank Limited,HDFC Bank,,,Bank,bank,,,,,2
+193,Cholamandalam Investment And Finance Company Limited,Cholamandalam Investment And Finance Company,,,NBFC,other_finance,,,,,2
+194,Asirvad Micro Finance Limited,Asirvad Micro Finance,,,NBFC,MFI,,,,,2
+195,IL&FS Securities Services Limited,IL&FS Securities Services,,,Capital Markets,securities_broking,,,,,2
+196,Manappuram Finance Limited,Manappuram Finance,,,NBFC,other_finance,,,,,2
+197,Manappuram Home Finance Limited,Manappuram Home Finance,,,HFC,housing_finance,,,,,2
+198,Viksit Capital Private Limited,Viksit Capital,,,NBFC,other_finance,,,,,2
+199,Annapurna Finance Private Limited,Annapurna Finance,,,NBFC,other_finance,,,,,2
+200,General Insurance Corporation of India,General Insurance Corporation of India,,,Insurance,insurance,,,,,2
+201,CLIX Capital Services Private Limited,CLIX Capital Services,,,NBFC,other_finance,,,,,2
+202,Meet Finance Private Limited,Meet Finance,,,NBFC,other_finance,,,,,2
+203,Micro Units Development and Refinance Agency Limited,Micro Units Development and Refinance Agency,,,NBFC,other_finance,,,,,2
+204,SK Finance Limited,SK Finance,,,NBFC,other_finance,,,,,2
+205,Axis Max Life Insurance Limited,Axis Max Life Insurance,,,Insurance,insurance,,,,,2
+206,Roha Housing Finance Private Limited,Roha Housing Finance,,,HFC,housing_finance,,,,,2
+207,UCO Bank,UCO Bank,,,Bank,bank,,,,,2
+208,Auxilo Finserve Private Limited,Auxilo Finserve,,,NBFC,other_finance,,,,,2
+209,Bandhan Life Insurance Limited,Bandhan Life Insurance,,,Insurance,insurance,,,,,2
+210,Mirae Asset Investment Managers (India) Private Limited,Mirae Asset Investment Managers (India),Mirae Asset Investment Managers (India) Private Limited (BLR);Mirae Asset Investment Managers (India) Private Limited (CQR),,NBFC,other_finance,,,,,2
+211,Gosree Finance Limited,Gosree Finance,,,NBFC,other_finance,,,,,2
+212,Raise Fintech Ventures Private Limited,Raise Fintech Ventures,,,NBFC,other_finance,,,,,2
+213,The Clearing Corporation of India Limited,The Clearing Corporation of India,,,Market Infrastructure,clearing_corporation,,,,,2
+214,Multi Commodity Exchange Clearing Corporation Limited,Multi Commodity Exchange Clearing Corporation,,,Market Infrastructure,clearing_corporation,,,,,2
+215,Bizloan Private Limited,Bizloan,,,NBFC,other_finance,,,,,2
+216,CSA Investments Private Limited,CSA Investments,,,NBFC,other_finance,,,,,2
+217,Housing and Urban Development Corporation Limited,Housing and Urban Development Corporation,,,NBFC,other_finance,,,,,2
+218,Mantra Capital Limited,Mantra Capital,,,NBFC,other_finance,,,,,2
+219,City Union Bank Limited,City Union Bank,,,Bank,bank,,,,,2
+220,Pantomath Capital Advisors Private Limited,Pantomath Capital Advisors,,,NBFC,other_finance,,,,,2
+221,Aham Housing Finance Limited,Aham Housing Finance,,,HFC,housing_finance,,,,,2
+222,NTC Finance Private Limited,NTC Finance,,,NBFC,other_finance,,,,,2
+223,INFINA Finance Private Limited,INFINA Finance,,,NBFC,other_finance,,,,,2
+224,Magalir Micro Capital Private Limited,Magalir Micro Capital,,,NBFC,other_finance,,,,,2
+225,Kamal Autofinance Private Limited,Kamal Autofinance,,,NBFC,other_finance,,,,,2
+226,Finkurve Financial Services Limited,Finkurve Financial Services,,,NBFC,other_finance,,,,,2
+227,Punjab Infrastructure Development Board,Punjab Infrastructure Development Board,,,NBFC,other_finance,,,,,2
+228,Sagarmala Finance Corporation Limited,Sagarmala Finance Corporation,,,NBFC,other_finance,,,,,2
+229,Capital Small Finance Bank Limited,Capital Small Finance Bank,,,Bank,small_finance_bank,,,,,2
+230,Invesco Asset Management (India) Private Limited,Invesco Asset Management (India),Invesco Asset Management (India) Private Limited (BLR),,Asset Management,mutual_fund,,,,,2
+231,Ceejay Finance Limited,Ceejay Finance,,,NBFC,other_finance,,,,,2
+232,Integro Finserv Private Limited,Integro Finserv,,,NBFC,other_finance,,,,,2
+233,Magma General Insurance Limited,Magma General Insurance,,,Insurance,insurance,,,,,2
+234,Grihum Housing Finance Limited,Grihum Housing Finance,,,HFC,housing_finance,,,,,2
+235,National Minorities Development & Finance Corporation,National Minorities Development & Finance Corporation,,,NBFC,other_finance,,,,,2
+236,Netzero Finance Private Limited,Netzero Finance,,,NBFC,other_finance,,,,,2
+237,Jana Small Finance Bank Limited,Jana Small Finance Bank,,,Bank,small_finance_bank,,,,,2
+238,Orocorp Technologies Private Limited,Orocorp Technologies,,,NBFC,other_finance,,,,,2
+239,Canara HSBC Life Insurance Company Limited,Canara HSBC Life Insurance Company,,,Insurance,insurance,,,,,2
+240,Jewel Rock Hire Purchase and Leasing Private Limited,Jewel Rock Hire Purchase and Leasing,,,NBFC,other_finance,,,,,2
+241,Kanakadurga Finance Limited,Kanakadurga Finance,,,NBFC,other_finance,,,,,2
+242,Samaaru Finance Private Limited,Samaaru Finance,,,NBFC,other_finance,,,,,2
+243,SBI Payment Services Private Limited,SBI Payment Services,,,NBFC,other_finance,,,,,2
+244,Kaleidofin Capital Private Limited,Kaleidofin Capital,,,NBFC,other_finance,,,,,2
+245,Venkateswara Financiers Hyderabad Private Limited,Venkateswara Financiers Hyderabad,,,NBFC,other_finance,,,,,2
+246,Aphelion Finance Private Limited,Aphelion Finance,,,NBFC,other_finance,,,,,2
+247,Universal Sompo General Insurance Company Limited,Universal Sompo General Insurance Company,,,Insurance,insurance,,,,,2
+248,Trust Investment Advisors Private Limited,Trust Investment Advisors,,,Capital Markets,securities_broking,,,,,2
+249,The National Small Industries Corporation Limited,The National Small Industries Corporation,,,NBFC,other_finance,,,,,2
+250,Chinmay Finlease Limited,Chinmay Finlease,,,NBFC,other_finance,,,,,2
+251,Indusind Bank Limited,Indusind Bank,,,Bank,bank,,,,,2
+252,Dandona Finance Limited,Dandona Finance,,,NBFC,other_finance,,,,,2
+253,Fusion Finance Limited,Fusion Finance,,,NBFC,other_finance,,,,,2
+254,India Infrastructure Finance Company Limited,India Infrastructure Finance Company,,,Financial Institution,development_finance,,,,,2
+255,Billionbrains Garage Ventures Limited,Billionbrains Garage Ventures,,,NBFC,other_finance,,,,,2
+256,Groww Creditserv Technology Private Limited,Groww Creditserv Technology,,,NBFC,other_finance,,,,,2
+257,Tamilnadu Industrial Development Corporation Limited,Tamilnadu Industrial Development Corporation,,,NBFC,other_finance,,,,,2
+258,PPFAS Mutual Fund,PPFAS Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+259,Manappuram Asset Finance Limited,Manappuram Asset Finance,,,NBFC,other_finance,,,,,2
+260,D. S. Integrated FinSec Private Limited,D. S. Integrated FinSec,,,NBFC,other_finance,,,,,2
+261,Credila Financial Services Limited,Credila Financial Services,,,NBFC,other_finance,,,,,2
+262,Star Health and Allied Insurance Company Limited,Star Health and Allied Insurance Company,,,Insurance,insurance,,,,,2
+263,Akara Capital Advisors Private Limited,Akara Capital Advisors,,,NBFC,other_finance,,,,,2
+264,Maben Nidhi Limited,Maben Nidhi,,,NBFC,other_finance,,,,,2
+265,RNFI Service Limited,RNFI Service,,,NBFC,other_finance,,,,,2
+266,Ujjivan Small Finance Bank Limited,Ujjivan Small Finance Bank,,,Bank,small_finance_bank,,,,,2
+267,Dvara Kshetriya Gramin Financial Services Private Limited,Dvara Kshetriya Gramin Financial Services,,,NBFC,other_finance,,,,,2
+268,SBERBANK Branch in India,SBERBANK Branch in India,,,Bank,bank,,,,,2
+269,Anand Rathi Share and Stock Brokers Limited,Anand Rathi Share and Stock Brokers,,,Capital Markets,securities_broking,,,,,2
+270,Angel One Limited,Angel One,,,NBFC,other_finance,,,,,2
+271,Bajaj Life Insurance Limited,Bajaj Life Insurance,,,Insurance,insurance,,,,,2
+272,CRSP CAPITAL PRIVATE LIMITED,CRSP CAPITAL,,,NBFC,other_finance,,,,,2
+273,Bajaj Auto Credit Limited,Bajaj Auto Credit,,,NBFC,other_finance,,,,,2
+274,Indiafirst Life Insurance Company Limited,Indiafirst Life Insurance Company,,,Insurance,insurance,,,,,2
+275,Bajaj Finance Limited,Bajaj Finance,,,NBFC,other_finance,,,,,2
+276,Hari and Company Investments Madras Limited,Hari and Company Investments Madras,,,NBFC,other_finance,,,,,2
+277,Navi Limited,Navi,,,NBFC,other_finance,,,,,2
+278,Tata Mutual Fund,Tata Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+279,PNB Housing,PNB Housing,,,HFC,housing_finance,,,,,2
+280,Nippon Life India Asset Management Limited,Nippon Life India Asset Management,,,Asset Management,mutual_fund,,,,,2
+281,Nexome Capital Markets Limited,Nexome Capital Markets,,,Capital Markets,securities_broking,,,,,2
+282,Team India Guaranty Limited,Team India Guaranty,,,NBFC,other_finance,,,,,2
+283,People Home Loans Limited,People Home Loans,,,HFC,housing_finance,,,,,2
+284,Equirus Securities Private Limited,Equirus Securities,,,Capital Markets,securities_broking,,,,,2
+285,ICICI Home Finance Company Limited,ICICI Home Finance Company,,,HFC,housing_finance,,,,,2
+286,Centrum Housing Finance Limited,Centrum Housing Finance,,,HFC,housing_finance,,,,,2
+287,Narendra Finance,Narendra Finance,,,NBFC,other_finance,,,,,2
+288,Royal Sundaram General Insurance Co. Limited,Royal Sundaram General Insurance Co.,,,Insurance,insurance,,,,,2
+289,Altum Credo Home Finance Private Limited,Altum Credo Home Finance,,,HFC,housing_finance,,,,,2
+290,Nuvama Wealth Management Limited,Nuvama Wealth Management,,,Capital Markets,securities_broking,,,,,2
+291,Nuvama Clearing Services Limited,Nuvama Clearing Services,,,Market Infrastructure,clearing_corporation,,,,,2
+292,Nuvama Wealth And Investment Limited,Nuvama Wealth And Investment,,,NBFC,other_finance,,,,,2
+293,Nuvama Wealth Finance Limited,Nuvama Wealth Finance,,,NBFC,other_finance,,,,,2
+294,Vastu Finserve India Private Limited,Vastu Finserve India,,,NBFC,other_finance,,,,,2
+295,Vastu Housing Finance Corporation Limited,Vastu Housing Finance Corporation,,,HFC,housing_finance,,,,,2
+296,A. K. Capital Finance Limited,A. K. Capital Finance,,,NBFC,other_finance,,,,,2
+297,A. K. Capital Services Limited,A. K. Capital Services,,,NBFC,other_finance,,,,,2
+298,Avanse Financial Services Limited,Avanse Financial Services,,,NBFC,other_finance,,,,,2
+299,Bank of Maharashtra,Bank of Maharashtra,,,Bank,bank,,,,,2
+300,NIIF Infrastructure Finance Limited,NIIF Infrastructure Finance,,,Financial Institution,development_finance,,,,,2
+301,Small Industries Development Bank of India,Small Industries Development Bank of India,,,Bank,bank,,,,,2
+302,Yes Securities (India) Limited,Yes Securities (India),,,Capital Markets,securities_broking,,,,,2
+303,Kogta Financial (India) Limited,Kogta Financial (India),,,NBFC,other_finance,,,,,2
+304,Yes Bank Limited,Yes Bank,,,Bank,bank,,,,,2
+305,Jio Credit Limited,Jio Credit,,,NBFC,other_finance,,,,,2
+306,Jio Leasing Services Limited,Jio Leasing Services,,,NBFC,other_finance,,,,,2
+307,Vistaar Financial Services Private Limited,Vistaar Financial Services,,,NBFC,other_finance,,,,,2
+308,DCB Bank,DCB Bank,,,Bank,bank,,,,,2
+309,Mahindra And Mahindra Financial Services Limited,Mahindra And Mahindra Financial Services,,,NBFC,other_finance,,,,,2
+310,Mahindra Rural Housing Finance Limited,Mahindra Rural Housing Finance,,,HFC,housing_finance,,,,,2
+311,KISETSU Saison Finance (India) Private Limited,KISETSU Saison Finance (India),,,NBFC,other_finance,,,,,2
+312,Indostar Capital Finance Limited,Indostar Capital Finance,,,NBFC,other_finance,,,,,2
+313,IKF Finance Limited,IKF Finance,,,NBFC,other_finance,,,,,2
+314,Aadhar Housing Finance Limited,Aadhar Housing Finance,,,HFC,housing_finance,,,,,2
+315,Aptus Finance India Private Limited,Aptus Finance India,,,NBFC,other_finance,,,,,2
+316,Aptus Value Housing Finance India Limited,Aptus Value Housing Finance India,,,HFC,housing_finance,,,,,2
+317,Indian Railway Finance,Indian Railway Finance,,,NBFC,other_finance,,,,,2
+318,Mahaveer Finance India Limited,Mahaveer Finance India,,,NBFC,other_finance,,,,,2
+319,Veritas Finance Limited,Veritas Finance,,,NBFC,other_finance,,,,,2
+320,Five-Star Business Finance Limited,Five-Star Business Finance,,,NBFC,other_finance,,,,,2
+321,Piramal Finance Limited,Piramal Finance,Piramal Capital & Housing Finance Limited;Piramal Finance Limited (erstwhile Piramal Capital & Housing Finance Limited),,NBFC,other_finance,,,,,2
+322,RBL Bank Limited,RBL Bank,,,Bank,bank,,,,,2
+323,Abhiyan Capital (India) Private Limited,Abhiyan Capital (India),,,NBFC,other_finance,,,,,2
+324,Svakarma Finance Private Limited,Svakarma Finance,,,NBFC,other_finance,,,,,2
+325,Shriram Insight Share Brokers Limited,Shriram Insight Share Brokers,,,Capital Markets,securities_broking,,,,,2
+326,Shriram Credit Company Limited,Shriram Credit Company,,,NBFC,other_finance,,,,,2
+327,The South Indian Bank Limited,The South Indian Bank,,,Bank,bank,,,,,2
+328,Edelweiss Asset Management Limited,Edelweiss Asset Management,,,Asset Management,mutual_fund,,,,,2
+329,Mahindra Manulife Investment Management Private Limited,Mahindra Manulife Investment Management,,,Asset Management,mutual_fund,,,,,2
+330,Ambit Finvest Private Limited,Ambit Finvest,,,NBFC,other_finance,,,,,2
+331,Belstar Microfinance Limited,Belstar Microfinance,,,NBFC,MFI,,,,,2
+332,Indian Overseas Bank,Indian Overseas Bank,,,Bank,bank,,,,,2
+333,Dar Credit & Capital Limited,Dar Credit & Capital,,,NBFC,other_finance,,,,,2
+334,GrowXCD Finance Private Limited,GrowXCD Finance,,,NBFC,other_finance,,,,,2
+335,India Shelter Finance,India Shelter Finance,,,HFC,housing_finance,,,,,2
+336,Indian Renewable Energy Development Agency Limited (IREDA),Indian Renewable Energy Development Agency Limited (IREDA),,,NBFC,other_finance,,,,,2
+337,S V Creditline Limited,S V Creditline,,,NBFC,other_finance,,,,,2
+338,Save Microfinance Private Limited,Save Microfinance,,,NBFC,MFI,,,,,2
+339,Save Solutions Private Limited,Save Solutions,,,NBFC,other_finance,,,,,2
+340,Solfin Sustainable Finance Private Limited,Solfin Sustainable Finance,,,NBFC,other_finance,,,,,2
+341,Ummeed Housing Finance Private Limited,Ummeed Housing Finance,,,HFC,housing_finance,,,,,2
+342,Niva Bupa Health Insurance Company Limited,Niva Bupa Health Insurance Company,,,Insurance,insurance,,,,,2
+343,Axis Mutual Fund,Axis Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+344,Jio BlackRock Asset Management Private Limited,Jio BlackRock Asset Management,,,Asset Management,mutual_fund,,,,,2
+345,LIC Mutual Fund,LIC Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+346,Bajaj Finserv Asset Management Limited,Bajaj Finserv Asset Management,,,Asset Management,mutual_fund,,,,,2
+347,Baroda BNP Paribas Mutual Fund,Baroda BNP Paribas Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+348,Canara Robeco Mutual Fund,Canara Robeco Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+349,SBI Funds Management Limited,SBI Funds Management,,,Asset Management,mutual_fund,,,,,2
+350,Arvesta Financial Services Private Limited,Arvesta Financial Services,,,NBFC,other_finance,,,,,2
+351,Kotak Mahindra Mutual Fund,Kotak Mahindra Mutual Fund,,,Asset Management,mutual_fund,,,,,2
+352,Sundaram Asset Management Company Limited,Sundaram Asset Management Company,,,Asset Management,mutual_fund,,,,,2
+353,UTI Asset Management Company Limited,UTI Asset Management Company,,,Asset Management,mutual_fund,,,,,2
+354,Vivriti Capital Limited,Vivriti Capital,,,NBFC,other_finance,,,,,2
+355,Golden Legand Leasing and Finance Limited,Golden Legand Leasing and Finance,,,NBFC,other_finance,,,,,2
+356,Bhansali,Bhansali,,,NBFC,other_finance,,,,,2

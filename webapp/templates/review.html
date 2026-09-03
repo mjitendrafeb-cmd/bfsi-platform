@@ -4,6 +4,41 @@
 <h1>Review Queue</h1>
 <div class="subtitle">Rows waiting on a human decision. Approving a financials row is the only write action this app performs.</div>
 
+<h2>Canonical QC Review Items ({{ review_items|length }})</h2>
+<div class="subtitle" style="margin-top:-10px;">Open review_queue rows created by deterministic QC controls. Resolve only after checking the source document or reprocessing the item.</div>
+{% if review_items %}
+<table class="data">
+  <tr><th>Reason</th><th>Entity</th><th>Item</th><th>Details</th><th>Created</th><th></th></tr>
+  {% for r in review_items %}
+  <tr>
+    <td><span class="tag mat-medium">{{ r.reason }}</span></td>
+    <td>{{ r.entity }}</td>
+    <td class="mono">{{ r.item_type }}:{{ r.item_id }}</td>
+    <td>
+      {% if r.reason == 'figure_trace_failed' %}
+        {{ r.payload.failures|length }} trace failure(s) in {{ r.payload.doc_type }}
+        <div class="mono" style="white-space:pre-wrap; font-size:11px; margin-top:4px;">
+{% for f in r.payload.failures[:5] %}{{ f.field }} = {{ f.value }} ({{ f.reason }})
+{% endfor %}</div>
+      {% elif r.reason == 'entity_mismatch' %}
+        Document says <b>{{ r.payload.doc_name }}</b>; tagged as <b>{{ r.payload.tagged_name }}</b>.
+      {% else %}
+        <span class="mono">{{ r.payload }}</span>
+      {% endif %}
+    </td>
+    <td class="mono">{{ r.created_at }}</td>
+    <td>
+      <form method="post" action="/review/resolve/{{ r.id }}" onsubmit="return confirm('Resolve this review item?');">
+        <button type="submit" class="approve">Resolve</button>
+      </form>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<div class="empty-note">No canonical QC review items.</div>
+{% endif %}
+
 <h2>Unverified Financials ({{ unverified|length }})</h2>
 {% if unverified %}
 <form method="post" action="/review/verify-all" onsubmit="return confirm('Mark all {{ unverified|length }} rows below as verified?');">
