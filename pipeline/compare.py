@@ -104,7 +104,7 @@ def _latest_rows_for_entity(conn: sqlite3.Connection, entity_id: int) -> list[sq
     return selected
 
 
-def build_columns(entity_ids: list[int]) -> list[dict]:
+def build_columns(entity_ids: list[int], verbose: bool = False) -> list[dict]:
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
     names = _load_entity_names()
@@ -113,11 +113,13 @@ def build_columns(entity_ids: list[int]) -> list[dict]:
     for eid in entity_ids:
         entity_name = names.get(eid, f"entity_id={eid}")
         rows = _latest_rows_for_entity(conn, eid)
-        if not rows:
+        if not rows and verbose:
             print(f"  (no financials data for {entity_name} — skipped)")
+        if not rows:
             continue
         for r in rows:
             columns.append({
+                "entity_id": eid,
                 "entity": entity_name,
                 "basis": r["basis"] or "-",
                 "period": r["period"] or "-",
@@ -195,7 +197,7 @@ def main() -> None:
     ap.add_argument("entity_ids", type=int, nargs="+")
     args = ap.parse_args()
 
-    columns = build_columns(args.entity_ids)
+    columns = build_columns(args.entity_ids, verbose=True)
     print()
     print_table(columns)
     if columns:

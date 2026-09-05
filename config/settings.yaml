@@ -1,0 +1,11 @@
+budget:
+  monthly_cap_usd: 25
+  per_run_item_cap: 30
+  pause_non_essential_ai_when_exceeded: true
+ai_policy:
+  on_demand_summaries_only: true
+  material_only_news_processing: true
+  rating_action_processing_essential: true
+models:
+  rationales_results: accurate
+  news_filings_credit_updates: cheap

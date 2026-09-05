@@ -10,6 +10,9 @@ import json
 import sqlite3
 from pathlib import Path
 
+from common.storage import SCHEMA as STORAGE_SCHEMA
+from pipeline.process import DDL as PROCESS_DDL
+
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "db" / "tracker.sqlite"
 ENTITY_MASTER = ROOT / "data" / "entity_master.csv"
@@ -21,6 +24,10 @@ MATERIALITY_ORDER = {"high": 0, "medium": 1, "low": 2}
 def get_conn() -> sqlite3.Connection:
     conn = sqlite3.connect(DB)
     conn.row_factory = sqlite3.Row
+    # The app may be opened before a processor run has created every table.
+    # Idempotent DDL keeps directory/review/demo screens usable on first run.
+    conn.executescript(STORAGE_SCHEMA)
+    conn.executescript(PROCESS_DDL)
     return conn
 
 
@@ -29,8 +36,63 @@ def load_entities() -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def filter_entities(query: str = "", sector: str = "",
+                    sub_sector: str = "") -> list[dict]:
+    """Filter the entity master for the scalable directory screen."""
+    query = query.strip().casefold()
+    sector = sector.strip().casefold()
+    sub_sector = sub_sector.strip().casefold()
+    rows = load_entities()
+    if query:
+        rows = [
+            row for row in rows
+            if query in " ".join((
+                row.get("legal_name", ""), row.get("display_name", ""),
+                row.get("aliases", ""), row.get("bse_code", ""),
+                row.get("nse_symbol", ""),
+            )).casefold()
+        ]
+    if sector:
+        rows = [row for row in rows if row.get("sector", "").casefold() == sector]
+    if sub_sector:
+        rows = [
+            row for row in rows
+            if row.get("sub_sector", "").casefold() == sub_sector
+        ]
+    return sorted(rows, key=lambda row: row.get("display_name", "").casefold())
+
+
 def entity_names() -> dict[int, str]:
     return {int(e["id"]): e["display_name"].strip() for e in load_entities()}
+
+
+def dashboard_stats(conn: sqlite3.Connection) -> dict:
+    """Compact operating statistics for the surveillance dashboard."""
+    entities = load_entities()
+
+    def scalar(sql: str, default=0):
+        try:
+            row = conn.execute(sql).fetchone()
+            return row[0] if row and row[0] is not None else default
+        except sqlite3.OperationalError:
+            return default
+
+    return {
+        "entities": len(entities),
+        "priority_entities": sum(
+            1 for entity in entities if entity.get("priority_tier") == "1"
+        ),
+        "documents": scalar("SELECT COUNT(*) FROM raw_items"),
+        "high_changes": scalar(
+            "SELECT COUNT(*) FROM deltas WHERE materiality='high'"
+        ),
+        "open_reviews": scalar(
+            "SELECT COUNT(*) FROM review_queue WHERE status='open'"
+        ),
+        "latest_update": scalar(
+            "SELECT MAX(published_on) FROM raw_items", "—"
+        ),
+    }
 
 
 def source_url(pdf_path: str | None) -> str | None:
@@ -338,6 +400,155 @@ def flagged_raw_items(conn: sqlite3.Connection, status: int) -> list[dict]:
             "pdf_url": source_url(r["pdf_path"]),
         })
     return out
+
+
+def review_queue_items(conn: sqlite3.Connection, reason: str | None = None) -> list[dict]:
+    """Open canonical review_queue rows with parsed payloads for the UI."""
+    params: list[str] = []
+    where = "WHERE status='open'"
+    if reason:
+        where += " AND reason=?"
+        params.append(reason)
+    rows = conn.execute(f"""
+        SELECT id, entity_id, item_type, item_id, reason, payload_json, created_at
+        FROM review_queue
+        {where}
+        ORDER BY created_at DESC, id DESC
+    """, params).fetchall()
+    names = entity_names()
+    out = []
+    for r in rows:
+        try:
+            payload = json.loads(r["payload_json"] or "{}")
+        except json.JSONDecodeError:
+            payload = {"raw": r["payload_json"]}
+        out.append({
+            "id": r["id"],
+            "entity": names.get(r["entity_id"], f"entity_id={r['entity_id']}") if r["entity_id"] else "-",
+            "item_type": r["item_type"],
+            "item_id": r["item_id"],
+            "reason": r["reason"],
+            "payload": payload,
+            "created_at": r["created_at"],
+        })
+    return out
+
+
+def resolve_review_item(conn: sqlite3.Connection, review_id: int) -> None:
+    conn.execute(
+        "UPDATE review_queue SET status='resolved', resolved_at=datetime('now') WHERE id=?",
+        (review_id,),
+    )
+    conn.commit()
+
+
+def entity_documents(conn: sqlite3.Connection, entity_id: int) -> list[dict]:
+    """Source documents grouped by processed status for the entity Documents tab."""
+    rows = conn.execute("""
+        SELECT dedupe_hash, agency, title, doc_type, pdf_path, published_on, processed
+        FROM raw_items
+        WHERE entity_id=?
+        ORDER BY published_on DESC, ingested_at DESC
+    """, (entity_id,)).fetchall()
+    status = {0: "Pending", 1: "Processed", 2: "Needs OCR", 3: "Extract failed", 4: "Entity mismatch"}
+    return [{
+        "hash": r["dedupe_hash"][:12],
+        "agency": r["agency"],
+        "title": r["title"],
+        "doc_type": r["doc_type"] or "-",
+        "published_on": r["published_on"] or "-",
+        "status": status.get(r["processed"], f"Status {r['processed']}"),
+        "pdf_url": source_url(r["pdf_path"]),
+    } for r in rows]
+
+
+def entity_review_items(conn: sqlite3.Connection, entity_id: int) -> list[dict]:
+    return [r for r in review_queue_items(conn) if r["entity"] == entity_names().get(entity_id, f"entity_id={entity_id}")]
+
+
+def entity_news_events(conn: sqlite3.Connection, entity_id: int) -> list[dict]:
+    """News-like events for the entity News tab.
+
+    Prefer canonical news_events when present; fall back to extracted news deltas
+    so the UI works with the current pipeline tables.
+    """
+    if _table_exists(conn, "news_events"):
+        rows = conn.execute("""
+            SELECT headline, summary, event_date, source, source_link, materiality, ai_flag
+            FROM news_events WHERE entity_id=? ORDER BY event_date DESC, id DESC
+        """, (entity_id,)).fetchall()
+        if rows:
+            return [dict(r) for r in rows]
+    rows = conn.execute("""
+        SELECT d.delta_note AS summary, d.materiality, d.agency AS source,
+               r.published_on AS event_date, r.title AS headline, r.pdf_url AS source_link
+        FROM deltas d
+        JOIN snapshots s ON s.id=d.new_snapshot_id
+        JOIN raw_items r ON r.dedupe_hash=s.dedupe_hash
+        WHERE d.entity_id=? AND d.doc_type='news'
+        ORDER BY r.published_on DESC, d.id DESC
+    """, (entity_id,)).fetchall()
+    return [dict(r) | {"ai_flag": 1} for r in rows]
+
+
+def peer_rating_matrix(conn: sqlite3.Connection, entity_ids: list[int]) -> list[dict]:
+    """Latest rating rows for selected peers."""
+    out = []
+    names = entity_names()
+    for eid in entity_ids:
+        ratings = current_ratings(conn, eid)
+        if not ratings:
+            out.append({"entity_id": eid, "entity": names.get(eid, f"entity_id={eid}"),
+                        "agency": "-", "instrument": "-", "rating": "—", "outlook": "—", "as_of": "—"})
+            continue
+        for r in ratings:
+            out.append({"entity_id": eid, "entity": names.get(eid, f"entity_id={eid}"), **r})
+    return out
+
+
+def _rating_score(rating: str | None) -> int | None:
+    if not rating:
+        return None
+    text = rating.upper().replace("[ICRA]", "").replace("CARE", "").replace("CRISIL", "").strip()
+    order = ["AAA", "AA+", "AA", "AA-", "A+", "A", "A-", "BBB+", "BBB", "BBB-", "BB+", "BB", "BB-", "B+", "B", "B-"]
+    for idx, token in enumerate(order, start=1):
+        if token in text:
+            return idx
+    return None
+
+
+def peer_risk_flags(conn: sqlite3.Connection, columns: list[dict]) -> list[dict]:
+    """Simple deterministic flags for peer comparison demo/feedback."""
+    flags = []
+    for c in columns:
+        issues = []
+        positives = []
+        if c.get("verified") != "Verified":
+            issues.append("Unverified financials")
+        if c.get("gnpa_pct") is not None and c["gnpa_pct"] >= 5:
+            issues.append("GNPA ≥ 5%")
+        elif c.get("gnpa_pct") is not None and c["gnpa_pct"] <= 2:
+            positives.append("Low GNPA")
+        if c.get("car_pct") is not None and c["car_pct"] < 18:
+            issues.append("CAR < 18%")
+        elif c.get("car_pct") is not None and c["car_pct"] >= 22:
+            positives.append("Strong CAR")
+        if c.get("pat_cr") is not None and c["pat_cr"] < 0:
+            issues.append("Loss-making")
+        material = conn.execute(
+            "SELECT COUNT(*) FROM deltas WHERE entity_id=? AND materiality='high'",
+            (c.get("entity_id"),),
+        ).fetchone()[0] if _table_exists(conn, "deltas") and c.get("entity_id") is not None else 0
+        if material:
+            issues.append(f"{material} high-materiality change(s)")
+        flags.append({"entity": c["entity"], "basis": c["basis"],
+                      "status": "Watch" if issues else "OK",
+                      "issues": issues, "positives": positives})
+    return flags
+
+
+def _table_exists(conn: sqlite3.Connection, table: str) -> bool:
+    return conn.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone() is not None
 
 
 def mark_financials_verified(conn: sqlite3.Connection, ids: list[int]) -> int:
