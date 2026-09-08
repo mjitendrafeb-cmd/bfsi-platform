@@ -1,0 +1,1285 @@
+<title>Press Release</title><meta charset="UTF-8">
+    
+    <link href="/Font/font.css" rel="stylesheet">
+    <style>
+        .bold {
+            font-weight: bold;
+        }
+
+        .auto-style1 {
+            width: 34px;
+        }
+
+        .head {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #000000;
+            text-align: center;
+        }
+
+        .subhead {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #000000;
+            text-align: center;
+        }
+
+        .subleft {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            color: #000000;
+            text-align: left;
+        }
+
+        .subcenter {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            color: #000000;
+            text-align: center;
+        }
+
+        .subheader {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #82191B;
+            text-align: left;
+        }
+
+        .subheader1 {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #000;
+            text-align: left;
+        }
+
+        .subheaderU {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            text-align: left;
+            text-decoration: underline;
+        }
+
+        .subheaderColor {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #049cdf;
+            text-align: left;
+        }
+
+        .subtab {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #000000;
+            text-align: left;
+        }
+
+        .normalfont {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            color: #000000;
+            text-align: justify;
+        }
+
+        .normalfontI {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            font-style: italic;
+            color: #000000;
+            text-align: justify;
+        }
+
+        .normalfontUnderline {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            text-decoration: underline;
+            color: #049cdf;
+            text-align: justify;
+        }
+
+        .normalfontcolor {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            background-color: #EA872F;
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+
+        .normalfont1 {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            text-align: left;
+        }
+
+        .hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #049cdf;
+            margin: 1em 0;
+            padding: 0;
+        }
+
+        .para {
+            width: 80%;
+        }
+
+        table {
+            overflow-x: visible !important;
+        }
+
+        body {
+            font-family: 'Times New Roman' !important;
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+
+
+        #Rating_Activity {
+            width: 100% !important;
+            table-layout: fixed !important;
+        }
+
+            /* force wrapping */
+            #Rating_Activity th, #Rating_Activity td {
+                white-space: normal !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                font-size: 11px !important;
+            }
+
+                /* ? Column widths (CSS-only) */
+                #Rating_Activity th:nth-child(1),
+                #Rating_Activity td:nth-child(1) {
+                    width: 5%;
+                }
+
+                #Rating_Activity th:nth-child(2),
+                #Rating_Activity td:nth-child(2) {
+                    width: 80%;
+                }
+
+                #Rating_Activity th:nth-child(3),
+                #Rating_Activity td:nth-child(3) {
+                    width: 15%;
+                }
+
+            #Rating_Activity th {
+                text-align: center; /* ? center align header */
+                vertical-align: middle;
+            }
+
+
+        #Other_activities {
+            width: 100% !important;
+            table-layout: fixed !important;
+        }
+
+            /* force wrapping */
+            #Other_activities th, #Other_activities td {
+                white-space: normal !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                font-size: 11px !important;
+            }
+
+                /* ? Column widths (CSS-only) */
+                #Other_activities th:nth-child(1),
+                #Other_activities td:nth-child(1) {
+                    width: 5%;
+                }
+
+                #Other_activities th:nth-child(2),
+                #Other_activities td:nth-child(2) {
+                    width: 80%;
+                }
+
+                #Other_activities th:nth-child(3),
+                #Other_activities td:nth-child(3) {
+                    width: 15%;
+                }
+
+            #Other_activities th {
+                text-align: center; /* ? center align header */
+                vertical-align: middle;
+            }
+    </style> <!-- jQuery -->
+    <style>
+        class1 {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            margin-top: 0px
+        }
+
+        imgclass {
+            margin-left: 80% !important;
+            height: 50px !important;
+            text-align: right !important;
+        }
+
+        .class2 {
+            text-align: center;
+        }
+
+        .class3 { font-size:15px;
+            font-size: 15px;
+            position: absolute;
+            width: 80%;
+        }
+
+        .lblColor { font-size: 15px;
+            font-size: 15px;
+            color: #82191B;
+        }
+
+        .class4 {
+            position: relative;
+            text-align: end;
+            height: 100px;
+        }
+
+        .qrClass {
+            height: 100px !important;
+            padding-left: 95px !important;
+            display: none !important;
+        }
+
+        .tbBrd {
+            border: 1px solid black;
+        }
+
+        .class5 {
+            margin-left: 5px;
+            font-size: 12px !important;
+        }
+
+        .class6 {
+            text-align: center;
+            font-size: 12px !important;
+        }
+
+        .class7 {
+            margin-left: 134px !important;
+            font-size: 12px !important;
+        }
+
+        .class8 {
+            padding-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        .class9 {
+            font-size: 12px !important;
+        }
+
+        .class10 {
+            padding-top: 10px;
+            font-size: 12px !important;
+        }
+
+        .class11 {
+            font-size: 12px !important;
+        }
+
+        .pgbrk {
+            page-break-before: always !important;
+        }
+
+        .class12 {
+            text-align: left !important;
+            padding-bottom: 10px;
+        }
+
+        .class13 {
+            padding-bottom: 10px;
+        }
+
+        .classtd1 {
+            border-top: 1px solid;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            border-left: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classtd2 {
+            border-top: 1px solid;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf1 {
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf2 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf3 {
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf4 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf5 {
+            font-size: 12px !important;
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf6 {
+            font-size: 12px !important;
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf7 {
+            font-size: 12px !important;
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf8 {
+            font-size: 12px !important;
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf9 {
+            font-size: 12px !important;
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .class10 {
+            font-size: 12px !important;
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf11 {
+            font-size: 12px !important;
+            text-align: right !important;
+            padding-right: 20px;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf12 {
+            font-size: 12px !important;
+            text-align: right !important;
+            padding-right: 20px;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classrh1 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classrh2 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classrh3 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classrh4 {
+            text-align: right !important;
+            padding-right: 20px;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classrh5 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classtblnew {
+            page-break-after: always !important;
+            font-size: 12px !important;
+        }
+
+        .tblwdth {
+            width: 100% !important;
+        }
+
+        .classanx1 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classanx2 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .class14 {
+            text-align: left;
+            font-size: 12px !important;
+        }
+
+        #User_table td:nth-child(3) {
+            text-align: right !important;
+            padding-right: 3px;
+        }
+
+        #User_table td:nth-child(4) {
+            text-align: right !important;
+            padding-right: 3px;
+        }
+
+        #User_table td:nth-child(1) {
+            text-align: left !important;
+            padding-left: 3px;
+        }
+
+        #User_table td:nth-child(2) {
+            text-align: left !important;
+            padding-left: 3px;
+        }
+
+        #myTable td:nth-child(7) {
+            text-align: right !important;
+            padding-right: 3px;
+        }
+
+        #User_table td:nth-child(3){text-align: right !important;padding-right: 3px;} #User_table td:nth-child(4){text-align: right !important;padding-right: 3px;}  #User_table td:nth-child(1){text-align: left !important;padding-left: 3px;}  #User_table td:nth-child(2){text-align: left !important;padding-left: 3px;} #myTable td:nth-child(7){text-align: right !important;padding-right: 3px;} .classkf10 {
+            font-size: 12px !important;
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+    </style>
+
+
+
+    
+    
+    
+    
+    <div class="class1 content-wrapper">
+
+        <table width="100%" valign="top" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+                <td valign="top">
+                    <img id="Logo" style="margin-left: 80%; height: 50px; text-align: right;" src="https://connect.acuite.in/public/image/acuite.jpg">
+                </td>
+            </tr>
+        </tbody></table>
+        
+                <table align="center" width="80%" class="table table-bordered" cellspacing="0" cellpadding="3">
+                    <tbody><tr>
+                        <td>
+                            <div class="class2">
+                                
+
+                                 
+                                <div class="class3">
+                                    <br>
+                                    <label class="lblColor"><br/><b>Press Release</b></label><br/><br/><label style="font-size:15px;font-family:'Times New Roman';"><b>September 08, 2026</b></label><br/><br>
+                                    
+                                    <label style="font-size:15px;font-family:'Times New Roman';"><b>THE NATIONAL SMALL INDUSTRIES CORPORATION LIMITED</b></label><br>
+                                    
+                                    <label style="font-size:15px;font-family:'Times New Roman';"><b>Rating Reaffirmed</b></label>
+                                    <br>
+                                </div>
+                                <div class="class4">
+                                    <img id="QrCode" style="height: 90px; float:left;margin-left: 0px 0px 0px 30px;" src="https://connect.acuite.in/public/qrcode/25301.png" 
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+                        <table width="80%" align="center" cellspacing="0" cellpadding="0"><tbody><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr></tbody></table><table align="center" width="80%" class="table table-bordered tblBrd" cellspacing="0" cellpadding="3">
+                    
+                    <tbody>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Product</b></td>
+                                            <td class="tbBrd class6">Quantum (Rs. Cr) (SEBI)</td>
+                                            <td class="tbBrd class6">Quantum (Rs. Cr) (Other FSR)</td>
+                                            <td class="tbBrd class6">Long Term Rating</td>
+                                            <td class="tbBrd class6">Short Term Rating</td>
+                                            <td class="tbBrd class6">Regulated By</td>
+                            </tr>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Commercial Paper (CP)</b></td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">1200.00</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">ACUITE A1+ | Reaffirmed</td>
+                                            <td class="tbBrd class6">RBI</td>
+                            </tr>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Total Outstanding</b></td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">1200.00</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">-</td>
+                            </tr>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Total Withdrawn</b></td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">-</td>
+                            </tr>
+                    </tbody>
+
+                </table>
+                    <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <i style="font-size:8pt; color:red;"><b>Note:- For activities or ratings of instruments falling under the purview of Financial Sector Regulators other than SEBI, the grievance / dispute redressal mechanisms and investor protection mechanisms provided by SEBI shall not be available.</b></i>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                <tbody><tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+
+            </tbody></table>
+                                <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                            <tbody><tr>
+                                <td class="subheader" style="padding-top:0px;text-align:center;font-size:12px !important;">
+                                    Rating Rationale <br/><br/>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                            <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                                <tbody><tr>
+                                    <td class="normalfont" align="left" style="font-size: 12px !important;text-align: justify !important;text-justify: inter-word !important;">
+                                        <span class="normalfont" style="font-size: 12px !important;font-family:'Times New Roman';text-align: justify !important;text-justify: inter-word !important;">
+                                            <div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">­Acuité has reaffirmed its&nbsp;short term rating of&nbsp;<strong>‘ACUITE A1+’ (read as ACUITE A one plus)</strong>&nbsp;on the Rs. 1200.00 Cr. commercial paper program of The National Small Industries Corporation Limited (NSIC).<br>
+<br>
+<strong>Rationale for Rating</strong><br>
+The rating factors in the support that NSIC receives from Government of India (GoI) by the way of 100 percent ownership. NSIC plays an important role as a nodal government agency and provides support to MSME’s. The rating further factors in comfortable capitalization and liquidity profile of NSIC. NSIC’s revenue stream remains diversified majorly comprising of sale of goods and services and interest income from credit facilities extended to MSME’s. The rating considers NSIC’s secured nature of loan assets which are backed by Bank Guarantees. Going forward, continued GoI support, business growth and profitability would be key credit monitorables.</span></span></div>
+
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr><td><br></td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">About the company</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">­New Delhi based&nbsp;­NSIC, established in 1955, is a Government of India undertaking, set up under the aegis of Ministry of Micro, Small and Medium Enterprises (MSME Ministry). The ISO 9001-2015 certified company lays emphasis on growth and development of MSMEs across India through various schemes focusing on areas like procurement of raw material, marketing, credit, skill development and technology, among others. It operates through a countrywide network of more than 160 offices technical centres in the country. Apart from commercial activities, it also undertakes promotional activities to achieve its objective of promoting and nurturing the MSME sector. NSIC is registered as an NBFC – ND – SI with Reserve Bank of India (RBI) and acts as a nodal agency for several schemes of the Ministry of MSME.&nbsp;The directors of this company are Mr. Ashok Ahirwar , Mr. Kalandi Charan Samal, Mr. Mercy Epao, Mr. Kartikeya Sinha, Mr. Subhransu Sekhar Achary, Ms. Simmi Chaudhary and Mr. Gaurav Gulati.</span></span></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Unsupported Rating</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">­Not Applicable.</span></span></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                                        <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" class="subheader class11">
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="normalfont class11">
+                                                        
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Analytical Approach</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">­Acuité has considered the standalone business and financial risk profile of NSIC. The rating factors in the strategic importance of NSIC in the development of the MSME sector and Government of India’s ownership.</span></span></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                    <table width="80%" align="center" cellspacing="0" cellpadding="0"><tbody><tr><td class="subheader class14">Key Rating Drivers<br/><br/></td></tr></tbody></table>
+                    <table width="80%" align="center" cellspacing="0" cellpadding="0" class="class8">
+                        
+                        <tbody><tr></tr>
+                                    <tr><td class="subheader"> Strength</td></tr>
+                                            <tr><td class="class11">  <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">­<strong>Strong backing by Government of India for development of MSME sector</strong><br>
+<br>
+MSME sector is of significant importance to the Government of India (GoI) given the pivotal role played by the sector in India’s economic growth. The sector accounts for ~40&nbsp;per cent of the overall exports from India, ~45 per cent of the manufacturing output and contributes nearly 30 percent to GDP. NSIC plays a critical role in promoting and supporting the MSME segment through a combination of commercial activities and implementing Government’s schemes for the sector. Apart from operational and management support, NSIC also benefits from being a 100 percent government-owned entity providing easy access to funding. Apart from regular bank lines, it has also been able to raise long-term funds for up to 40 years from foreign institutions such as KFW, Germany based on sovereign guarantees.<br>
+Acuité believes that NSIC will continue to play a key role in the development of the MSME segment and benefit from the GoI’s strong support.<br>
+<br>
+<strong>Diversified revenue streams and comfortable liquidity profile</strong><br>
+<br>
+NSIC provides integrated support to MSMEs by providing raw material assistance, marketing support, credit support, and technology and training activities. NSIC derived ~85 per cent of its operating revenue from the sale of products and services during FY2026. Other revenue streams include interest earned through credit facilities extended for raw material procurement, which accounted for ~10 percent; processing fees ~2 per cent. Further, its income is supported by grants received from the government for implementing promotional schemes.<br>
+NSIC extends advances to MSMEs for procurement of raw material against bank guarantees. As per its credit policy, NSIC advances loans of up to 95 per cent of the value of the bank guarantee.&nbsp;Since the exposures are covered by bank guarantees, overall asset quality has been satisfactory. The exposure to a single borrower is up to a maximum of Rs 8 Cr. with 90 days maturity and is rolled over subject to borrowers’ satisfactory credit discipline. Since the exposures are mostly short term in nature, borrowings are also mainly short term borrowings. A major portion of the resources is raised through short term bank lines from a mix of foreign and domestic banks.&nbsp;<br>
+Acuité believes that NSIC will maintain a stable credit profile on the back of its diversified product mix, a prudent policy of lending against bank guarantee and availability of adequate liquidity cushion</span></span></div>
+</td></tr>
+                                    <tr><td class="subheader"> <br/>Weakness</td></tr>
+                                            <tr><td class="class11">  <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">­­<strong>Future growth prospects linked to GoI support amidst increasing competition in key revenue segments</strong><br>
+<br>
+NSIC largely depends on government’s budgetary allocation for promotion of various government schemes. The quantum of grants and subsidies from the government is a key determinant of its operational performance. Further, NSIC derives a major part of its revenue through its raw material assistance scheme. It acts as an aggregator procuring raw material such as coal, iron, steel, cement and paraffin among others from government companies including Coal India Limited, Steel Authority of India Limited, Hindustan Copper Limited in bulk and provides the same to MSMEs at competitive rates. The emergence of private players with similar business models adds to the competitive intensity of this segment. The increasing number of banks and NBFCs focusing on SME lending further adds to the increasingly competitive&nbsp;landscape.&nbsp;<br>
+Against the backdrop of increasing competition in its key revenue segments like raw material procurement, NSIC will have to depend on other government-funded schemes to scale&nbsp;up its revenue and profitability. Hence, Acuité believes that the level of government support will be a key driving force for NSIC’s future growth.</span></span></div>
+</td></tr>
+                    </tbody></table>
+                    <p class="subheader aa class7">Rating Sensitivity</p>
+                    <table width="80%" align="center" cellspacing="0" cellpadding="0" class="class8">
+                        
+                        <tbody><tr></tr>
+                                    <tr><td class="subheader"> Potential triggers (individual or collective) for an upward rating action:</td></tr>
+                                            <tr><td class="class11">  <div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">­Not Applicable.</span></span></div>
+</td></tr>
+                                    <tr><td class="subheader"> Potential triggers (individual or collective) for a downward rating action:</td></tr>
+                                            <tr><td class="class11">  <ul>
+	<li style="text-align: justify;"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Deterioration in profitability metrics &amp; Debt to equity above 3 times.</span></span></li>
+	<li style="text-align: justify;"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Impact of any material changes in the market environment on business operations.</span></span></li>
+</ul>
+</td></tr>
+                    </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Liquidity Position</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                                        <b> Strong </b>
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:black">The liquidity profile of the company is strong. The company generated a net cash accrual of Rs. 169.62Cr. as on as on 31st March 2026 against Rs.2.50 Cr. debt repayment obligations in the same period. The NCA are expected to be in the range of ~Rs.190 Cr. to Rs.220 Cr. during FY27-FY28 against the repayment obligation of ~Rs.2.50&nbsp;Cr. during the same period.The current ratio of the company stood similar at 1.63&nbsp;times as on 31st March 2026 against 1.65 times as on 31st March 2025. Further the cash and bank balances stood at Rs. 104.60&nbsp;Cr. in FY26 as against Rs.85.41 Cr. in FY25. Acuite believes that the company’s liquidity profile remains strong, supported by healthy accruals and comfortable coverage of debt obligations.</span></span></span><br>
+&nbsp;</div>
+
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Outlook: Not Applicable.</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <span style="font-family:'Times New Roman'; font-size:12px !important">­</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Other Factors affecting Rating</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <span style="font-family:'Times New Roman'; font-size:12px !important">­None.</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Key Financials - Standalone / Originator</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">­</span></span></div>
+
+<table border="1" cellspacing="0" class="Table" style="background:white; border-collapse:collapse; border:solid windowtext 1.0pt; width:376.15pt">
+	<tbody>
+		<tr>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><strong><span style="color:#212529">Particulars</span></strong></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><strong><span style="color:#212529">Unit</span></strong></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><strong><span style="color:#212529">FY26(Actual)</span></strong></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><strong><span style="color:#212529">FY25(Actual)</span></strong></span></span></td>
+		</tr>
+		<tr>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Total Assets</span></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Rs. Cr.</span></span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">3716.61</span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">3355.24</span></span></td>
+		</tr>
+		<tr>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Total Income*</span></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Rs. Cr.</span></span></span></td>
+			<td style="background-color:white; text-align:right; width:19.32%"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">3865.78</span></span></span></td>
+			<td style="background-color:white; text-align:right; width:19.32%"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">3520.63</span></span></span></td>
+		</tr>
+		<tr>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">PAT</span></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Rs. Cr.</span></span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">159.19</span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">146.30</span></span></td>
+		</tr>
+		<tr>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Net Worth</span></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Rs. Cr.</span></span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">1572.88</span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">1459.08</span></span></td>
+		</tr>
+		<tr>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Return on Average Assets (RoAA)</span></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">(%)</span></span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">4.50</span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">4.48</span></span></td>
+		</tr>
+		<tr>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Return on Average Net Worth (RoNW)</span></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">(%)</span></span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">10.50</span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">10.43</span></span></td>
+		</tr>
+		<tr>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Debt/Equity</span></span></span></td>
+			<td style="background-color:white; text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><span style="color:#212529">Times</span></span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">1.09</span></span></td>
+			<td style="background-color:white; text-align:right"><span style="font-size:12px"><span style="font-family:'Times New Roman'">1.02</span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'"><em><span style="background-color:white"><span style="color:black">*Total income equals to Net Interest Income plus other income</span></span></em></span></span></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Status of non-cooperation with previous CRA (if applicable):</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">­Not Applicable</span></span></div>
+
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Any other information</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <span style="font-family:'Times New Roman'; font-size:12px !important">­None.</span>
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Applicable Criteria</td></tr>
+                                    <tr>
+                                        <td class="class11">
+• Application Of Financial Ratios And Adjustments: <a href="https://www.acuite.in/view-rating-criteria-53.htm" target="_blank" style="color:blue;font-size:12px !important;">https://www.acuite.in/view-rating-criteria-53.htm</a><br>• Commercial Paper: <a href="https://www.acuite.in/view-rating-criteria-54.htm" target="_blank" style="color:blue;font-size:12px !important;">https://www.acuite.in/view-rating-criteria-54.htm</a><br>• Default Recognition: <a href="https://www.acuite.in/view-rating-criteria-52.htm" target="_blank" style="color:blue;font-size:12px !important;">https://www.acuite.in/view-rating-criteria-52.htm</a><br>• Non-Banking Financing Entities: <a href="https://www.acuite.in/view-rating-criteria-44.htm" target="_blank" style="color:blue;font-size:12px !important;">https://www.acuite.in/view-rating-criteria-44.htm</a><br>                                        </td>
+                                    </tr>
+                                                            </tbody></table>
+                                        <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" class="subheader class11">
+                                                    Note on complexity levels of the rated instrument
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="normalfont class11">
+                                                        <div style="text-align:justify"><span style="font-family:'Times New Roman'">­In order to inform the investors about complexity of instruments, Acuité has categorized such instruments in three levels: Simple, Complex and Highly Complex. Acuite’s categorisation of the instruments across the three categories is based on factors like variability of the returns to the investors, uncertainty in cash flow patterns, number of counterparties and general understanding of the instrument by the market. It has to be understood that complexity is different from credit risk and even an instrument categorized as 'Simple' can carry high levels of risk. For more details, please refer Rating Criteria “Complexity Level Of Financial Instruments” on&nbsp;<a href="https://www.acuite.in/view-rating-criteria-55.htm">www.acuite.in</a>.</span></div>
+
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                <table class="table table-bordered pgbrk" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                    <tbody><tr><td class="subheader class12"><br><label align="center" class="class9">Rating History</label></td></tr>
+
+                                    <tr>
+                                        <td>
+                                            <table id="tbl_rath" class="table table-bordered" width="100%" align="center" cellspacing="0" cellpadding="0">
+                                                <tbody><tr class="tbBrd">
+                                                    <td class="subhead classtd1">Date</td>
+                                                    <td class="subhead classtd2">Name of Instruments/Facilities</td>
+                                                    <td class="subhead classtd2">Term</td>
+                                                    <td class="subhead classtd2">Amount (Rs. Cr)</td>
+                                                    <td class="subhead classtd2">Rating/Outlook</td>
+                                                </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="2">08 Sep 2025</td>
+                                                        <td class="normalfont classrh2">Proposed Commercial Paper Program</td>
+                                                        <td class="normalfont classrh3">Short Term</td>
+                                                        <td class="normalfont classrh4">200.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A1+ 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Commercial Paper Program</td>
+                                                        <td class="normalfont classrh3">Short Term</td>
+                                                        <td class="normalfont classrh4">1000.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A1+ 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="2">13 Sep 2024</td>
+                                                        <td class="normalfont classrh2">Proposed Commercial Paper Program</td>
+                                                        <td class="normalfont classrh3">Short Term</td>
+                                                        <td class="normalfont classrh4">1000.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A1+ 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Commercial Paper Program</td>
+                                                        <td class="normalfont classrh3">Short Term</td>
+                                                        <td class="normalfont classrh4">200.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A1+ 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="2">15 Sep 2023</td>
+                                                        <td class="normalfont classrh2">Proposed Commercial Paper Program</td>
+                                                        <td class="normalfont classrh3">Short Term</td>
+                                                        <td class="normalfont classrh4">1000.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A1+ 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Commercial Paper Program</td>
+                                                        <td class="normalfont classrh3">Short Term</td>
+                                                        <td class="normalfont classrh4">200.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A1+ 
+(Reaffirmed)</td>
+                                                    </tr>
+
+
+                                                
+
+
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <table class="table table-bordered classtblnew" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                    <tbody><tr>
+                                        <td>
+                                                        <div class="rating-note">
+                                                            <span style="font-family:'Times New Roman'; font-size:12px !important">­</span>
+                                                        </div>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <div class="table-wrapper">
+                                    <table class="tblBrd" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr>
+                                            <td class="subheader class12">
+                                                <br><label align="center" class="class9">Annexure  - Details of instruments rated</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <table id="myTable" class="table table-bordered tblwdth" cellspacing="0">
+                                                    <tbody><tr>
+                                                        <td class="subhead classtd1">Lender’s Name</td>
+                                                        <td class="subhead classtd2">ISIN</td>
+                                                        <td class="subhead classtd2">Facilities</td>
+                                                        <td class="subhead classtd2">Listing Status</td>
+                                                        <td class="subhead classtd2">Regulated By</td>
+                                                        <td class="subhead classtd2">Date Of Issuance</td>
+                                                        <td class="subhead classtd2">Coupon Rate</td>
+                                                        <td class="subhead classtd2">Maturity Date</td>
+                                                         <td class="subhead classtd2">Quantum<br/>(Rs. Cr.)</td>
+                                                        <td class="subhead classtd2">Complexity Level</td>
+                                                        <td class="subhead classtd2">Rating</td>
+                                                    </tr>
+                                                        <tr>
+
+                                                            <td class="normalfont classanx1">
+                                                                Not Applicable
+                                                            </td>
+                                                            <td class="normalfont classanx2">Not avl. / Not appl.</td>
+                                                            <td class="normalfont classanx2">Proposed Commercial Paper Program</td>
+                                                            <td class="normalfont classanx2">Unlisted</td>
+                                                            <td class="normalfont classanx2">RBI</td>
+                                                            <td class="normalfont classanx2">Not avl. / Not appl.</td>
+                                                            <td class="normalfont classanx2">Not avl. / Not appl.</td>
+                                                            <td class="normalfont classanx2">Not avl. / Not appl.</td>
+                                                            <td class="normalfont classanx2">1000.00</td>
+                                                            <td class="normalfont classanx2">Simple</td>
+                                                            <td class="normalfont classanx2">
+ ACUITE A1+ | Reaffirmed</td>
+                                                        </tr>
+                                                        <tr>
+
+                                                            <td class="normalfont classanx1">
+                                                                Not Applicable
+                                                            </td>
+                                                            <td class="normalfont classanx2">Not avl. / Not appl.</td>
+                                                            <td class="normalfont classanx2">Proposed Commercial Paper Program</td>
+                                                            <td class="normalfont classanx2">Unlisted</td>
+                                                            <td class="normalfont classanx2">RBI</td>
+                                                            <td class="normalfont classanx2">Not avl. / Not appl.</td>
+                                                            <td class="normalfont classanx2">Not avl. / Not appl.</td>
+                                                            <td class="normalfont classanx2">Not avl. / Not appl.</td>
+                                                            <td class="normalfont classanx2">200.00</td>
+                                                            <td class="normalfont classanx2">Simple</td>
+                                                            <td class="normalfont classanx2">
+ ACUITE A1+ | Reaffirmed</td>
+                                                        </tr>
+                                                </tbody></table>
+                                            </td>
+                                        </tr>
+
+
+
+                                        
+
+                                    </tbody></table>
+                                        <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <i style="font-size:8pt; color:red;"><b>Note:- For activities or ratings of instruments falling under the purview of Financial Sector Regulators other than SEBI, the grievance / dispute redressal mechanisms and investor protection mechanisms provided by SEBI shall not be available.</b></i>
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                    <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr>
+                                            <td>
+                                                <span style="font-family:'Times New Roman'; font-size:12px !important">­</span>
+                                            </td>
+                                        </tr>
+                                    </tbody></table>
+                                <table style="page-break-before:always" class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                    <tbody><tr>
+                                        <td class="subheader1" style="padding-bottom:10px;font-size: 12px !important;">
+                                            <br>Contacts
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                    
+                                    <tbody><tr>
+                                        <td colspan="1" width="50%" style="border:1px solid black;padding-left: 20px;padding-top: 5px;padding-bottom: 5px;font-size: 12px !important;">
+                                                <label class="normalfont" style="font-size: 12px !important;">Mohit Jain<br></label>
+                                                <label class="normalfont" style="font-size: 12px !important;">Chief Analytical Officer - Rating Operations<br><br></label>
+                                                                                            <label class="normalfont" style="font-size: 12px !important;">Tejas Chaugule<br></label>
+                                                <label class="normalfont" style="font-size: 12px !important;">Analyst - Rating Operations<br></label>
+                                        </td>
+                                        <td valign="top" colspan="1" width="50%" style="border:1px solid black;padding-left: 20px;padding-top: 5px;">
+                                                <label class="normalfont" style="font-size: 12px !important;"><b>Contact details exclusively for investors and lenders</b><br><br></label>
+                                                <label class="normalfont" style="font-size: 12px !important;">Mob: +91 8591310146<br></label>
+                                                <label class="normalfont" style="font-size: 12px !important;">Email ID: <span style="color:blue;">analyticalsupport@acuite.in</span><br></label>
+                                        </td>
+                                    </tr>
+                                    <tr>     </tr>
+                                </tbody></table>
+                                        <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" class="subheader1 class11"><br/>
+                                                    List of instruments and names of regulators of the instruments
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="normalfont class11">
+                                                        <div>
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">As required by SEBI Circular (SEBI/HO/DDHS/DDHS-PoD-2/I/4685/2026) dated February 10, 2026, a list of activities or instruments falling under the purview of various Financial Sector Regulators (FSRs), along with the names of respective FSRs, is being disclosed below:<br>
+<strong>A.&nbsp;Rating Activity:</strong></span></span><br>
+&nbsp;</div>
+
+<table border="1" cellspacing="0" id="Rating_Activity">
+	<tbody>
+		<tr>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Sr. No.</strong></span></span></th>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Instrument / activity Name</strong></span></span></th>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Regulator of the instrument</strong></span></span></th>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">1</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed/Proposed to be listed Bonds/Debentures/Preference Shares (all securities)</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">2</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted/Proposed to be unlisted Bonds/Debentures/ Preference share (all securities)</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">MCA</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">3</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed PTCs / Securitisation Notes (originated by entities regulated by RBI)<sup><em>1</em></sup>&nbsp;<sup><em>6</em></sup></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">4</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed PTCs / Securitisation Notes (originated by entities not regulated by RBI)<em><sup>1</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">5</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted PTCs / Securitisation Notes (originated by entities regulated by RBI)<em><sup>1</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">6</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed Commercial Paper and NCDs with original maturity less than 1 year</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">7</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted Commercial Paper and NCDs with original maturity less than 1 year</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">8</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Loan Facilities (Fund/Non-Fund Based) from Bank / NBFCs/ NHB/ FIs&nbsp;<em><sup>2</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">9</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">External Commercial Borrowings and other similar borrowings</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">10</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Certificates of Deposit</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">11 a</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Fixed Deposits raised by NBFCs, HFCs, FIs</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">11 b</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Fixed Deposits raised by Banks&nbsp;<em><sup>7</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">+</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">12</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Fixed Deposits raised by corporates other than NBFCs, Banks, HFCs, FIs</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">MCA</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">13</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Inter Corporate Deposits/Loans extended by Corporates</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">MCA</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">14</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Borrowing programme&nbsp;<em><sup>3</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">-</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">15</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Issuer Ratings&nbsp;<em><sup>4</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">-</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">16</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Credit Ratings for Capital Protection Oriented Schemes (by Mutal Funds and AIFs)</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">17</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Credit quality ratings (CQRs) for Mutual Fund Schemes and Schemes of AIFs</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">18</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed Security Receipts&nbsp;<em><sup>6</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">19</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted Security Receipts</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">20</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Independent Credit Evaluation (ICE)</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">21</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Expected Loss Ratings (For Loan Facilities [Fund/Non-Fund based] from Banks/NBFCs/NHB/FIs)&nbsp;<em><sup>7</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">+</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">22</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Expected Loss Ratings (Listed / Proposed to be listed Bonds / Debentures / Preference Shares (all securities))</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">23</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Expected Loss Ratings (Unlisted / Proposed to be unlisted Bonds/ Debentures / Preference Shares (all securities))</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">MCA</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">24</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted PTCs / Securitisation Notes (originated by entities not regulated by RBI)&nbsp;<em><sup>1</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Investor-side Regulator such as IRDAI, PFRDA&nbsp;<em><sup>5</sup></em></span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="text-align:justify">&nbsp;</div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><em><sup>1&nbsp;</sup>Includes securitisation transactions involving assignee payout, acquirer's payout.</em></span></span></div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><em><sup>2</sup>&nbsp;Includes bank facilities such as liquidity facility, second loss facility that are part of securitisation transactions. </em><br>
+<em><sup>3&nbsp;</sup>The rated instrument may involve issuance of different instruments such as debt securities (listed or otherwise), bank loans, commercial paper (listed or otherwise), etc. The regulator of the instrument may accordingly be SEBI, RBI or MCA and can only be determined upon issuance. In Press Release(s) subsequent to issuance(s), Acuite shall separately capture the rated quantum details along with names of respective regulators.</em><br>
+<em><sup>4</sup></em>&nbsp;<em>There is no instrument being rated and hence, Regulator of the Instrument is not applicable. The rating scale and definitions are being followed as stipulated in SEBI Master Circular for CRAs.</em><br>
+<em><sup>5</sup>&nbsp;These ratings were assigned during regulatory regime prior to the introduction of SEBI CRA Circular dated Feb 10, 2026 and accordingly, investor side regulators have been included.</em><br>
+<em><sup>6</sup>&nbsp;By virtue of the instrument being listed, SEBI acts as the regulator for listing and related issues.</em><br>
+<em><sup>7</sup>&nbsp;To be finalized following a discussion with the regulatory authorities.</em></span></span><br>
+&nbsp;</div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>B. Other activities:</strong></span></span><br>
+&nbsp;</div>
+</div>
+
+<table border="1" cellspacing="0" id="Other_activities">
+	<tbody>
+		<tr>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Sr. No.</strong></span></span></th>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Activity Name</strong></span></span></th>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Regulator of the activity</strong></span></span></th>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">1</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Monitoring Agency</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">2</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Research activities, incidental to rating, such as research for Economy, Industries and Companies&nbsp;<sup>8</sup></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Not applicable</span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><em><sup>8</sup>&nbsp;permitted by SEBI vide SEBI Master Circular for CRAs.</em><br>
+<br>
+<strong>Disclosure on instruments / activities and names of regulators:</strong></span></span></div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">A list of products/activities or ratings of instruments falling under the purview of various financial sector regulators (FSRs) along with the names of respective FSRs has also been duly disclosed by Acuite on its website. A link to the same has been provided below for ready reference:</span></span></div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><a href="https://acuite.in/Activities-and-Regulators.html" rel="noreferrer noopener" target="_blank" title="https://acuite.in/Activities-and-Regulators.html">https://acuite.in/Activities-and-Regulators.html</a></span></span><br>
+&nbsp;</div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>About Acuité Ratings &amp; Research</strong>­</span></span></div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><span style="background-color:white"><span style="color:#212121">Acuité is a full-service Credit Rating Agency registered with the Securities &amp; Exchange Board of India (SEBI). The company received RBI Accreditation as an External Credit Assessment Institution (ECAI) for Bank Loan Ratings under BASEL-II norms in the year 2012. Acuité has assigned ratings to various securities, debt instruments and bank facilities of entities spread across the country and across a wide cross section of industries. It has its Registered and Head Office in Kanjurmarg, Mumbai.</span></span><br>
+<br>
+<strong>Disclaimer:</strong> An Acuité rating does not constitute an audit of the rated entity and should not be treated as a recommendation or opinion that is intended to substitute for a financial adviser's or investor's independent assessment of whether to buy, sell or hold any security. Ratings assigned by Acuité are based on the data and information provided by the issuer and obtained from other reliable sources. Although reasonable care has been taken to ensure that the data and information is true, Acuité, in particular, makes no representation or warranty, expressed or implied with respect to the adequacy, accuracy or completeness of the information relied upon. Acuité is not responsible for any errors or omissions and especially states that it has no financial liability whatsoever for any direct, indirect or consequential loss of any kind, arising from the use of its ratings. Ratings assigned by Acuité are subject to a process of surveillance which may lead to a revision in ratings as and when the circumstances so warrant. Please visit our website (<a href="https://www.acuite.in">www.acuite.in</a>) for the latest information on any instrument rated by Acuité.&nbsp;Please visit <a href="https://www.acuite.in/faqs.htm">https://www.acuite.in/faqs.htm</a> to refer FAQs on Credit Rating.<br>
+<br>
+<strong>Note:</strong>&nbsp;None of the Directors on the Board of Acuité Ratings &amp; Research Limited are members of any rating committee and therefore do not participate in discussions regarding the rating of any entity.</span></span></div>
+
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+    </div>
+    
+
+
+<hr style = 'width:100%'/><table align ='center' width ='80%' class='table' cellspacing='0' cellpadding='3'><tr><td style ='width:90%;font-weight:700;font-size:12px;'>&#169; Acuité Ratings & Research Limited. All Rights Reserved.</td><td style ='width:10%;font-size:12px;'><a href='https://www.acuite.in/'>www.acuite.in</a></td></tr></table><img id='ImgFooter' style='width:85%;padding-top:15px;height:25px;' src='https://connect.acuite.in/public/image/footer2.png' />
