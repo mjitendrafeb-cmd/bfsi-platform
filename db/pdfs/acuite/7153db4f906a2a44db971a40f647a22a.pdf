@@ -1,0 +1,1874 @@
+<title>Press Release</title><meta charset="UTF-8">
+    
+    <link href="/Font/font.css" rel="stylesheet">
+    <style>
+        .bold {
+            font-weight: bold;
+        }
+
+        .auto-style1 {
+            width: 34px;
+        }
+
+        .head {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #000000;
+            text-align: center;
+        }
+
+        .subhead {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #000000;
+            text-align: center;
+        }
+
+        .subleft {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            color: #000000;
+            text-align: left;
+        }
+
+        .subcenter {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            color: #000000;
+            text-align: center;
+        }
+
+        .subheader {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #82191B;
+            text-align: left;
+        }
+
+        .subheader1 {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #000;
+            text-align: left;
+        }
+
+        .subheaderU {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            text-align: left;
+            text-decoration: underline;
+        }
+
+        .subheaderColor {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #049cdf;
+            text-align: left;
+        }
+
+        .subtab {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-weight: bold;
+            font-style: normal;
+            color: #000000;
+            text-align: left;
+        }
+
+        .normalfont {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            color: #000000;
+            text-align: justify;
+        }
+
+        .normalfontI {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            font-style: italic;
+            color: #000000;
+            text-align: justify;
+        }
+
+        .normalfontUnderline {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            text-decoration: underline;
+            color: #049cdf;
+            text-align: justify;
+        }
+
+        .normalfontcolor {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            background-color: #EA872F;
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+
+        .normalfont1 {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            font-style: normal;
+            text-align: left;
+        }
+
+        .hr {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #049cdf;
+            margin: 1em 0;
+            padding: 0;
+        }
+
+        .para {
+            width: 80%;
+        }
+
+        table {
+            overflow-x: visible !important;
+        }
+
+        body {
+            font-family: 'Times New Roman' !important;
+            text-align: justify !important;
+            text-justify: inter-word !important;
+        }
+
+
+        #Rating_Activity {
+            width: 100% !important;
+            table-layout: fixed !important;
+        }
+
+            /* force wrapping */
+            #Rating_Activity th, #Rating_Activity td {
+                white-space: normal !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                font-size: 11px !important;
+            }
+
+                /* ? Column widths (CSS-only) */
+                #Rating_Activity th:nth-child(1),
+                #Rating_Activity td:nth-child(1) {
+                    width: 5%;
+                }
+
+                #Rating_Activity th:nth-child(2),
+                #Rating_Activity td:nth-child(2) {
+                    width: 80%;
+                }
+
+                #Rating_Activity th:nth-child(3),
+                #Rating_Activity td:nth-child(3) {
+                    width: 15%;
+                }
+
+            #Rating_Activity th {
+                text-align: center; /* ? center align header */
+                vertical-align: middle;
+            }
+
+
+        #Other_activities {
+            width: 100% !important;
+            table-layout: fixed !important;
+        }
+
+            /* force wrapping */
+            #Other_activities th, #Other_activities td {
+                white-space: normal !important;
+                word-wrap: break-word !important;
+                overflow-wrap: break-word !important;
+                font-size: 11px !important;
+            }
+
+                /* ? Column widths (CSS-only) */
+                #Other_activities th:nth-child(1),
+                #Other_activities td:nth-child(1) {
+                    width: 5%;
+                }
+
+                #Other_activities th:nth-child(2),
+                #Other_activities td:nth-child(2) {
+                    width: 80%;
+                }
+
+                #Other_activities th:nth-child(3),
+                #Other_activities td:nth-child(3) {
+                    width: 15%;
+                }
+
+            #Other_activities th {
+                text-align: center; /* ? center align header */
+                vertical-align: middle;
+            }
+    </style> <!-- jQuery -->
+    <style>
+        class1 {
+            font-family: 'Times New Roman' !important;
+            font-size: 12px;
+            margin-top: 0px
+        }
+
+        imgclass {
+            margin-left: 80% !important;
+            height: 50px !important;
+            text-align: right !important;
+        }
+
+        .class2 {
+            text-align: center;
+        }
+
+        .class3 { font-size:15px;
+            font-size: 15px;
+            position: absolute;
+            width: 80%;
+        }
+
+        .lblColor { font-size: 15px;
+            font-size: 15px;
+            color: #82191B;
+        }
+
+        .class4 {
+            position: relative;
+            text-align: end;
+            height: 100px;
+        }
+
+        .qrClass {
+            height: 100px !important;
+            padding-left: 95px !important;
+            display: none !important;
+        }
+
+        .tbBrd {
+            border: 1px solid black;
+        }
+
+        .class5 {
+            margin-left: 5px;
+            font-size: 12px !important;
+        }
+
+        .class6 {
+            text-align: center;
+            font-size: 12px !important;
+        }
+
+        .class7 {
+            margin-left: 134px !important;
+            font-size: 12px !important;
+        }
+
+        .class8 {
+            padding-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        .class9 {
+            font-size: 12px !important;
+        }
+
+        .class10 {
+            padding-top: 10px;
+            font-size: 12px !important;
+        }
+
+        .class11 {
+            font-size: 12px !important;
+        }
+
+        .pgbrk {
+            page-break-before: always !important;
+        }
+
+        .class12 {
+            text-align: left !important;
+            padding-bottom: 10px;
+        }
+
+        .class13 {
+            padding-bottom: 10px;
+        }
+
+        .classtd1 {
+            border-top: 1px solid;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            border-left: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classtd2 {
+            border-top: 1px solid;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf1 {
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf2 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf3 {
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf4 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classkf5 {
+            font-size: 12px !important;
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf6 {
+            font-size: 12px !important;
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf7 {
+            font-size: 12px !important;
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf8 {
+            font-size: 12px !important;
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf9 {
+            font-size: 12px !important;
+            padding-left: 20px;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .class10 {
+            font-size: 12px !important;
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf11 {
+            font-size: 12px !important;
+            text-align: right !important;
+            padding-right: 20px;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classkf12 {
+            font-size: 12px !important;
+            text-align: right !important;
+            padding-right: 20px;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+
+        .classrh1 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classrh2 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classrh3 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classrh4 {
+            text-align: right !important;
+            padding-right: 20px;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classrh5 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classtblnew {
+            page-break-after: always !important;
+            font-size: 12px !important;
+        }
+
+        .tblwdth {
+            width: 100% !important;
+        }
+
+        .classanx1 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .classanx2 {
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            font-size: 12px !important;
+        }
+
+        .class14 {
+            text-align: left;
+            font-size: 12px !important;
+        }
+
+        #User_table td:nth-child(3) {
+            text-align: right !important;
+            padding-right: 3px;
+        }
+
+        #User_table td:nth-child(4) {
+            text-align: right !important;
+            padding-right: 3px;
+        }
+
+        #User_table td:nth-child(1) {
+            text-align: left !important;
+            padding-left: 3px;
+        }
+
+        #User_table td:nth-child(2) {
+            text-align: left !important;
+            padding-left: 3px;
+        }
+
+        #myTable td:nth-child(7) {
+            text-align: right !important;
+            padding-right: 3px;
+        }
+
+        #User_table td:nth-child(3){text-align: right !important;padding-right: 3px;} #User_table td:nth-child(4){text-align: right !important;padding-right: 3px;}  #User_table td:nth-child(1){text-align: left !important;padding-left: 3px;}  #User_table td:nth-child(2){text-align: left !important;padding-left: 3px;} #myTable td:nth-child(7){text-align: right !important;padding-right: 3px;} .classkf10 {
+            font-size: 12px !important;
+            text-align: left !important;
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+        }
+    </style>
+
+
+
+    
+    
+    
+    
+    <div class="class1 content-wrapper">
+
+        <table width="100%" valign="top" cellspacing="0" cellpadding="0">
+            <tbody><tr>
+                <td valign="top">
+                    <img id="Logo" style="margin-left: 80%; height: 50px; text-align: right;" src="https://connect.acuite.in/public/image/acuite.jpg">
+                </td>
+            </tr>
+        </tbody></table>
+        
+                <table align="center" width="80%" class="table table-bordered" cellspacing="0" cellpadding="3">
+                    <tbody><tr>
+                        <td>
+                            <div class="class2">
+                                
+
+                                 
+                                <div class="class3">
+                                    <br>
+                                    <label class="lblColor"><br/><b>Press Release</b></label><br/><br/><label style="font-size:15px;font-family:'Times New Roman';"><b>September 10, 2026</b></label><br/><br>
+                                    
+                                    <label style="font-size:15px;font-family:'Times New Roman';"><b>SRG HOUSING FINANCE LIMITED</b></label><br>
+                                    
+                                    <label style="font-size:15px;font-family:'Times New Roman';"><b>Rating Reaffirmed</b></label>
+                                    <br>
+                                </div>
+                                <div class="class4">
+                                    <img id="QrCode" style="height: 90px; float:left;margin-left: 0px 0px 0px 30px;" src="https://connect.acuite.in/public/qrcode/28203.png" 
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody></table>
+                        <table width="80%" align="center" cellspacing="0" cellpadding="0"><tbody><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr></tbody></table><table align="center" width="80%" class="table table-bordered tblBrd" cellspacing="0" cellpadding="3">
+                    
+                    <tbody>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Product</b></td>
+                                            <td class="tbBrd class6">Quantum (Rs. Cr) (SEBI)</td>
+                                            <td class="tbBrd class6">Quantum (Rs. Cr) (Other FSR)</td>
+                                            <td class="tbBrd class6">Long Term Rating</td>
+                                            <td class="tbBrd class6">Short Term Rating</td>
+                                            <td class="tbBrd class6">Regulated By</td>
+                            </tr>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Bank Loan Ratings</b></td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">1175.00</td>
+                                            <td class="tbBrd class6">ACUITE A- | Reaffirmed | Rating Watch with Developing Implications</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">RBI</td>
+                            </tr>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Non Convertible Debentures (NCD)</b></td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">124.00</td>
+                                            <td class="tbBrd class6">ACUITE A- | Reaffirmed | Rating Watch with Developing Implications</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">MCA</td>
+                            </tr>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Non Convertible Debentures (NCD)</b></td>
+                                            <td class="tbBrd class6">76.00</td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">ACUITE A- | Reaffirmed | Rating Watch with Developing Implications</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">SEBI</td>
+                            </tr>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Total Outstanding</b></td>
+                                            <td class="tbBrd class6">76.00</td>
+                                            <td class="tbBrd class6">1299.00</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">-</td>
+                            </tr>
+                            <tr>
+                                        <td class="tbBrd"><b class="class5">Total Withdrawn</b></td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">0.00</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">-</td>
+                                            <td class="tbBrd class6">-</td>
+                            </tr>
+                    </tbody>
+
+                </table>
+                    <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <i style="font-size:8pt; color:red;"><b>Note:- For activities or ratings of instruments falling under the purview of Financial Sector Regulators other than SEBI, the grievance / dispute redressal mechanisms and investor protection mechanisms provided by SEBI shall not be available.</b></i>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                <tbody><tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+
+            </tbody></table>
+                                <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                            <tbody><tr>
+                                <td class="subheader" style="padding-top:0px;text-align:center;font-size:12px !important;">
+                                    Rating Rationale <br/><br/>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                            <table width="80%" align="center" cellspacing="0" cellpadding="0">
+                                <tbody><tr>
+                                    <td class="normalfont" align="left" style="font-size: 12px !important;text-align: justify !important;text-justify: inter-word !important;">
+                                        <span class="normalfont" style="font-size: 12px !important;font-family:'Times New Roman';text-align: justify !important;text-justify: inter-word !important;">
+                                            <div style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">Acuité has reaffirmed the long-term rating to<strong>&nbsp;’ACUITE A-’ (read as ACUITE A Minus)&nbsp;</strong>on&nbsp;Rs 1175.00 Cr.&nbsp;Bank Loan facilities of SRG Housing Finance Limited (SHFL) and is on&nbsp;<strong>Rating Watch with Developing Implications.</strong><br>
+<br>
+Acuité has reaffirmed the long-term rating to<strong>&nbsp;’ACUITE A-’ (read as ACUITE A Minus)&nbsp;</strong>on&nbsp;Rs 76.00 Cr.&nbsp;&nbsp;Non Convertible Debentures facilities of SRG Housing Finance Limited (SHFL) and is on&nbsp;<strong>Rating Watch with Developing Implications.</strong><br>
+<br>
+­Acuité has reaffirmed the long-term rating to<strong>&nbsp;’ACUITE A-’ (read as ACUITE A Minus)&nbsp;</strong>on&nbsp;Rs 124.00 Cr. Non Convertible Debentures facilities of SRG Housing Finance Limited (SHFL) and is on&nbsp;<strong>Rating Watch with Developing Implications.</strong></span></span></div>
+
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr><td><br></td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Update for this Press Release</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <p style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">Acuite notes that there are media reports concerning an investigation by the <strong>National Housing Bank (NHB)</strong>, regarding suspected anomalies in certain loan accounts, their potential impact on NHB’s refinance exposure, and reports suggesting a 'Red Flagged Account' (RFA) classification. SRG Housing Finance Limited vide a stock exchanges filling dated September 10, 2026, has issued an official notification on exchanges, with regards to “Clarification on Market Rumours and False News Articles”. As per the filing made with the exchanges&nbsp;the company has denied and rejected the observations, allegations and implications reported in these articles. The company further said that the NHB audit is ongoing and is&nbsp;not yet concluded.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">The rating has been placed under Watch with Developing Implications for Acuite to closely monitor the progress related to these developments.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:12px"><span style="font-family:'Times New Roman'">Acuite will continue to engage with the management of SRG Housing and closely monitor the progress related to the aforesaid developments. Acuité will try to understand its impact on the company’s financial profile, liquidity position and asset quality, if any and will endeavour to resolve the rating watch at the earliest.<br>
+<br>
+For all other sections, kindly refer to the previous Rating&nbsp;Rationale available<strong>&nbsp;</strong>through&nbsp;this&nbsp;link:&nbsp;<a href="https://connect.acuite.in/fcompany-details/SRG%20HOUSING%20FINANCE%20LIMITED/8th_May_26" style="color:#0563c1; text-decoration:underline">Press Release </a>&nbsp;</span></span></p>
+
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                                        <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" class="subheader class11">
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="normalfont class11">
+                                                        
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Key Financials :</td></tr>
+                                    <tr>
+                                        <td class="class11">
+                                        </td>
+                                    </tr>
+                                                                    <tr>
+                                        <td class="class11">
+                                            <span style="font-family:'Times New Roman'; font-size:12px !important">­</span>
+<table border="1">
+	<tbody>
+		<tr>
+			<td style="text-align:center"><strong>Particulars</strong></td>
+			<td style="text-align:center"><strong>Unit</strong></td>
+			<td style="text-align:center"><strong>FY26(Actual)</strong></td>
+			<td style="text-align:center"><strong>FY25(Actual)</strong></td>
+		</tr>
+		<tr>
+			<td>Total Assets</td>
+			<td style="text-align:center">Rs. Cr.</td>
+			<td style="text-align:right">&nbsp;1166.93</td>
+			<td style="text-align:right">863.10</td>
+		</tr>
+		<tr>
+			<td>Total Income*</td>
+			<td style="text-align:center">Rs. Cr.</td>
+			<td style="text-align:right">121.95</td>
+			<td style="text-align:right">92.51</td>
+		</tr>
+		<tr>
+			<td>PAT</td>
+			<td style="text-align:center">Rs. Cr.</td>
+			<td style="text-align:right">32.49</td>
+			<td style="text-align:right">24.40</td>
+		</tr>
+		<tr>
+			<td>Net Worth</td>
+			<td style="text-align:center">Rs. Cr.</td>
+			<td style="text-align:right">296.91</td>
+			<td style="text-align:right">263.95</td>
+		</tr>
+		<tr>
+			<td>Return on Average Assets (RoAA)</td>
+			<td style="text-align:center">(%)</td>
+			<td style="text-align:right">3.20</td>
+			<td style="text-align:right">3.19</td>
+		</tr>
+		<tr>
+			<td>Return on Average Net Worth (RoNW)</td>
+			<td style="text-align:center">(%)</td>
+			<td style="text-align:right">11.59</td>
+			<td style="text-align:right">11.52</td>
+		</tr>
+		<tr>
+			<td>Debt/Equity</td>
+			<td style="text-align:center">Times</td>
+			<td style="text-align:right">2.89</td>
+			<td style="text-align:right">2.21</td>
+		</tr>
+		<tr>
+			<td>Gross NPA</td>
+			<td style="text-align:center">(%)</td>
+			<td style="text-align:right">1.77</td>
+			<td style="text-align:right">1.84</td>
+		</tr>
+		<tr>
+			<td>Net NPA</td>
+			<td style="text-align:center">(%)</td>
+			<td style="text-align:right">0.65</td>
+			<td style="text-align:right">0.61</td>
+		</tr>
+	</tbody>
+</table>
+<em>*Total income equals to Net Interest Income plus other income</em>
+                                        </td>
+                                    </tr>
+                                    <tr><td> &nbsp;</td></tr>
+                            </tbody></table>
+                            <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                        <tbody><tr><td class="subheader class14">Applicable Criteria</td></tr>
+                                    <tr>
+                                        <td class="class11">
+• Non-Banking Financing Entities: <a href="https://www.acuite.in/view-rating-criteria-44.htm" target="_blank" style="color:blue;font-size:12px !important;">https://www.acuite.in/view-rating-criteria-44.htm</a><br>• Default Recognition: <a href="https://www.acuite.in/view-rating-criteria-52.htm" target="_blank" style="color:blue;font-size:12px !important;">https://www.acuite.in/view-rating-criteria-52.htm</a><br>• Application Of Financial Ratios And Adjustments: <a href="https://www.acuite.in/view-rating-criteria-53.htm" target="_blank" style="color:blue;font-size:12px !important;">https://www.acuite.in/view-rating-criteria-53.htm</a><br>                                        </td>
+                                    </tr>
+                                                            </tbody></table>
+                                        <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" class="subheader class11">
+                                                    Note on complexity levels of the rated instrument
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="normalfont class11">
+                                                        <div style="text-align:justify"><span style="font-family:'Times New Roman'">­In order to inform the investors about complexity of instruments, Acuité has categorized such instruments in three levels: Simple, Complex and Highly Complex. Acuite’s categorisation of the instruments across the three categories is based on factors like variability of the returns to the investors, uncertainty in cash flow patterns, number of counterparties and general understanding of the instrument by the market. It has to be understood that complexity is different from credit risk and even an instrument categorized as 'Simple' can carry high levels of risk. For more details, please refer Rating Criteria “Complexity Level Of Financial Instruments” on&nbsp;<a href="https://www.acuite.in/view-rating-criteria-55.htm">www.acuite.in</a>.</span></div>
+
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+                                <table class="table table-bordered pgbrk" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                    <tbody><tr><td class="subheader class12"><br><label align="center" class="class9">Rating History</label></td></tr>
+
+                                    <tr>
+                                        <td>
+                                            <table id="tbl_rath" class="table table-bordered" width="100%" align="center" cellspacing="0" cellpadding="0">
+                                                <tbody><tr class="tbBrd">
+                                                    <td class="subhead classtd1">Date</td>
+                                                    <td class="subhead classtd2">Name of Instruments/Facilities</td>
+                                                    <td class="subhead classtd2">Term</td>
+                                                    <td class="subhead classtd2">Amount (Rs. Cr)</td>
+                                                    <td class="subhead classtd2">Rating/Outlook</td>
+                                                </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="51">08 May 2026</td>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">2.32</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">11.73</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">7.18</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">5.76</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">10.26</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">10.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">29.82</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">8.79</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">11.90</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">20.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">13.81</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">33.48</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">49.05</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">0.77</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">1.31</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">54.15</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">48.27</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Cash Credit</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">3.50</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">14.58</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">10.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">0.73</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">1.68</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">4.05</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">8.75</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">50.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">2.73</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">5.12</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">17.81</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">5.42</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">16.96</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">26.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Non Convertible Debentures</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">24.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">275.70</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">300.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Assigned)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Non Convertible Debentures</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">100.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Assigned)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">2.99</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">4.54</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">12.20</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">11.67</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">0.77</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">15.50</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">21.09</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">12.77</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">39.17</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">18.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">7.44</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">7.45</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">13.25</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">7.25</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">11.21</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">4.07</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="48">07 Apr 2026</td>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">14.58</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">0.73</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">13.81</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">33.48</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">49.05</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">15.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">0.77</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">1.31</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">54.15</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">48.27</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">2.32</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">11.73</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">1.68</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">7.18</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">5.76</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">10.26</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">29.82</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">8.79</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">11.90</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">4.05</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">20.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">8.75</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">2.73</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">5.12</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">17.81</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">26.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">50.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Non Convertible Debentures</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">24.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">184.20</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">100.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Assigned)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">2.99</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">4.54</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">12.20</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">11.67</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">0.77</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">15.50</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">21.09</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">12.77</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">39.17</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">18.00</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">5.42</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">16.96</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">7.44</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">7.45</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">13.25</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">7.25</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">11.21</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">4.07</td>
+                                                        <td class="normalfont classrh5">ACUITE A- | Stable 
+(Upgraded from ACUITE BBB+ | Positive)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="9">08 Jan 2026</td>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">180.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">50.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">26.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Non Convertible Debentures</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">24.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">500.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Assigned)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">15.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">20.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">25.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Term Loan</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">35.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="3">16 Oct 2025</td>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">275.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">50.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Non Convertible Debentures</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">50.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Assigned)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="2">06 Aug 2025</td>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">275.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Reaffirmed )</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="normalfont classrh2">Proposed Non Convertible Debentures</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">50.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Positive 
+(Assigned)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="1">28 Feb 2025</td>
+                                                        <td class="normalfont classrh2">Proposed Long Term Bank Facility</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">275.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB+ | Stable 
+(Assigned)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="1">12 Nov 2024</td>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">25.00</td>
+                                                        <td class="normalfont classrh5">ACUITE Not Applicable 
+(Withdrawn)</td>
+                                                    </tr>
+                                                    <tr>
+                                                            <td class="normalfont classrh1" rowspan="1">28 Nov 2023</td>
+                                                        <td class="normalfont classrh2">Non-Covertible Debentures (NCD)</td>
+                                                        <td class="normalfont classrh3">Long Term</td>
+                                                        <td class="normalfont classrh4">25.00</td>
+                                                        <td class="normalfont classrh5">ACUITE BBB | Stable 
+(Reaffirmed)</td>
+                                                    </tr>
+
+
+                                                
+
+
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <table class="table table-bordered classtblnew" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                    <tbody><tr>
+                                        <td>
+                                                        <div class="rating-note">
+                                                            <span style="font-family:'Times New Roman'; font-size:12px !important">­</span>
+                                                        </div>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <table style="page-break-before:always" class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                    <tbody><tr>
+                                        <td class="subheader1" style="padding-bottom:10px;font-size: 12px !important;">
+                                            <br>Contacts
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                                <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                    
+                                    <tbody><tr>
+                                        <td colspan="1" width="50%" style="border:1px solid black;padding-left: 20px;padding-top: 5px;padding-bottom: 5px;font-size: 12px !important;">
+                                                <label class="normalfont" style="font-size: 12px !important;">Mohit Jain<br></label>
+                                                <label class="normalfont" style="font-size: 12px !important;">Chief Analytical Officer - Rating Operations<br><br></label>
+                                                                                            <label class="normalfont" style="font-size: 12px !important;">Tejas Chaugule<br></label>
+                                                <label class="normalfont" style="font-size: 12px !important;">Analyst - Rating Operations<br></label>
+                                        </td>
+                                        <td valign="top" colspan="1" width="50%" style="border:1px solid black;padding-left: 20px;padding-top: 5px;">
+                                                <label class="normalfont" style="font-size: 12px !important;"><b>Contact details exclusively for investors and lenders</b><br><br></label>
+                                                <label class="normalfont" style="font-size: 12px !important;">Mob: +91 8591310146<br></label>
+                                                <label class="normalfont" style="font-size: 12px !important;">Email ID: <span style="color:blue;">analyticalsupport@acuite.in</span><br></label>
+                                        </td>
+                                    </tr>
+                                    <tr>     </tr>
+                                </tbody></table>
+                                        <table class="table table-bordered" width="80%" align="center" cellspacing="0" cellpadding="0">
+                                            <tbody><tr>
+                                                <td align="left" class="subheader1 class11"><br/>
+                                                    List of instruments and names of regulators of the instruments
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label class="normalfont class11">
+                                                        <div>
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">As required by SEBI Circular (SEBI/HO/DDHS/DDHS-PoD-2/I/4685/2026) dated February 10, 2026, a list of activities or instruments falling under the purview of various Financial Sector Regulators (FSRs), along with the names of respective FSRs, is being disclosed below:<br>
+<strong>A.&nbsp;Rating Activity:</strong></span></span><br>
+&nbsp;</div>
+
+<table border="1" cellspacing="0" id="Rating_Activity">
+	<tbody>
+		<tr>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Sr. No.</strong></span></span></th>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Instrument / activity Name</strong></span></span></th>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Regulator of the instrument</strong></span></span></th>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">1</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed/Proposed to be listed Bonds/Debentures/Preference Shares (all securities)</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">2</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted/Proposed to be unlisted Bonds/Debentures/ Preference share (all securities)</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">MCA</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">3</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed PTCs / Securitisation Notes (originated by entities regulated by RBI)<sup><em>1</em></sup>&nbsp;<sup><em>6</em></sup></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">4</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed PTCs / Securitisation Notes (originated by entities not regulated by RBI)<em><sup>1</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">5</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted PTCs / Securitisation Notes (originated by entities regulated by RBI)<em><sup>1</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">6</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed Commercial Paper and NCDs with original maturity less than 1 year</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">7</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted Commercial Paper and NCDs with original maturity less than 1 year</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">8</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Loan Facilities (Fund/Non-Fund Based) from Bank / NBFCs/ NHB/ FIs&nbsp;<em><sup>2</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">9</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">External Commercial Borrowings and other similar borrowings</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">10</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Certificates of Deposit</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">11 a</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Fixed Deposits raised by NBFCs, HFCs, FIs</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">11 b</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Fixed Deposits raised by Banks&nbsp;<em><sup>7</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">+</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">12</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Fixed Deposits raised by corporates other than NBFCs, Banks, HFCs, FIs</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">MCA</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">13</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Inter Corporate Deposits/Loans extended by Corporates</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">MCA</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">14</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Borrowing programme&nbsp;<em><sup>3</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">-</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">15</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Issuer Ratings&nbsp;<em><sup>4</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">-</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">16</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Credit Ratings for Capital Protection Oriented Schemes (by Mutal Funds and AIFs)</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">17</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Credit quality ratings (CQRs) for Mutual Fund Schemes and Schemes of AIFs</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">18</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Listed Security Receipts&nbsp;<em><sup>6</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">19</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted Security Receipts</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">20</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Independent Credit Evaluation (ICE)</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">RBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">21</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Expected Loss Ratings (For Loan Facilities [Fund/Non-Fund based] from Banks/NBFCs/NHB/FIs)&nbsp;<em><sup>7</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">+</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">22</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Expected Loss Ratings (Listed / Proposed to be listed Bonds / Debentures / Preference Shares (all securities))</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">23</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Expected Loss Ratings (Unlisted / Proposed to be unlisted Bonds/ Debentures / Preference Shares (all securities))</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">MCA</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">24</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Unlisted PTCs / Securitisation Notes (originated by entities not regulated by RBI)&nbsp;<em><sup>1</sup></em></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Investor-side Regulator such as IRDAI, PFRDA&nbsp;<em><sup>5</sup></em></span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="text-align:justify">&nbsp;</div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><em><sup>1&nbsp;</sup>Includes securitisation transactions involving assignee payout, acquirer's payout.</em></span></span></div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><em><sup>2</sup>&nbsp;Includes bank facilities such as liquidity facility, second loss facility that are part of securitisation transactions. </em><br>
+<em><sup>3&nbsp;</sup>The rated instrument may involve issuance of different instruments such as debt securities (listed or otherwise), bank loans, commercial paper (listed or otherwise), etc. The regulator of the instrument may accordingly be SEBI, RBI or MCA and can only be determined upon issuance. In Press Release(s) subsequent to issuance(s), Acuite shall separately capture the rated quantum details along with names of respective regulators.</em><br>
+<em><sup>4</sup></em>&nbsp;<em>There is no instrument being rated and hence, Regulator of the Instrument is not applicable. The rating scale and definitions are being followed as stipulated in SEBI Master Circular for CRAs.</em><br>
+<em><sup>5</sup>&nbsp;These ratings were assigned during regulatory regime prior to the introduction of SEBI CRA Circular dated Feb 10, 2026 and accordingly, investor side regulators have been included.</em><br>
+<em><sup>6</sup>&nbsp;By virtue of the instrument being listed, SEBI acts as the regulator for listing and related issues.</em><br>
+<em><sup>7</sup>&nbsp;To be finalized following a discussion with the regulatory authorities.</em></span></span><br>
+&nbsp;</div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>B. Other activities:</strong></span></span><br>
+&nbsp;</div>
+</div>
+
+<table border="1" cellspacing="0" id="Other_activities">
+	<tbody>
+		<tr>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Sr. No.</strong></span></span></th>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Activity Name</strong></span></span></th>
+			<th style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>Regulator of the activity</strong></span></span></th>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">1</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Monitoring Agency</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">SEBI</span></span></td>
+		</tr>
+		<tr>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">2</span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Research activities, incidental to rating, such as research for Economy, Industries and Companies&nbsp;<sup>8</sup></span></span></td>
+			<td style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">Not applicable</span></span></td>
+		</tr>
+	</tbody>
+</table>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><em><sup>8</sup>&nbsp;permitted by SEBI vide SEBI Master Circular for CRAs.</em><br>
+<br>
+<strong>Disclosure on instruments / activities and names of regulators:</strong></span></span></div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px">A list of products/activities or ratings of instruments falling under the purview of various financial sector regulators (FSRs) along with the names of respective FSRs has also been duly disclosed by Acuite on its website. A link to the same has been provided below for ready reference:</span></span></div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><a href="https://acuite.in/Activities-and-Regulators.html" rel="noreferrer noopener" target="_blank" title="https://acuite.in/Activities-and-Regulators.html">https://acuite.in/Activities-and-Regulators.html</a></span></span><br>
+&nbsp;</div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><strong>About Acuité Ratings &amp; Research</strong>­</span></span></div>
+
+<div style="text-align:justify"><span style="font-family:'Times New Roman'"><span style="font-size:12px"><span style="background-color:white"><span style="color:#212121">Acuité is a full-service Credit Rating Agency registered with the Securities &amp; Exchange Board of India (SEBI). The company received RBI Accreditation as an External Credit Assessment Institution (ECAI) for Bank Loan Ratings under BASEL-II norms in the year 2012. Acuité has assigned ratings to various securities, debt instruments and bank facilities of entities spread across the country and across a wide cross section of industries. It has its Registered and Head Office in Kanjurmarg, Mumbai.</span></span><br>
+<br>
+<strong>Disclaimer:</strong> An Acuité rating does not constitute an audit of the rated entity and should not be treated as a recommendation or opinion that is intended to substitute for a financial adviser's or investor's independent assessment of whether to buy, sell or hold any security. Ratings assigned by Acuité are based on the data and information provided by the issuer and obtained from other reliable sources. Although reasonable care has been taken to ensure that the data and information is true, Acuité, in particular, makes no representation or warranty, expressed or implied with respect to the adequacy, accuracy or completeness of the information relied upon. Acuité is not responsible for any errors or omissions and especially states that it has no financial liability whatsoever for any direct, indirect or consequential loss of any kind, arising from the use of its ratings. Ratings assigned by Acuité are subject to a process of surveillance which may lead to a revision in ratings as and when the circumstances so warrant. Please visit our website (<a href="https://www.acuite.in">www.acuite.in</a>) for the latest information on any instrument rated by Acuité.&nbsp;Please visit <a href="https://www.acuite.in/faqs.htm">https://www.acuite.in/faqs.htm</a> to refer FAQs on Credit Rating.<br>
+<br>
+<strong>Note:</strong>&nbsp;None of the Directors on the Board of Acuité Ratings &amp; Research Limited are members of any rating committee and therefore do not participate in discussions regarding the rating of any entity.</span></span></div>
+
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </tbody></table>
+    </div>
+    
+
+
+<hr style = 'width:100%'/><table align ='center' width ='80%' class='table' cellspacing='0' cellpadding='3'><tr><td style ='width:90%;font-weight:700;font-size:12px;'>&#169; Acuité Ratings & Research Limited. All Rights Reserved.</td><td style ='width:10%;font-size:12px;'><a href='https://www.acuite.in/'>www.acuite.in</a></td></tr></table><img id='ImgFooter' style='width:85%;padding-top:15px;height:25px;' src='https://connect.acuite.in/public/image/footer2.png' />
