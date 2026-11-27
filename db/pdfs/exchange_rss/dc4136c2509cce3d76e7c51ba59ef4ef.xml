@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--SAIIM V1.0 (22-04-2026)-->
+<xbrli:xbrl xmlns:in-capmkt="http://www.sebi.gov.in/xbrl/2026-03-31/in-capmkt" xmlns:in-capmkt-ent="http://www.sebi.gov.in/xbrl/Schedule_Of_Analysts_Or_Institutional_Investors_Meeting/2026-03-31/in-capmkt/in-capmkt-ent" xmlns:in-capmkt-roles="http://www.sebi.gov.in/xbrl/Schedule_Of_Analysts_Or_Institutional_Investors_Meeting/2026-03-31/in-capmkt-roles" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:nonnum="http://www.xbrl.org/dtr/type/non-numeric" xmlns:in-capmkt-types="http://www.sebi.gov.in/xbrl/2026-03-31/in-capmkt-types" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:net="http://www.xbrl.org/2009/role/net" xmlns:num="http://www.xbrl.org/dtr/type/numeric" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:iso4217="http://www.xbrl.org/2003/iso4217" xmlns:negated="http://www.xbrl.org/2009/role/negated" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xl="http://www.xbrl.org/2003/XLink"><link:schemaRef xlink:type="simple" xlink:href="in-capmkt-ent-2026-03-31.xsd"/><xbrli:context id="MainI"><xbrli:entity><xbrli:identifier scheme="http://www.sebi.gov.in/in-capmkt/ScripCode">532648</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:instant>2026-11-27</xbrli:instant></xbrli:period></xbrli:context><xbrli:context id="I_OutcomeOfAnalystsOrInstitutionalInvestorsMeeting1"><xbrli:entity><xbrli:identifier scheme="http://www.sebi.gov.in/in-capmkt/ScripCode">532648</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:instant>2026-11-27</xbrli:instant></xbrli:period><xbrli:scenario><xbrldi:typedMember dimension="in-capmkt:OutcomeOfAnalystsOrInstitutionalInvestorsMeetingAxis"><in-capmkt:OutcomeOfAnalystsOrInstitutionalInvestorsMeetingDomain>OutcomeOfAnalystsOrInstitutionalInvestorsMeetingDomain1</in-capmkt:OutcomeOfAnalystsOrInstitutionalInvestorsMeetingDomain></xbrldi:typedMember></xbrli:scenario></xbrli:context><in-capmkt:NSESymbol contextRef="MainI">YESBANK</in-capmkt:NSESymbol><in-capmkt:NameOfTheCompany contextRef="MainI">	YES BANK LIMITED</in-capmkt:NameOfTheCompany><in-capmkt:ScripCode contextRef="MainI">532648</in-capmkt:ScripCode><in-capmkt:MSEISymbol contextRef="MainI">NOTLISTED</in-capmkt:MSEISymbol><in-capmkt:ISIN contextRef="MainI">INE528G01035</in-capmkt:ISIN><in-capmkt:TypeOfAnnouncement contextRef="MainI">New</in-capmkt:TypeOfAnnouncement><in-capmkt:PurposeOfDisclosure contextRef="MainI">Schedule of Analysts or Institutional Investors Meet</in-capmkt:PurposeOfDisclosure><in-capmkt:StageOfMeetingOrCallOrConferenceOrEvent contextRef="MainI">Outcome</in-capmkt:StageOfMeetingOrCallOrConferenceOrEvent><in-capmkt:DateOfReport contextRef="MainI">2026-11-27</in-capmkt:DateOfReport><in-capmkt:TypeOfMeetingForWhichOutcomeIsProvided contextRef="I_OutcomeOfAnalystsOrInstitutionalInvestorsMeeting1">Institutional Investor Meet</in-capmkt:TypeOfMeetingForWhichOutcomeIsProvided><in-capmkt:WhetherPriorIntimationOrScheduleOfMeetingOrCallOrConferenceOrEventWasDisclosedForOutcome contextRef="I_OutcomeOfAnalystsOrInstitutionalInvestorsMeeting1">true</in-capmkt:WhetherPriorIntimationOrScheduleOfMeetingOrCallOrConferenceOrEventWasDisclosedForOutcome><in-capmkt:DateOfPriorIntimationOrScheduleOfMeetingOrCallOrConferenceOrEventWasDisclosedForOutcome contextRef="I_OutcomeOfAnalystsOrInstitutionalInvestorsMeeting1">2026-11-26</in-capmkt:DateOfPriorIntimationOrScheduleOfMeetingOrCallOrConferenceOrEventWasDisclosedForOutcome><in-capmkt:WhetherUnpublishedPriceSensitiveInformationSharedInMeetingOrCallOrConferenceOrEvent contextRef="I_OutcomeOfAnalystsOrInstitutionalInvestorsMeeting1">false</in-capmkt:WhetherUnpublishedPriceSensitiveInformationSharedInMeetingOrCallOrConferenceOrEvent><in-capmkt:WhetherOutcomeOfMeetingIncludesPresentation contextRef="I_OutcomeOfAnalystsOrInstitutionalInvestorsMeeting1">false</in-capmkt:WhetherOutcomeOfMeetingIncludesPresentation><in-capmkt:RemarksForWebsiteDisseminationForOutcomeOfMeeting contextRef="MainI">Please find below the name of Institutional Investors who had attended "Kotak Midcap Conference 2026" conference held on November 26, 2026, &lt;br /&gt; 
+ &lt;br /&gt; 
+Group meeting - Physical - 10:00 AM – 11:00 AM - Mumbai &lt;br /&gt; 
+ &lt;br /&gt; 
+1) Balyasny Asset Management (Singapore) Pte. Ltd. &lt;br /&gt; 
+2) Compounding Asset Partners &lt;br /&gt; 
+3) Dymon Asia Capital Investment Adviser (India) Pvt. Ltd. &lt;br /&gt; 
+4) LIC Mutual Fund Asset Management Ltd. &lt;br /&gt; 
+5) Millennium Capital Management (Singapore) Pte. Ltd. &lt;br /&gt; 
+6) Pinpoint Investment Advisory Services (India) LLP &lt;br /&gt; 
+7) Polymer Capital Management (HK) Ltd.  &lt;br /&gt; 
+8) Real Ispat and Power Ltd. &lt;br /&gt; 
+9) Svan Investments &lt;br /&gt; 
+10) Tara Capital Partners &lt;br /&gt; 
+ &lt;br /&gt; 
+1X1 meeting - Physical - 11:00 AM – 12:00 PM - Mumbai &lt;br /&gt; 
+ &lt;br /&gt; 
+ICICI Prudential Life Insurance Company Ltd. &lt;br /&gt; 
+ &lt;br /&gt; 
+Group meeting - Physical - 12:00 PM – 1:00 PM - Mumbai &lt;br /&gt; 
+ &lt;br /&gt; 
+1) Aditya Birla Sun Life Insurance Company Ltd. &lt;br /&gt; 
+2) ASK Investment Managers Ltd. &lt;br /&gt; 
+3) Meritus Advisors LLP &lt;br /&gt; 
+4) Kotak Securities Limited &lt;br /&gt; 
+ &lt;br /&gt; 
+ &lt;br /&gt; 
+</in-capmkt:RemarksForWebsiteDisseminationForOutcomeOfMeeting></xbrli:xbrl>
